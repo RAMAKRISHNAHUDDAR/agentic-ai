@@ -1,0 +1,1001 @@
+student_id,internship_status
+STU001,Completed
+STU002,In Progress
+STU003,Not Started
+STU004,In Progress
+STU005,Not Started
+STU006,Completed
+STU007,In Progress
+STU008,Not Started
+STU009,Completed
+STU010,In Progress
+STU011,Completed
+STU012,Completed
+STU013,Not Started
+STU014,Completed
+STU015,In Progress
+STU016,Not Started
+STU017,In Progress
+STU018,Not Started
+STU019,In Progress
+STU020,Not Started
+STU021,Not Started
+STU022,In Progress
+STU023,Completed
+STU024,In Progress
+STU025,Completed
+STU026,Completed
+STU027,Not Started
+STU028,Completed
+STU029,Not Started
+STU030,In Progress
+STU031,In Progress
+STU032,In Progress
+STU033,Completed
+STU034,Not Started
+STU035,In Progress
+STU036,In Progress
+STU037,Not Started
+STU038,Not Started
+STU039,In Progress
+STU040,Not Started
+STU041,In Progress
+STU042,Not Started
+STU043,Completed
+STU044,In Progress
+STU045,In Progress
+STU046,Completed
+STU047,In Progress
+STU048,Not Started
+STU049,Not Started
+STU050,In Progress
+STU051,Not Started
+STU052,Not Started
+STU053,In Progress
+STU054,Completed
+STU055,Completed
+STU056,In Progress
+STU057,In Progress
+STU058,Not Started
+STU059,In Progress
+STU060,Completed
+STU061,Not Started
+STU062,In Progress
+STU063,In Progress
+STU064,In Progress
+STU065,Not Started
+STU066,Completed
+STU067,Completed
+STU068,In Progress
+STU069,In Progress
+STU070,Completed
+STU071,In Progress
+STU072,In Progress
+STU073,In Progress
+STU074,Not Started
+STU075,In Progress
+STU076,In Progress
+STU077,Not Started
+STU078,In Progress
+STU079,In Progress
+STU080,In Progress
+STU081,In Progress
+STU082,Completed
+STU083,In Progress
+STU084,Not Started
+STU085,In Progress
+STU086,In Progress
+STU087,In Progress
+STU088,In Progress
+STU089,Completed
+STU090,Not Started
+STU091,Completed
+STU092,In Progress
+STU093,Completed
+STU094,In Progress
+STU095,In Progress
+STU096,In Progress
+STU097,In Progress
+STU098,Completed
+STU099,Not Started
+STU100,In Progress
+STU101,Completed
+STU102,In Progress
+STU103,In Progress
+STU104,In Progress
+STU105,Completed
+STU106,Not Started
+STU107,Not Started
+STU108,In Progress
+STU109,Not Started
+STU110,Completed
+STU111,Completed
+STU112,In Progress
+STU113,Not Started
+STU114,Not Started
+STU115,Completed
+STU116,Completed
+STU117,In Progress
+STU118,Completed
+STU119,In Progress
+STU120,Completed
+STU121,In Progress
+STU122,In Progress
+STU123,Not Started
+STU124,Not Started
+STU125,In Progress
+STU126,Completed
+STU127,In Progress
+STU128,In Progress
+STU129,In Progress
+STU130,Not Started
+STU131,Completed
+STU132,Completed
+STU133,In Progress
+STU134,In Progress
+STU135,In Progress
+STU136,Not Started
+STU137,Not Started
+STU138,In Progress
+STU139,Not Started
+STU140,In Progress
+STU141,In Progress
+STU142,In Progress
+STU143,Not Started
+STU144,In Progress
+STU145,In Progress
+STU146,In Progress
+STU147,In Progress
+STU148,Not Started
+STU149,Completed
+STU150,Completed
+STU151,In Progress
+STU152,In Progress
+STU153,In Progress
+STU154,Completed
+STU155,Not Started
+STU156,In Progress
+STU157,In Progress
+STU158,In Progress
+STU159,In Progress
+STU160,In Progress
+STU161,Completed
+STU162,Completed
+STU163,Not Started
+STU164,In Progress
+STU165,Completed
+STU166,Completed
+STU167,Completed
+STU168,Completed
+STU169,In Progress
+STU170,In Progress
+STU171,Completed
+STU172,Completed
+STU173,In Progress
+STU174,Completed
+STU175,In Progress
+STU176,In Progress
+STU177,Completed
+STU178,Completed
+STU179,Not Started
+STU180,In Progress
+STU181,Not Started
+STU182,In Progress
+STU183,Not Started
+STU184,Completed
+STU185,In Progress
+STU186,Not Started
+STU187,Completed
+STU188,In Progress
+STU189,In Progress
+STU190,In Progress
+STU191,In Progress
+STU192,In Progress
+STU193,In Progress
+STU194,In Progress
+STU195,In Progress
+STU196,In Progress
+STU197,In Progress
+STU198,In Progress
+STU199,Not Started
+STU200,Completed
+STU201,In Progress
+STU202,Not Started
+STU203,Completed
+STU204,Completed
+STU205,Not Started
+STU206,Completed
+STU207,Not Started
+STU208,Completed
+STU209,Not Started
+STU210,In Progress
+STU211,In Progress
+STU212,In Progress
+STU213,Not Started
+STU214,In Progress
+STU215,Not Started
+STU216,Not Started
+STU217,Completed
+STU218,Not Started
+STU219,Completed
+STU220,In Progress
+STU221,Not Started
+STU222,In Progress
+STU223,In Progress
+STU224,Completed
+STU225,Not Started
+STU226,In Progress
+STU227,In Progress
+STU228,Completed
+STU229,In Progress
+STU230,In Progress
+STU231,Completed
+STU232,In Progress
+STU233,Not Started
+STU234,Not Started
+STU235,In Progress
+STU236,In Progress
+STU237,Completed
+STU238,In Progress
+STU239,Not Started
+STU240,Completed
+STU241,Not Started
+STU242,In Progress
+STU243,Not Started
+STU244,Completed
+STU245,In Progress
+STU246,Not Started
+STU247,Not Started
+STU248,Completed
+STU249,In Progress
+STU250,In Progress
+STU251,In Progress
+STU252,Completed
+STU253,Not Started
+STU254,Completed
+STU255,In Progress
+STU256,In Progress
+STU257,In Progress
+STU258,Not Started
+STU259,In Progress
+STU260,Completed
+STU261,Not Started
+STU262,In Progress
+STU263,In Progress
+STU264,Not Started
+STU265,In Progress
+STU266,In Progress
+STU267,Not Started
+STU268,Completed
+STU269,Not Started
+STU270,In Progress
+STU271,In Progress
+STU272,In Progress
+STU273,In Progress
+STU274,Not Started
+STU275,In Progress
+STU276,In Progress
+STU277,In Progress
+STU278,In Progress
+STU279,Completed
+STU280,In Progress
+STU281,Completed
+STU282,In Progress
+STU283,In Progress
+STU284,Completed
+STU285,In Progress
+STU286,Completed
+STU287,In Progress
+STU288,In Progress
+STU289,Completed
+STU290,In Progress
+STU291,Completed
+STU292,In Progress
+STU293,In Progress
+STU294,Not Started
+STU295,Not Started
+STU296,Not Started
+STU297,In Progress
+STU298,In Progress
+STU299,In Progress
+STU300,In Progress
+STU301,Not Started
+STU302,In Progress
+STU303,In Progress
+STU304,In Progress
+STU305,In Progress
+STU306,Completed
+STU307,In Progress
+STU308,Completed
+STU309,Not Started
+STU310,Completed
+STU311,In Progress
+STU312,In Progress
+STU313,In Progress
+STU314,In Progress
+STU315,Not Started
+STU316,In Progress
+STU317,In Progress
+STU318,Not Started
+STU319,In Progress
+STU320,In Progress
+STU321,In Progress
+STU322,In Progress
+STU323,In Progress
+STU324,In Progress
+STU325,Not Started
+STU326,Not Started
+STU327,In Progress
+STU328,In Progress
+STU329,Completed
+STU330,Completed
+STU331,In Progress
+STU332,Not Started
+STU333,In Progress
+STU334,Not Started
+STU335,In Progress
+STU336,In Progress
+STU337,Completed
+STU338,In Progress
+STU339,In Progress
+STU340,Not Started
+STU341,Completed
+STU342,In Progress
+STU343,Completed
+STU344,In Progress
+STU345,Completed
+STU346,Completed
+STU347,Not Started
+STU348,Not Started
+STU349,In Progress
+STU350,In Progress
+STU351,Not Started
+STU352,In Progress
+STU353,In Progress
+STU354,In Progress
+STU355,In Progress
+STU356,Completed
+STU357,Not Started
+STU358,In Progress
+STU359,Not Started
+STU360,Completed
+STU361,In Progress
+STU362,In Progress
+STU363,In Progress
+STU364,In Progress
+STU365,Completed
+STU366,In Progress
+STU367,Not Started
+STU368,In Progress
+STU369,In Progress
+STU370,In Progress
+STU371,In Progress
+STU372,Completed
+STU373,Completed
+STU374,Completed
+STU375,Not Started
+STU376,In Progress
+STU377,In Progress
+STU378,In Progress
+STU379,Completed
+STU380,Completed
+STU381,In Progress
+STU382,Completed
+STU383,In Progress
+STU384,Completed
+STU385,In Progress
+STU386,Not Started
+STU387,In Progress
+STU388,Not Started
+STU389,In Progress
+STU390,Completed
+STU391,In Progress
+STU392,Not Started
+STU393,In Progress
+STU394,In Progress
+STU395,Not Started
+STU396,In Progress
+STU397,In Progress
+STU398,In Progress
+STU399,In Progress
+STU400,Completed
+STU401,Completed
+STU402,Not Started
+STU403,In Progress
+STU404,In Progress
+STU405,In Progress
+STU406,Not Started
+STU407,Completed
+STU408,Not Started
+STU409,In Progress
+STU410,Not Started
+STU411,Not Started
+STU412,In Progress
+STU413,Completed
+STU414,In Progress
+STU415,Completed
+STU416,In Progress
+STU417,Completed
+STU418,Completed
+STU419,In Progress
+STU420,In Progress
+STU421,In Progress
+STU422,Completed
+STU423,In Progress
+STU424,Not Started
+STU425,Completed
+STU426,In Progress
+STU427,Completed
+STU428,In Progress
+STU429,In Progress
+STU430,In Progress
+STU431,In Progress
+STU432,Completed
+STU433,Completed
+STU434,Completed
+STU435,Not Started
+STU436,Completed
+STU437,Not Started
+STU438,In Progress
+STU439,Not Started
+STU440,Completed
+STU441,In Progress
+STU442,Not Started
+STU443,Not Started
+STU444,Not Started
+STU445,In Progress
+STU446,Completed
+STU447,In Progress
+STU448,In Progress
+STU449,In Progress
+STU450,Not Started
+STU451,Not Started
+STU452,Not Started
+STU453,In Progress
+STU454,Completed
+STU455,Not Started
+STU456,Completed
+STU457,Completed
+STU458,In Progress
+STU459,In Progress
+STU460,In Progress
+STU461,In Progress
+STU462,Not Started
+STU463,Not Started
+STU464,In Progress
+STU465,In Progress
+STU466,In Progress
+STU467,In Progress
+STU468,In Progress
+STU469,Completed
+STU470,In Progress
+STU471,Completed
+STU472,In Progress
+STU473,Not Started
+STU474,Completed
+STU475,In Progress
+STU476,In Progress
+STU477,In Progress
+STU478,In Progress
+STU479,Completed
+STU480,Not Started
+STU481,In Progress
+STU482,In Progress
+STU483,In Progress
+STU484,In Progress
+STU485,In Progress
+STU486,In Progress
+STU487,In Progress
+STU488,Completed
+STU489,Completed
+STU490,Completed
+STU491,Not Started
+STU492,In Progress
+STU493,In Progress
+STU494,Not Started
+STU495,In Progress
+STU496,Not Started
+STU497,Not Started
+STU498,In Progress
+STU499,In Progress
+STU500,In Progress
+STU501,Completed
+STU502,Completed
+STU503,Completed
+STU504,Not Started
+STU505,In Progress
+STU506,Completed
+STU507,Completed
+STU508,In Progress
+STU509,In Progress
+STU510,Not Started
+STU511,Not Started
+STU512,In Progress
+STU513,In Progress
+STU514,In Progress
+STU515,In Progress
+STU516,Completed
+STU517,Not Started
+STU518,Not Started
+STU519,Not Started
+STU520,Not Started
+STU521,Not Started
+STU522,In Progress
+STU523,Not Started
+STU524,In Progress
+STU525,In Progress
+STU526,In Progress
+STU527,In Progress
+STU528,Completed
+STU529,Completed
+STU530,In Progress
+STU531,Completed
+STU532,In Progress
+STU533,In Progress
+STU534,In Progress
+STU535,In Progress
+STU536,In Progress
+STU537,In Progress
+STU538,Not Started
+STU539,Completed
+STU540,Not Started
+STU541,In Progress
+STU542,Not Started
+STU543,In Progress
+STU544,Completed
+STU545,Completed
+STU546,In Progress
+STU547,In Progress
+STU548,Completed
+STU549,Not Started
+STU550,Completed
+STU551,Not Started
+STU552,Completed
+STU553,Not Started
+STU554,In Progress
+STU555,In Progress
+STU556,Completed
+STU557,In Progress
+STU558,Not Started
+STU559,Completed
+STU560,In Progress
+STU561,Completed
+STU562,In Progress
+STU563,In Progress
+STU564,In Progress
+STU565,In Progress
+STU566,In Progress
+STU567,Completed
+STU568,Completed
+STU569,Completed
+STU570,In Progress
+STU571,In Progress
+STU572,In Progress
+STU573,Completed
+STU574,Not Started
+STU575,Not Started
+STU576,Not Started
+STU577,Not Started
+STU578,In Progress
+STU579,In Progress
+STU580,Not Started
+STU581,In Progress
+STU582,Completed
+STU583,Completed
+STU584,In Progress
+STU585,In Progress
+STU586,In Progress
+STU587,Completed
+STU588,Not Started
+STU589,In Progress
+STU590,In Progress
+STU591,Not Started
+STU592,In Progress
+STU593,In Progress
+STU594,Completed
+STU595,Completed
+STU596,Completed
+STU597,In Progress
+STU598,In Progress
+STU599,Completed
+STU600,In Progress
+STU601,In Progress
+STU602,Completed
+STU603,Completed
+STU604,In Progress
+STU605,In Progress
+STU606,Not Started
+STU607,Not Started
+STU608,In Progress
+STU609,Completed
+STU610,In Progress
+STU611,In Progress
+STU612,Completed
+STU613,Completed
+STU614,In Progress
+STU615,Not Started
+STU616,Completed
+STU617,In Progress
+STU618,Not Started
+STU619,In Progress
+STU620,Completed
+STU621,Completed
+STU622,Completed
+STU623,Not Started
+STU624,In Progress
+STU625,Not Started
+STU626,In Progress
+STU627,In Progress
+STU628,In Progress
+STU629,Not Started
+STU630,Completed
+STU631,In Progress
+STU632,Not Started
+STU633,In Progress
+STU634,In Progress
+STU635,Not Started
+STU636,Not Started
+STU637,In Progress
+STU638,Completed
+STU639,In Progress
+STU640,In Progress
+STU641,In Progress
+STU642,In Progress
+STU643,Completed
+STU644,Not Started
+STU645,Not Started
+STU646,In Progress
+STU647,In Progress
+STU648,In Progress
+STU649,In Progress
+STU650,In Progress
+STU651,In Progress
+STU652,Not Started
+STU653,Completed
+STU654,Not Started
+STU655,Completed
+STU656,In Progress
+STU657,Not Started
+STU658,Completed
+STU659,In Progress
+STU660,Not Started
+STU661,In Progress
+STU662,In Progress
+STU663,In Progress
+STU664,Completed
+STU665,In Progress
+STU666,In Progress
+STU667,Completed
+STU668,In Progress
+STU669,Not Started
+STU670,In Progress
+STU671,Completed
+STU672,In Progress
+STU673,Not Started
+STU674,In Progress
+STU675,In Progress
+STU676,In Progress
+STU677,In Progress
+STU678,In Progress
+STU679,Completed
+STU680,Completed
+STU681,Completed
+STU682,In Progress
+STU683,In Progress
+STU684,In Progress
+STU685,In Progress
+STU686,In Progress
+STU687,In Progress
+STU688,Not Started
+STU689,In Progress
+STU690,Not Started
+STU691,Not Started
+STU692,Not Started
+STU693,Not Started
+STU694,Not Started
+STU695,Not Started
+STU696,Not Started
+STU697,In Progress
+STU698,In Progress
+STU699,In Progress
+STU700,In Progress
+STU701,In Progress
+STU702,In Progress
+STU703,Not Started
+STU704,Not Started
+STU705,Completed
+STU706,In Progress
+STU707,Not Started
+STU708,In Progress
+STU709,Completed
+STU710,In Progress
+STU711,In Progress
+STU712,In Progress
+STU713,In Progress
+STU714,In Progress
+STU715,Not Started
+STU716,In Progress
+STU717,Completed
+STU718,Not Started
+STU719,Completed
+STU720,In Progress
+STU721,Not Started
+STU722,In Progress
+STU723,In Progress
+STU724,In Progress
+STU725,Completed
+STU726,In Progress
+STU727,Not Started
+STU728,Not Started
+STU729,Not Started
+STU730,Not Started
+STU731,In Progress
+STU732,In Progress
+STU733,In Progress
+STU734,Not Started
+STU735,Completed
+STU736,Not Started
+STU737,In Progress
+STU738,Not Started
+STU739,In Progress
+STU740,Not Started
+STU741,Completed
+STU742,Completed
+STU743,In Progress
+STU744,Not Started
+STU745,Completed
+STU746,In Progress
+STU747,In Progress
+STU748,In Progress
+STU749,In Progress
+STU750,In Progress
+STU751,In Progress
+STU752,In Progress
+STU753,In Progress
+STU754,In Progress
+STU755,In Progress
+STU756,In Progress
+STU757,In Progress
+STU758,In Progress
+STU759,In Progress
+STU760,In Progress
+STU761,In Progress
+STU762,Not Started
+STU763,In Progress
+STU764,In Progress
+STU765,Not Started
+STU766,Completed
+STU767,Completed
+STU768,In Progress
+STU769,Completed
+STU770,In Progress
+STU771,In Progress
+STU772,In Progress
+STU773,Not Started
+STU774,In Progress
+STU775,In Progress
+STU776,In Progress
+STU777,In Progress
+STU778,In Progress
+STU779,In Progress
+STU780,In Progress
+STU781,Completed
+STU782,In Progress
+STU783,In Progress
+STU784,Not Started
+STU785,In Progress
+STU786,Completed
+STU787,In Progress
+STU788,In Progress
+STU789,In Progress
+STU790,Completed
+STU791,Completed
+STU792,In Progress
+STU793,Completed
+STU794,Completed
+STU795,Completed
+STU796,In Progress
+STU797,In Progress
+STU798,In Progress
+STU799,In Progress
+STU800,Completed
+STU801,In Progress
+STU802,Completed
+STU803,In Progress
+STU804,Completed
+STU805,Not Started
+STU806,In Progress
+STU807,Completed
+STU808,Not Started
+STU809,In Progress
+STU810,In Progress
+STU811,In Progress
+STU812,In Progress
+STU813,In Progress
+STU814,In Progress
+STU815,In Progress
+STU816,Not Started
+STU817,Not Started
+STU818,Not Started
+STU819,In Progress
+STU820,In Progress
+STU821,Completed
+STU822,In Progress
+STU823,Not Started
+STU824,Not Started
+STU825,In Progress
+STU826,Completed
+STU827,In Progress
+STU828,In Progress
+STU829,In Progress
+STU830,In Progress
+STU831,In Progress
+STU832,In Progress
+STU833,In Progress
+STU834,In Progress
+STU835,In Progress
+STU836,Completed
+STU837,Not Started
+STU838,In Progress
+STU839,In Progress
+STU840,In Progress
+STU841,Completed
+STU842,In Progress
+STU843,In Progress
+STU844,In Progress
+STU845,Completed
+STU846,Not Started
+STU847,Completed
+STU848,Completed
+STU849,Not Started
+STU850,Not Started
+STU851,Completed
+STU852,In Progress
+STU853,Completed
+STU854,Not Started
+STU855,In Progress
+STU856,In Progress
+STU857,In Progress
+STU858,Completed
+STU859,In Progress
+STU860,Completed
+STU861,Not Started
+STU862,In Progress
+STU863,In Progress
+STU864,Not Started
+STU865,Not Started
+STU866,In Progress
+STU867,Not Started
+STU868,Completed
+STU869,In Progress
+STU870,Completed
+STU871,In Progress
+STU872,In Progress
+STU873,In Progress
+STU874,In Progress
+STU875,In Progress
+STU876,Not Started
+STU877,Completed
+STU878,Completed
+STU879,In Progress
+STU880,Not Started
+STU881,In Progress
+STU882,In Progress
+STU883,Completed
+STU884,Completed
+STU885,In Progress
+STU886,Completed
+STU887,Not Started
+STU888,Completed
+STU889,Not Started
+STU890,Completed
+STU891,Not Started
+STU892,Completed
+STU893,In Progress
+STU894,In Progress
+STU895,In Progress
+STU896,In Progress
+STU897,In Progress
+STU898,Completed
+STU899,Not Started
+STU900,In Progress
+STU901,In Progress
+STU902,Completed
+STU903,Completed
+STU904,Not Started
+STU905,In Progress
+STU906,Not Started
+STU907,In Progress
+STU908,Completed
+STU909,In Progress
+STU910,In Progress
+STU911,In Progress
+STU912,Completed
+STU913,Completed
+STU914,Not Started
+STU915,In Progress
+STU916,Not Started
+STU917,In Progress
+STU918,In Progress
+STU919,Not Started
+STU920,In Progress
+STU921,In Progress
+STU922,In Progress
+STU923,In Progress
+STU924,Completed
+STU925,Completed
+STU926,Completed
+STU927,Completed
+STU928,Not Started
+STU929,In Progress
+STU930,In Progress
+STU931,Not Started
+STU932,Completed
+STU933,In Progress
+STU934,In Progress
+STU935,In Progress
+STU936,Not Started
+STU937,In Progress
+STU938,Completed
+STU939,Not Started
+STU940,Not Started
+STU941,In Progress
+STU942,In Progress
+STU943,In Progress
+STU944,In Progress
+STU945,Completed
+STU946,In Progress
+STU947,Not Started
+STU948,Not Started
+STU949,In Progress
+STU950,Not Started
+STU951,Not Started
+STU952,In Progress
+STU953,In Progress
+STU954,Not Started
+STU955,In Progress
+STU956,Completed
+STU957,Completed
+STU958,In Progress
+STU959,In Progress
+STU960,In Progress
+STU961,In Progress
+STU962,Completed
+STU963,Completed
+STU964,In Progress
+STU965,In Progress
+STU966,Not Started
+STU967,Completed
+STU968,In Progress
+STU969,In Progress
+STU970,Not Started
+STU971,Completed
+STU972,Completed
+STU973,Completed
+STU974,In Progress
+STU975,In Progress
+STU976,Not Started
+STU977,In Progress
+STU978,Not Started
+STU979,In Progress
+STU980,In Progress
+STU981,Completed
+STU982,In Progress
+STU983,Completed
+STU984,In Progress
+STU985,In Progress
+STU986,Completed
+STU987,Completed
+STU988,Completed
+STU989,Not Started
+STU990,Not Started
+STU991,In Progress
+STU992,Completed
+STU993,In Progress
+STU994,Completed
+STU995,In Progress
+STU996,In Progress
+STU997,In Progress
+STU998,Completed
+STU999,In Progress
+STU1000,Completed

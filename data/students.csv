@@ -1,11 +1,1001 @@
-student_id,name,attendance,marks,assignments,backlogs,internship_status,placement_status
-STU001,Rahul Sharma,92,85,95,0,Completed,Ready
-STU002,Amit Kumar,68,58,65,1,In Progress,Preparing
-STU003,Sneha Patil,45,38,42,2,Not Started,Not Ready
-STU004,Arjun Rao,78,72,80,0,In Progress,Preparing
-STU005,Priya Shah,55,48,52,1,Not Started,Not Ready
-STU006,Kiran Joshi,88,81,90,0,Completed,Ready
-STU007,Neha Kulkarni,62,55,60,1,In Progress,Preparing
-STU008,Vivek Desai,40,35,30,3,Not Started,Not Ready
-STU009,Ananya Rao,95,91,96,0,Completed,Ready
-STU010,Rohit Patil,72,65,70,0,In Progress,Preparing
+student_id,name,attendance,marks,assignments,backlogs,internship_status,placement_status,risk_label
+STU001,Rahul Sharma,92,85,95,0,Completed,Ready,0
+STU002,Amit Kumar,68,58,65,1,In Progress,Preparing,0
+STU003,Sneha Patil,45,38,42,2,Not Started,Not Ready,1
+STU004,Arjun Rao,78,72,80,0,In Progress,Preparing,0
+STU005,Priya Shah,55,48,52,1,Not Started,Not Ready,1
+STU006,Kiran Joshi,88,81,90,0,Completed,Ready,0
+STU007,Neha Kulkarni,62,55,60,1,In Progress,Preparing,0
+STU008,Vivek Desai,40,35,30,3,Not Started,Not Ready,1
+STU009,Ananya Rao,95,91,96,0,Completed,Ready,0
+STU010,Rohit Patil,72,65,70,0,In Progress,Preparing,0
+STU011,Aman Pawar,80,65,53,0,Completed,Ready,0
+STU012,Aryan Kumar,87,97,100,0,Completed,Ready,0
+STU013,Diya Kulkarni,72,73,61,0,Not Started,Not Ready,0
+STU014,Isha Rao,77,67,55,0,Completed,Ready,0
+STU015,Krishna Jadhav,53,59,57,0,In Progress,Preparing,0
+STU016,Meera Patil,62,63,59,0,Not Started,Preparing,0
+STU017,Tanvi Patil,75,66,74,0,In Progress,Ready,0
+STU018,Diya Jadhav,42,45,40,1,Not Started,Not Ready,1
+STU019,Arjun Desai,46,40,36,3,In Progress,Not Ready,1
+STU020,Rohan Pawar,62,50,59,1,Not Started,Preparing,0
+STU021,Nikhil Shah,50,49,60,0,Not Started,Not Ready,1
+STU022,Kiran Jadhav,57,59,69,2,In Progress,Not Ready,1
+STU023,Isha Patil,89,95,84,0,Completed,Ready,0
+STU024,Meera More,53,53,63,1,In Progress,Not Ready,0
+STU025,Rahul Joshi,98,98,100,0,Completed,Preparing,0
+STU026,Ananya Reddy,87,87,88,1,Completed,Preparing,0
+STU027,Sahil Rao,71,55,67,0,Not Started,Preparing,0
+STU028,Nikhil Reddy,90,93,94,0,Completed,Ready,0
+STU029,Sneha More,56,55,43,2,Not Started,Not Ready,1
+STU030,Neha Rao,74,80,76,0,In Progress,Not Ready,0
+STU031,Priya Naik,69,51,62,2,In Progress,Not Ready,0
+STU032,Sahil Reddy,51,49,40,2,In Progress,Not Ready,1
+STU033,Priya More,78,66,58,0,Completed,Preparing,0
+STU034,Aman More,40,41,39,3,Not Started,Not Ready,1
+STU035,Akash Shetty,63,73,70,0,In Progress,Preparing,0
+STU036,Ananya Pawar,71,79,69,1,In Progress,Preparing,0
+STU037,Aryan More,70,69,62,0,Not Started,Not Ready,0
+STU038,Sneha Pawar,74,80,91,0,Not Started,Not Ready,0
+STU039,Akash Desai,63,59,63,1,In Progress,Preparing,0
+STU040,Aarav Patil,41,41,46,2,Not Started,Not Ready,1
+STU041,Akash Reddy,85,87,76,0,In Progress,Preparing,0
+STU042,Rahul Rao,55,45,54,1,Not Started,Not Ready,1
+STU043,Neha Kumar,86,96,100,0,Completed,Ready,0
+STU044,Neha Shah,46,31,40,3,In Progress,Not Ready,1
+STU045,Aditya Shah,69,78,89,0,In Progress,Preparing,0
+STU046,Neha Rao,86,78,69,0,Completed,Ready,0
+STU047,Aditya Pawar,57,53,48,0,In Progress,Preparing,1
+STU048,Arjun Shah,74,82,70,1,Not Started,Preparing,0
+STU049,Meera Sharma,71,68,62,1,Not Started,Preparing,0
+STU050,Ananya Kumar,64,54,56,1,In Progress,Not Ready,0
+STU051,Varun Desai,58,46,35,2,Not Started,Not Ready,1
+STU052,Aditya Reddy,43,26,32,3,Not Started,Not Ready,1
+STU053,Meera Patil,45,54,47,0,In Progress,Preparing,1
+STU054,Sneha Nair,96,96,91,0,Completed,Ready,0
+STU055,Diya Joshi,76,74,72,1,Completed,Not Ready,0
+STU056,Kiran More,65,51,60,2,In Progress,Not Ready,0
+STU057,Akash Reddy,88,72,60,0,In Progress,Preparing,0
+STU058,Diya Desai,53,51,47,0,Not Started,Preparing,1
+STU059,Rohan Naik,58,45,47,2,In Progress,Not Ready,1
+STU060,Aman More,81,79,67,0,Completed,Preparing,0
+STU061,Isha Joshi,48,38,29,2,Not Started,Not Ready,1
+STU062,Priya Kulkarni,78,66,76,0,In Progress,Preparing,0
+STU063,Aditya Sharma,56,66,55,0,In Progress,Not Ready,0
+STU064,Rahul Shetty,61,67,59,0,In Progress,Not Ready,0
+STU065,Rahul Sharma,67,66,54,0,Not Started,Preparing,0
+STU066,Krishna More,93,86,92,0,Completed,Ready,0
+STU067,Sneha Patil,90,98,87,1,Completed,Preparing,0
+STU068,Diya Jadhav,62,68,73,1,In Progress,Preparing,0
+STU069,Neha Naik,50,57,50,1,In Progress,Not Ready,0
+STU070,Aman Shah,82,91,100,0,Completed,Preparing,0
+STU071,Kavya Jadhav,95,78,81,0,In Progress,Ready,0
+STU072,Isha Jadhav,90,98,93,0,In Progress,Ready,0
+STU073,Sneha Jadhav,44,50,46,1,In Progress,Not Ready,1
+STU074,Riya Joshi,74,66,54,0,Not Started,Preparing,0
+STU075,Varun Naik,42,27,34,3,In Progress,Not Ready,1
+STU076,Riya Kumar,60,55,62,2,In Progress,Not Ready,0
+STU077,Priya More,56,39,49,3,Not Started,Not Ready,1
+STU078,Krishna Shah,91,90,99,0,In Progress,Ready,0
+STU079,Sneha Jadhav,44,47,45,2,In Progress,Not Ready,1
+STU080,Neha Desai,47,52,49,2,In Progress,Not Ready,1
+STU081,Sneha Shetty,65,69,66,0,In Progress,Not Ready,0
+STU082,Kavya Joshi,97,84,91,0,Completed,Preparing,0
+STU083,Nikhil Kulkarni,53,48,54,2,In Progress,Not Ready,1
+STU084,Sneha Patil,68,71,65,0,Not Started,Preparing,0
+STU085,Akash Jadhav,58,56,65,2,In Progress,Not Ready,1
+STU086,Aditya Kumar,88,77,86,0,In Progress,Ready,0
+STU087,Tanvi Shetty,70,71,83,0,In Progress,Preparing,0
+STU088,Vivek Jadhav,64,61,61,0,In Progress,Preparing,0
+STU089,Tanvi Reddy,89,98,89,0,Completed,Preparing,0
+STU090,Nikhil Rao,69,52,57,0,Not Started,Preparing,0
+STU091,Vivek More,91,87,96,0,Completed,Ready,0
+STU092,Arjun Shetty,68,69,80,1,In Progress,Not Ready,0
+STU093,Vivek Naik,95,92,94,0,Completed,Ready,0
+STU094,Diya Joshi,73,70,78,0,In Progress,Not Ready,0
+STU095,Meera Shetty,61,53,58,0,In Progress,Preparing,0
+STU096,Rahul Kulkarni,49,53,47,0,In Progress,Not Ready,1
+STU097,Vivek Nair,66,49,43,1,In Progress,Not Ready,1
+STU098,Kavya Naik,84,66,78,0,Completed,Preparing,0
+STU099,Pooja Kumar,64,73,74,0,Not Started,Preparing,0
+STU100,Varun Rao,57,52,55,0,In Progress,Not Ready,0
+STU101,Riya Nair,93,89,81,1,Completed,Not Ready,0
+STU102,Arjun Sharma,82,64,54,0,In Progress,Not Ready,0
+STU103,Vivek More,56,50,48,0,In Progress,Not Ready,1
+STU104,Pooja Sharma,64,54,66,1,In Progress,Preparing,0
+STU105,Vivek Pawar,87,86,75,1,Completed,Preparing,0
+STU106,Aarav Nair,42,48,36,0,Not Started,Not Ready,1
+STU107,Riya Kumar,49,38,30,3,Not Started,Not Ready,1
+STU108,Vivek Jadhav,69,73,69,0,In Progress,Preparing,0
+STU109,Kavya Nair,50,41,32,4,Not Started,Not Ready,1
+STU110,Aman Shetty,83,77,77,1,Completed,Preparing,0
+STU111,Aditya Desai,89,80,89,0,Completed,Preparing,0
+STU112,Aarav Jadhav,74,69,78,0,In Progress,Not Ready,0
+STU113,Tanvi Rao,66,74,77,0,Not Started,Not Ready,0
+STU114,Isha Nair,67,54,65,2,Not Started,Not Ready,0
+STU115,Isha Desai,91,90,100,0,Completed,Preparing,0
+STU116,Riya Nair,94,83,73,0,Completed,Preparing,0
+STU117,Aryan Desai,82,76,74,0,In Progress,Ready,0
+STU118,Rahul Sharma,91,81,79,0,Completed,Preparing,0
+STU119,Tanvi Kulkarni,73,61,51,0,In Progress,Preparing,0
+STU120,Meera Shetty,81,85,88,0,Completed,Ready,0
+STU121,Pooja Reddy,55,46,55,2,In Progress,Not Ready,1
+STU122,Tanvi Kulkarni,73,66,67,1,In Progress,Not Ready,0
+STU123,Varun Kumar,57,48,44,0,Not Started,Not Ready,1
+STU124,Aryan Kumar,60,45,56,2,Not Started,Not Ready,1
+STU125,Kavya Patil,87,84,80,0,In Progress,Ready,0
+STU126,Rahul Rao,93,81,78,0,Completed,Ready,0
+STU127,Tanvi Rao,57,40,29,4,In Progress,Not Ready,1
+STU128,Pooja Kulkarni,80,89,100,0,In Progress,Ready,0
+STU129,Aman Jadhav,68,60,53,1,In Progress,Not Ready,0
+STU130,Ananya Rao,44,38,41,2,Not Started,Not Ready,1
+STU131,Neha Nair,91,91,88,0,Completed,Ready,0
+STU132,Nikhil Joshi,78,85,92,0,Completed,Ready,0
+STU133,Varun Patil,95,95,96,0,In Progress,Ready,0
+STU134,Arjun Reddy,88,76,84,0,In Progress,Ready,0
+STU135,Tanvi Nair,44,31,25,3,In Progress,Not Ready,1
+STU136,Akash Pawar,70,61,50,0,Not Started,Not Ready,0
+STU137,Neha Patil,54,44,52,4,Not Started,Not Ready,1
+STU138,Akash Sharma,74,63,71,0,In Progress,Preparing,0
+STU139,Riya More,50,57,54,2,Not Started,Not Ready,1
+STU140,Isha Reddy,58,54,45,1,In Progress,Not Ready,1
+STU141,Varun Desai,74,71,73,0,In Progress,Not Ready,0
+STU142,Riya Nair,78,68,56,0,In Progress,Preparing,0
+STU143,Vivek Naik,41,47,56,1,Not Started,Not Ready,1
+STU144,Isha Rao,51,48,52,2,In Progress,Not Ready,1
+STU145,Neha Desai,77,72,80,0,In Progress,Ready,0
+STU146,Kavya Pawar,60,63,54,1,In Progress,Not Ready,0
+STU147,Isha Desai,65,73,85,0,In Progress,Not Ready,0
+STU148,Aarav Pawar,47,53,53,2,Not Started,Not Ready,1
+STU149,Vivek Kulkarni,95,94,96,0,Completed,Ready,0
+STU150,Kavya Kulkarni,80,76,88,0,Completed,Ready,0
+STU151,Diya Shetty,96,98,100,0,In Progress,Ready,0
+STU152,Akash Kumar,50,41,46,2,In Progress,Not Ready,1
+STU153,Pooja More,93,78,80,1,In Progress,Preparing,0
+STU154,Pooja Kumar,85,76,80,0,Completed,Ready,0
+STU155,Akash Joshi,69,68,60,0,Not Started,Preparing,0
+STU156,Aarav Joshi,89,96,97,0,In Progress,Ready,0
+STU157,Nikhil Reddy,86,77,83,0,In Progress,Preparing,0
+STU158,Kiran Jadhav,70,63,61,0,In Progress,Not Ready,0
+STU159,Vivek Shah,52,56,51,2,In Progress,Not Ready,1
+STU160,Meera Pawar,42,34,45,3,In Progress,Not Ready,1
+STU161,Ananya Reddy,90,98,100,1,Completed,Preparing,0
+STU162,Aarav Shetty,77,69,60,1,Completed,Not Ready,0
+STU163,Pooja Naik,49,44,52,2,Not Started,Not Ready,1
+STU164,Sahil Patil,56,48,55,2,In Progress,Not Ready,1
+STU165,Sahil Shetty,94,86,95,1,Completed,Not Ready,0
+STU166,Diya Pawar,96,98,100,1,Completed,Preparing,0
+STU167,Sahil Shetty,83,74,69,0,Completed,Ready,0
+STU168,Kiran Naik,95,80,82,0,Completed,Ready,0
+STU169,Ananya Kumar,43,34,33,3,In Progress,Not Ready,1
+STU170,Akash Nair,73,68,74,0,In Progress,Preparing,0
+STU171,Diya Kulkarni,95,89,96,0,Completed,Ready,0
+STU172,Kavya Pawar,80,70,72,0,Completed,Preparing,0
+STU173,Sahil Shah,74,61,51,0,In Progress,Not Ready,0
+STU174,Pooja Patil,84,74,76,0,Completed,Ready,0
+STU175,Tanvi Joshi,55,49,55,1,In Progress,Not Ready,1
+STU176,Aarav Nair,41,49,58,1,In Progress,Not Ready,1
+STU177,Pooja Jadhav,95,98,100,0,Completed,Ready,0
+STU178,Diya Pawar,97,98,95,0,Completed,Preparing,0
+STU179,Vivek Pawar,52,53,49,2,Not Started,Not Ready,1
+STU180,Kavya Naik,83,91,83,0,In Progress,Ready,0
+STU181,Kavya Desai,68,51,57,1,Not Started,Preparing,0
+STU182,Krishna Reddy,87,82,75,0,In Progress,Preparing,0
+STU183,Kavya Shetty,72,62,55,0,Not Started,Not Ready,0
+STU184,Diya Jadhav,95,87,78,0,Completed,Preparing,0
+STU185,Akash Naik,83,88,97,1,In Progress,Not Ready,0
+STU186,Nikhil Desai,65,47,43,2,Not Started,Not Ready,1
+STU187,Krishna Patil,83,88,97,0,Completed,Ready,0
+STU188,Rohan Kumar,83,72,75,0,In Progress,Ready,0
+STU189,Neha Patil,81,65,73,0,In Progress,Ready,0
+STU190,Aman Patil,48,31,25,3,In Progress,Not Ready,1
+STU191,Riya Shetty,55,65,70,0,In Progress,Not Ready,0
+STU192,Isha Sharma,86,72,73,0,In Progress,Ready,0
+STU193,Aman Pawar,84,77,71,0,In Progress,Preparing,0
+STU194,Aman Jadhav,63,62,70,0,In Progress,Preparing,0
+STU195,Aarav Sharma,92,88,78,0,In Progress,Ready,0
+STU196,Akash Jadhav,90,82,77,1,In Progress,Preparing,0
+STU197,Vivek Rao,88,87,81,0,In Progress,Ready,0
+STU198,Ananya Reddy,90,98,100,0,In Progress,Ready,0
+STU199,Aarav Desai,56,63,56,0,Not Started,Preparing,0
+STU200,Ananya Shetty,90,97,92,0,Completed,Ready,0
+STU201,Priya Nair,66,64,55,0,In Progress,Not Ready,0
+STU202,Varun Naik,46,42,46,2,Not Started,Not Ready,1
+STU203,Aditya Kulkarni,98,98,100,0,Completed,Preparing,0
+STU204,Akash More,94,88,89,0,Completed,Preparing,0
+STU205,Ananya Joshi,45,37,44,2,Not Started,Not Ready,1
+STU206,Priya Joshi,79,81,87,0,Completed,Preparing,0
+STU207,Sahil Pawar,69,67,74,0,Not Started,Preparing,0
+STU208,Diya Shah,96,98,100,0,Completed,Ready,0
+STU209,Neha Desai,61,69,71,0,Not Started,Not Ready,0
+STU210,Akash Patil,82,72,71,1,In Progress,Not Ready,0
+STU211,Ananya Reddy,93,77,67,0,In Progress,Ready,0
+STU212,Sneha Patil,43,43,48,4,In Progress,Not Ready,1
+STU213,Kavya Nair,66,59,68,1,Not Started,Preparing,0
+STU214,Ananya Pawar,59,52,43,2,In Progress,Not Ready,1
+STU215,Aman Naik,70,59,50,1,Not Started,Not Ready,0
+STU216,Rohan More,57,57,52,1,Not Started,Preparing,0
+STU217,Kavya More,82,90,100,0,Completed,Preparing,0
+STU218,Akash Rao,61,54,42,0,Not Started,Not Ready,0
+STU219,Nikhil Desai,87,89,77,0,Completed,Ready,0
+STU220,Vivek Nair,50,43,40,4,In Progress,Not Ready,1
+STU221,Sneha Patil,78,62,51,0,Not Started,Preparing,0
+STU222,Neha Joshi,57,53,62,1,In Progress,Not Ready,0
+STU223,Kavya Pawar,53,59,63,0,In Progress,Preparing,0
+STU224,Rohan Sharma,83,83,86,0,Completed,Ready,0
+STU225,Vivek Joshi,40,28,25,2,Not Started,Not Ready,1
+STU226,Arjun Rao,58,50,41,0,In Progress,Not Ready,1
+STU227,Akash Shah,64,63,73,0,In Progress,Not Ready,0
+STU228,Kiran Nair,95,98,87,0,Completed,Ready,0
+STU229,Meera Sharma,67,67,67,0,In Progress,Preparing,0
+STU230,Akash Shah,60,47,54,1,In Progress,Not Ready,0
+STU231,Kavya Shetty,94,79,74,0,Completed,Ready,0
+STU232,Priya Reddy,61,50,48,0,In Progress,Preparing,0
+STU233,Diya Patil,52,62,74,0,Not Started,Preparing,0
+STU234,Vivek Naik,49,39,33,2,Not Started,Not Ready,1
+STU235,Vivek Nair,81,65,58,1,In Progress,Not Ready,0
+STU236,Rohan Desai,88,88,90,0,In Progress,Ready,0
+STU237,Kavya Naik,95,97,95,0,Completed,Ready,0
+STU238,Nikhil Kulkarni,57,57,46,1,In Progress,Not Ready,1
+STU239,Sahil Jadhav,42,25,25,3,Not Started,Not Ready,1
+STU240,Varun More,94,78,85,0,Completed,Ready,0
+STU241,Kiran Nair,42,38,44,4,Not Started,Not Ready,1
+STU242,Tanvi Patil,70,68,60,1,In Progress,Not Ready,0
+STU243,Priya Reddy,72,74,67,0,Not Started,Not Ready,0
+STU244,Kiran Pawar,79,66,65,0,Completed,Ready,0
+STU245,Rahul Pawar,78,61,69,0,In Progress,Preparing,0
+STU246,Rohan Jadhav,64,55,51,2,Not Started,Not Ready,0
+STU247,Krishna Joshi,49,41,31,4,Not Started,Not Ready,1
+STU248,Kavya Reddy,81,85,94,0,Completed,Preparing,0
+STU249,Sahil Pawar,64,66,64,0,In Progress,Preparing,0
+STU250,Kiran Naik,67,65,64,0,In Progress,Preparing,0
+STU251,Aman Reddy,71,59,54,0,In Progress,Not Ready,0
+STU252,Vivek Nair,89,88,99,1,Completed,Not Ready,0
+STU253,Arjun Jadhav,48,49,49,0,Not Started,Not Ready,1
+STU254,Neha Desai,84,90,97,0,Completed,Ready,0
+STU255,Diya Reddy,83,88,83,1,In Progress,Not Ready,0
+STU256,Sneha Nair,55,46,49,0,In Progress,Not Ready,1
+STU257,Arjun Jadhav,68,64,76,0,In Progress,Not Ready,0
+STU258,Sahil Kulkarni,52,59,66,0,Not Started,Preparing,0
+STU259,Kavya Patil,95,88,93,1,In Progress,Preparing,0
+STU260,Akash More,88,75,71,0,Completed,Preparing,0
+STU261,Aditya Shah,54,62,64,1,Not Started,Not Ready,0
+STU262,Aarav Desai,72,65,60,0,In Progress,Preparing,0
+STU263,Ananya Rao,46,54,64,2,In Progress,Not Ready,1
+STU264,Vivek Shetty,42,33,36,4,Not Started,Not Ready,1
+STU265,Aryan Jadhav,70,66,73,0,In Progress,Not Ready,0
+STU266,Aman Naik,49,48,59,2,In Progress,Not Ready,1
+STU267,Diya Shah,58,47,44,0,Not Started,Not Ready,1
+STU268,Rohan Reddy,80,87,94,0,Completed,Preparing,0
+STU269,Tanvi Rao,41,43,47,4,Not Started,Not Ready,1
+STU270,Riya Shah,58,53,41,2,In Progress,Not Ready,1
+STU271,Akash Reddy,51,54,63,0,In Progress,Not Ready,0
+STU272,Aditya Pawar,74,72,76,0,In Progress,Not Ready,0
+STU273,Akash Desai,64,57,53,2,In Progress,Not Ready,0
+STU274,Ananya Sharma,55,60,69,0,Not Started,Not Ready,0
+STU275,Tanvi Kulkarni,62,61,59,0,In Progress,Not Ready,0
+STU276,Kavya Kumar,80,67,59,0,In Progress,Ready,0
+STU277,Kavya Reddy,42,49,43,0,In Progress,Not Ready,1
+STU278,Kavya Desai,65,73,78,0,In Progress,Preparing,0
+STU279,Krishna Shah,95,98,87,1,Completed,Preparing,0
+STU280,Arjun Kulkarni,96,90,100,0,In Progress,Ready,0
+STU281,Varun Shah,84,81,80,1,Completed,Preparing,0
+STU282,Kiran Patil,45,40,47,2,In Progress,Not Ready,1
+STU283,Nikhil Nair,45,37,46,3,In Progress,Not Ready,1
+STU284,Krishna Nair,85,80,73,0,Completed,Ready,0
+STU285,Krishna Reddy,67,57,65,0,In Progress,Not Ready,0
+STU286,Sneha Naik,91,96,100,0,Completed,Preparing,0
+STU287,Krishna Shah,68,51,43,0,In Progress,Not Ready,0
+STU288,Krishna Kulkarni,76,59,66,0,In Progress,Not Ready,0
+STU289,Isha Kumar,88,72,78,0,Completed,Ready,0
+STU290,Priya Shah,47,29,40,2,In Progress,Not Ready,1
+STU291,Rohan Joshi,98,97,88,0,Completed,Ready,0
+STU292,Tanvi Kulkarni,84,81,75,0,In Progress,Ready,0
+STU293,Rahul Reddy,45,52,61,1,In Progress,Preparing,0
+STU294,Krishna Reddy,58,68,65,1,Not Started,Preparing,0
+STU295,Pooja Sharma,54,39,33,2,Not Started,Not Ready,1
+STU296,Rohan More,63,62,68,0,Not Started,Preparing,0
+STU297,Priya Shah,45,29,26,3,In Progress,Not Ready,1
+STU298,Nikhil Kulkarni,89,84,90,0,In Progress,Ready,0
+STU299,Riya Rao,83,81,80,0,In Progress,Ready,0
+STU300,Priya Rao,89,75,76,0,In Progress,Preparing,0
+STU301,Krishna Reddy,59,46,39,1,Not Started,Not Ready,1
+STU302,Ananya Pawar,97,88,78,0,In Progress,Ready,0
+STU303,Arjun Pawar,59,60,65,0,In Progress,Preparing,0
+STU304,Aarav Patil,79,84,91,0,In Progress,Ready,0
+STU305,Sahil Kumar,42,44,56,4,In Progress,Not Ready,1
+STU306,Rahul Joshi,89,89,90,0,Completed,Preparing,0
+STU307,Nikhil Patil,81,72,75,0,In Progress,Ready,0
+STU308,Rohan Rao,84,67,60,0,Completed,Ready,0
+STU309,Meera Rao,60,69,79,0,Not Started,Not Ready,0
+STU310,Isha Kulkarni,88,81,85,0,Completed,Ready,0
+STU311,Meera Jadhav,55,41,32,2,In Progress,Not Ready,1
+STU312,Riya Shetty,79,74,69,1,In Progress,Not Ready,0
+STU313,Priya Kulkarni,60,48,60,0,In Progress,Not Ready,0
+STU314,Priya Kulkarni,71,81,78,0,In Progress,Not Ready,0
+STU315,Aditya Joshi,55,43,49,3,Not Started,Not Ready,1
+STU316,Aman Shah,71,72,80,0,In Progress,Preparing,0
+STU317,Meera Desai,48,58,54,2,In Progress,Not Ready,1
+STU318,Krishna Reddy,42,36,25,4,Not Started,Not Ready,1
+STU319,Vivek Reddy,58,42,42,4,In Progress,Not Ready,1
+STU320,Meera Desai,57,65,72,0,In Progress,Preparing,0
+STU321,Rohan Reddy,90,82,87,1,In Progress,Preparing,0
+STU322,Pooja Reddy,65,63,52,0,In Progress,Not Ready,0
+STU323,Rohan Desai,69,55,62,2,In Progress,Not Ready,0
+STU324,Riya Desai,50,44,51,4,In Progress,Not Ready,1
+STU325,Pooja Jadhav,72,80,84,0,Not Started,Not Ready,0
+STU326,Neha Nair,41,34,32,4,Not Started,Not Ready,1
+STU327,Isha Pawar,59,66,77,1,In Progress,Not Ready,0
+STU328,Arjun Reddy,90,96,100,0,In Progress,Ready,0
+STU329,Diya Sharma,80,85,92,0,Completed,Preparing,0
+STU330,Neha Shetty,76,80,71,0,Completed,Ready,0
+STU331,Varun Shetty,53,48,52,2,In Progress,Not Ready,1
+STU332,Rahul Desai,43,47,39,2,Not Started,Not Ready,1
+STU333,Rahul Desai,82,79,83,0,In Progress,Ready,0
+STU334,Rohan Kulkarni,74,67,76,0,Not Started,Not Ready,0
+STU335,Diya Joshi,52,41,37,4,In Progress,Not Ready,1
+STU336,Krishna Reddy,89,80,90,0,In Progress,Ready,0
+STU337,Meera Jadhav,90,95,91,0,Completed,Ready,0
+STU338,Krishna More,62,68,60,0,In Progress,Preparing,0
+STU339,Rahul Shetty,68,70,66,0,In Progress,Not Ready,0
+STU340,Diya Sharma,57,43,34,4,Not Started,Not Ready,1
+STU341,Kiran Shetty,82,92,96,0,Completed,Ready,0
+STU342,Neha Pawar,70,55,64,0,In Progress,Preparing,0
+STU343,Kiran Joshi,96,98,100,0,Completed,Preparing,0
+STU344,Arjun Shah,81,64,76,0,In Progress,Preparing,0
+STU345,Pooja Rao,96,98,91,1,Completed,Not Ready,0
+STU346,Kiran Joshi,87,96,93,1,Completed,Preparing,0
+STU347,Priya Kulkarni,69,71,76,0,Not Started,Preparing,0
+STU348,Varun Kulkarni,57,45,36,1,Not Started,Not Ready,1
+STU349,Riya Pawar,81,71,81,0,In Progress,Preparing,0
+STU350,Neha Reddy,88,76,69,0,In Progress,Ready,0
+STU351,Arjun Rao,60,44,44,4,Not Started,Not Ready,1
+STU352,Vivek Joshi,70,62,57,0,In Progress,Not Ready,0
+STU353,Isha Pawar,61,52,58,2,In Progress,Not Ready,0
+STU354,Arjun Shah,63,67,62,0,In Progress,Not Ready,0
+STU355,Kavya Desai,83,81,91,0,In Progress,Ready,0
+STU356,Varun Nair,79,68,63,1,Completed,Not Ready,0
+STU357,Vivek Reddy,63,58,68,2,Not Started,Not Ready,0
+STU358,Akash Reddy,91,94,88,0,In Progress,Ready,0
+STU359,Aditya Jadhav,68,66,76,0,Not Started,Preparing,0
+STU360,Priya Kulkarni,75,85,89,0,Completed,Ready,0
+STU361,Akash More,47,50,44,2,In Progress,Not Ready,1
+STU362,Riya Sharma,72,68,57,0,In Progress,Not Ready,0
+STU363,Aarav Shetty,75,71,80,0,In Progress,Ready,0
+STU364,Rahul Sharma,53,53,43,0,In Progress,Preparing,1
+STU365,Vivek Pawar,97,81,84,0,Completed,Preparing,0
+STU366,Meera Shah,86,88,89,0,In Progress,Ready,0
+STU367,Sahil Jadhav,45,48,57,2,Not Started,Not Ready,1
+STU368,Priya Rao,62,47,40,2,In Progress,Not Ready,1
+STU369,Varun Reddy,86,75,63,0,In Progress,Ready,0
+STU370,Ananya Joshi,67,66,66,0,In Progress,Not Ready,0
+STU371,Rohan Naik,52,62,73,0,In Progress,Not Ready,0
+STU372,Nikhil Nair,96,98,86,0,Completed,Ready,0
+STU373,Rahul Kumar,83,87,76,0,Completed,Ready,0
+STU374,Varun Nair,88,97,100,0,Completed,Ready,0
+STU375,Kavya More,60,60,67,0,Not Started,Preparing,0
+STU376,Aditya Reddy,49,52,56,0,In Progress,Not Ready,0
+STU377,Rahul Kulkarni,77,87,98,1,In Progress,Not Ready,0
+STU378,Priya Desai,43,36,44,4,In Progress,Not Ready,1
+STU379,Pooja Kumar,84,79,80,0,Completed,Preparing,0
+STU380,Aditya Reddy,94,83,80,1,Completed,Not Ready,0
+STU381,Aryan Desai,66,61,66,0,In Progress,Not Ready,0
+STU382,Aryan Sharma,81,65,67,0,Completed,Preparing,0
+STU383,Akash Kumar,57,51,60,2,In Progress,Not Ready,1
+STU384,Kiran Joshi,91,97,100,0,Completed,Ready,0
+STU385,Varun Naik,98,80,74,1,In Progress,Preparing,0
+STU386,Meera More,70,59,69,2,Not Started,Not Ready,0
+STU387,Kavya Joshi,55,54,52,1,In Progress,Not Ready,0
+STU388,Vivek Jadhav,63,61,64,0,Not Started,Not Ready,0
+STU389,Aditya Nair,60,48,47,1,In Progress,Not Ready,1
+STU390,Riya Shetty,95,84,95,0,Completed,Preparing,0
+STU391,Riya Jadhav,66,57,49,0,In Progress,Not Ready,0
+STU392,Kiran Joshi,55,52,57,2,Not Started,Not Ready,1
+STU393,Nikhil Rao,88,96,99,1,In Progress,Not Ready,0
+STU394,Rahul Pawar,86,93,92,0,In Progress,Ready,0
+STU395,Vivek Sharma,43,41,30,2,Not Started,Not Ready,1
+STU396,Aarav Kumar,66,52,60,0,In Progress,Preparing,0
+STU397,Sneha Kulkarni,72,68,67,0,In Progress,Not Ready,0
+STU398,Aarav Sharma,41,25,30,4,In Progress,Not Ready,1
+STU399,Arjun Patil,73,78,74,0,In Progress,Not Ready,0
+STU400,Krishna Joshi,98,83,87,0,Completed,Ready,0
+STU401,Tanvi Kumar,90,84,74,0,Completed,Ready,0
+STU402,Akash Shah,59,62,52,0,Not Started,Preparing,0
+STU403,Tanvi Rao,64,58,63,1,In Progress,Preparing,0
+STU404,Riya Jadhav,45,42,43,4,In Progress,Not Ready,1
+STU405,Isha Sharma,46,56,60,0,In Progress,Not Ready,0
+STU406,Arjun More,44,47,43,2,Not Started,Not Ready,1
+STU407,Akash Joshi,94,86,74,1,Completed,Not Ready,0
+STU408,Meera Pawar,50,50,45,2,Not Started,Not Ready,1
+STU409,Tanvi Shetty,97,96,94,0,In Progress,Preparing,0
+STU410,Aman Shah,45,43,54,3,Not Started,Not Ready,1
+STU411,Vivek Desai,54,62,52,0,Not Started,Not Ready,0
+STU412,Diya Desai,41,43,39,3,In Progress,Not Ready,1
+STU413,Vivek Nair,75,69,70,0,Completed,Ready,0
+STU414,Meera Shetty,58,65,60,0,In Progress,Preparing,0
+STU415,Aarav Joshi,90,92,84,0,Completed,Ready,0
+STU416,Neha Kulkarni,68,61,73,0,In Progress,Preparing,0
+STU417,Akash Nair,75,74,78,0,Completed,Ready,0
+STU418,Meera Naik,78,85,83,1,Completed,Not Ready,0
+STU419,Sneha Shah,45,50,55,0,In Progress,Preparing,0
+STU420,Pooja Rao,50,36,32,3,In Progress,Not Ready,1
+STU421,Kavya Kulkarni,44,31,32,3,In Progress,Not Ready,1
+STU422,Rohan Nair,90,74,73,0,Completed,Ready,0
+STU423,Aarav Shah,52,48,39,0,In Progress,Not Ready,1
+STU424,Kiran Shah,61,69,76,0,Not Started,Not Ready,0
+STU425,Rohan Shetty,92,98,100,1,Completed,Not Ready,0
+STU426,Kiran Joshi,52,49,47,0,In Progress,Not Ready,1
+STU427,Meera Joshi,87,91,99,0,Completed,Ready,0
+STU428,Rahul Rao,92,98,98,0,In Progress,Ready,0
+STU429,Aryan Kulkarni,83,89,94,0,In Progress,Preparing,0
+STU430,Sneha Kulkarni,91,82,92,0,In Progress,Preparing,0
+STU431,Tanvi Shah,48,50,47,0,In Progress,Preparing,1
+STU432,Rahul Reddy,90,84,74,0,Completed,Ready,0
+STU433,Tanvi More,98,98,100,0,Completed,Preparing,0
+STU434,Sneha Pawar,91,90,97,0,Completed,Preparing,0
+STU435,Riya Pawar,62,49,57,2,Not Started,Not Ready,1
+STU436,Aman Sharma,83,85,85,1,Completed,Not Ready,0
+STU437,Nikhil Desai,46,36,31,4,Not Started,Not Ready,1
+STU438,Krishna Sharma,65,61,73,0,In Progress,Preparing,0
+STU439,Aman Jadhav,70,55,52,1,Not Started,Preparing,0
+STU440,Pooja Desai,86,72,71,0,Completed,Ready,0
+STU441,Kiran Patil,70,55,57,2,In Progress,Not Ready,0
+STU442,Kiran Pawar,59,42,52,2,Not Started,Not Ready,1
+STU443,Priya Rao,46,49,42,2,Not Started,Not Ready,1
+STU444,Meera Pawar,75,62,60,0,Not Started,Preparing,0
+STU445,Meera Sharma,51,38,46,4,In Progress,Not Ready,1
+STU446,Aryan Kumar,87,88,82,0,Completed,Ready,0
+STU447,Rahul Rao,57,63,73,0,In Progress,Preparing,0
+STU448,Priya Pawar,63,55,49,1,In Progress,Not Ready,0
+STU449,Krishna Jadhav,60,61,61,0,In Progress,Not Ready,0
+STU450,Rohan Nair,69,70,63,0,Not Started,Not Ready,0
+STU451,Diya Joshi,45,48,40,1,Not Started,Not Ready,1
+STU452,Priya Shah,47,34,33,4,Not Started,Not Ready,1
+STU453,Sahil Reddy,66,67,59,0,In Progress,Not Ready,0
+STU454,Kiran Jadhav,84,86,79,0,Completed,Ready,0
+STU455,Ananya Kumar,68,69,58,1,Not Started,Not Ready,0
+STU456,Neha Shetty,92,86,91,0,Completed,Ready,0
+STU457,Diya Joshi,93,89,92,0,Completed,Preparing,0
+STU458,Arjun Naik,42,32,27,4,In Progress,Not Ready,1
+STU459,Riya Patil,69,69,80,0,In Progress,Preparing,0
+STU460,Vivek Shetty,57,63,68,0,In Progress,Preparing,0
+STU461,Kavya Jadhav,68,67,61,1,In Progress,Preparing,0
+STU462,Nikhil Jadhav,42,38,34,3,Not Started,Not Ready,1
+STU463,Tanvi Nair,47,53,48,0,Not Started,Not Ready,1
+STU464,Aditya Nair,80,75,68,0,In Progress,Preparing,0
+STU465,Kavya Nair,62,61,57,0,In Progress,Not Ready,0
+STU466,Ananya Naik,57,66,70,1,In Progress,Preparing,0
+STU467,Tanvi Jadhav,90,85,74,1,In Progress,Preparing,0
+STU468,Diya Naik,48,37,29,4,In Progress,Not Ready,1
+STU469,Neha Shah,93,96,96,0,Completed,Ready,0
+STU470,Tanvi More,68,52,60,0,In Progress,Not Ready,0
+STU471,Vivek Jadhav,96,89,91,1,Completed,Preparing,0
+STU472,Akash Naik,86,70,81,1,In Progress,Not Ready,0
+STU473,Isha Desai,74,68,62,1,Not Started,Not Ready,0
+STU474,Kiran More,93,84,82,0,Completed,Preparing,0
+STU475,Aarav Patil,83,89,78,0,In Progress,Preparing,0
+STU476,Tanvi More,94,81,83,0,In Progress,Ready,0
+STU477,Akash Pawar,48,58,66,1,In Progress,Not Ready,0
+STU478,Aditya Shah,63,53,43,1,In Progress,Preparing,0
+STU479,Tanvi Patil,80,71,82,0,Completed,Ready,0
+STU480,Riya Kumar,40,28,31,2,Not Started,Not Ready,1
+STU481,Neha Shetty,73,76,78,0,In Progress,Preparing,0
+STU482,Akash Shetty,48,45,35,0,In Progress,Not Ready,1
+STU483,Vivek Jadhav,91,76,67,0,In Progress,Ready,0
+STU484,Riya Sharma,88,97,89,0,In Progress,Ready,0
+STU485,Ananya More,79,81,74,0,In Progress,Ready,0
+STU486,Ananya Naik,66,67,76,0,In Progress,Preparing,0
+STU487,Neha Desai,47,47,58,1,In Progress,Not Ready,1
+STU488,Rohan Shetty,90,76,71,0,Completed,Ready,0
+STU489,Aryan Reddy,78,69,81,1,Completed,Not Ready,0
+STU490,Diya Kulkarni,78,76,70,0,Completed,Ready,0
+STU491,Priya More,64,49,44,1,Not Started,Not Ready,1
+STU492,Riya Shah,40,33,31,2,In Progress,Not Ready,1
+STU493,Aarav Nair,63,62,71,0,In Progress,Preparing,0
+STU494,Aditya Naik,44,26,25,2,Not Started,Not Ready,1
+STU495,Neha Shetty,65,63,60,0,In Progress,Not Ready,0
+STU496,Isha Patil,65,49,57,2,Not Started,Not Ready,1
+STU497,Rahul Desai,59,43,47,2,Not Started,Not Ready,1
+STU498,Kavya Shetty,65,65,73,0,In Progress,Preparing,0
+STU499,Aman Kulkarni,67,72,67,0,In Progress,Not Ready,0
+STU500,Aman Sharma,79,80,69,0,In Progress,Preparing,0
+STU501,Priya Naik,85,71,81,0,Completed,Ready,0
+STU502,Isha Shetty,92,97,93,0,Completed,Preparing,0
+STU503,Isha Reddy,96,81,93,1,Completed,Not Ready,0
+STU504,Pooja Kulkarni,44,34,44,4,Not Started,Not Ready,1
+STU505,Arjun Joshi,72,65,54,0,In Progress,Not Ready,0
+STU506,Aarav Sharma,89,74,80,0,Completed,Preparing,0
+STU507,Ananya Rao,94,98,86,0,Completed,Ready,0
+STU508,Diya Desai,94,77,82,0,In Progress,Ready,0
+STU509,Riya Desai,55,50,61,1,In Progress,Preparing,0
+STU510,Diya Naik,47,45,54,0,Not Started,Not Ready,1
+STU511,Vivek Jadhav,73,56,56,0,Not Started,Not Ready,0
+STU512,Krishna Kumar,59,51,41,2,In Progress,Not Ready,1
+STU513,Nikhil Desai,58,58,55,2,In Progress,Not Ready,1
+STU514,Diya Rao,77,74,86,0,In Progress,Ready,0
+STU515,Sahil Jadhav,40,35,25,2,In Progress,Not Ready,1
+STU516,Varun Shetty,84,94,82,1,Completed,Not Ready,0
+STU517,Neha Kulkarni,59,44,38,4,Not Started,Not Ready,1
+STU518,Aditya More,43,29,39,3,Not Started,Not Ready,1
+STU519,Varun Patil,54,64,68,0,Not Started,Not Ready,0
+STU520,Riya Nair,77,62,66,0,Not Started,Preparing,0
+STU521,Kavya Joshi,43,38,47,2,Not Started,Not Ready,1
+STU522,Isha Kumar,94,86,86,0,In Progress,Ready,0
+STU523,Ananya Patil,44,32,25,4,Not Started,Not Ready,1
+STU524,Aman Reddy,50,46,48,1,In Progress,Not Ready,1
+STU525,Akash Rao,62,68,62,0,In Progress,Preparing,0
+STU526,Kiran Rao,91,94,91,0,In Progress,Ready,0
+STU527,Priya Sharma,45,49,44,1,In Progress,Not Ready,1
+STU528,Nikhil Reddy,83,74,70,0,Completed,Preparing,0
+STU529,Aman Sharma,87,86,81,0,Completed,Preparing,0
+STU530,Krishna Pawar,43,51,63,0,In Progress,Not Ready,0
+STU531,Aarav Patil,80,82,72,0,Completed,Preparing,0
+STU532,Aman Sharma,52,62,70,0,In Progress,Not Ready,0
+STU533,Varun Shah,69,52,45,2,In Progress,Not Ready,1
+STU534,Krishna Kumar,71,53,53,2,In Progress,Not Ready,0
+STU535,Rohan Nair,98,85,81,0,In Progress,Ready,0
+STU536,Aditya Patil,55,57,54,1,In Progress,Not Ready,0
+STU537,Sahil Naik,57,51,43,1,In Progress,Preparing,1
+STU538,Pooja Reddy,74,81,69,1,Not Started,Not Ready,0
+STU539,Isha Rao,90,87,86,1,Completed,Not Ready,0
+STU540,Vivek Joshi,41,33,40,2,Not Started,Not Ready,1
+STU541,Riya Kumar,43,50,53,2,In Progress,Not Ready,1
+STU542,Isha Reddy,50,35,30,4,Not Started,Not Ready,1
+STU543,Meera Desai,92,98,100,0,In Progress,Ready,0
+STU544,Tanvi Desai,93,98,91,0,Completed,Preparing,0
+STU545,Ananya Nair,98,98,86,0,Completed,Ready,0
+STU546,Akash Sharma,52,60,63,0,In Progress,Preparing,0
+STU547,Kiran More,54,55,50,0,In Progress,Preparing,0
+STU548,Kiran Sharma,79,67,59,0,Completed,Preparing,0
+STU549,Vivek Patil,41,27,33,4,Not Started,Not Ready,1
+STU550,Riya Patil,94,92,91,1,Completed,Not Ready,0
+STU551,Sahil Kulkarni,61,52,50,0,Not Started,Not Ready,0
+STU552,Rohan Naik,81,73,66,0,Completed,Preparing,0
+STU553,Meera Joshi,62,51,60,2,Not Started,Not Ready,0
+STU554,Riya Shah,86,90,87,0,In Progress,Preparing,0
+STU555,Rohan Kumar,94,98,100,0,In Progress,Preparing,0
+STU556,Diya Desai,80,80,71,1,Completed,Preparing,0
+STU557,Nikhil Sharma,60,47,55,0,In Progress,Not Ready,0
+STU558,Krishna Joshi,56,44,39,4,Not Started,Not Ready,1
+STU559,Arjun More,90,75,86,0,Completed,Preparing,0
+STU560,Riya Pawar,66,63,63,0,In Progress,Not Ready,0
+STU561,Kavya Sharma,88,91,86,0,Completed,Preparing,0
+STU562,Arjun Shetty,60,50,41,0,In Progress,Not Ready,0
+STU563,Tanvi Sharma,44,43,33,3,In Progress,Not Ready,1
+STU564,Aman Desai,67,69,62,0,In Progress,Preparing,0
+STU565,Sneha Joshi,53,41,42,4,In Progress,Not Ready,1
+STU566,Riya Reddy,59,48,39,0,In Progress,Not Ready,1
+STU567,Sneha Pawar,93,90,82,0,Completed,Ready,0
+STU568,Akash Kulkarni,78,75,69,0,Completed,Ready,0
+STU569,Isha Patil,94,79,76,0,Completed,Preparing,0
+STU570,Nikhil Sharma,81,80,80,0,In Progress,Ready,0
+STU571,Riya Sharma,56,52,54,1,In Progress,Not Ready,0
+STU572,Sneha Desai,49,55,65,2,In Progress,Not Ready,1
+STU573,Meera Jadhav,91,90,91,1,Completed,Preparing,0
+STU574,Pooja Joshi,73,68,73,0,Not Started,Preparing,0
+STU575,Aman Naik,45,39,49,2,Not Started,Not Ready,1
+STU576,Aditya Shah,68,55,48,0,Not Started,Preparing,0
+STU577,Rohan Joshi,45,48,49,0,Not Started,Not Ready,1
+STU578,Isha Reddy,60,65,55,0,In Progress,Not Ready,0
+STU579,Aman Shah,69,78,66,0,In Progress,Not Ready,0
+STU580,Aman Nair,49,35,41,4,Not Started,Not Ready,1
+STU581,Isha Shah,89,74,71,1,In Progress,Not Ready,0
+STU582,Ananya Nair,81,78,84,0,Completed,Ready,0
+STU583,Tanvi Kumar,78,81,91,0,Completed,Preparing,0
+STU584,Aarav Desai,43,48,51,1,In Progress,Not Ready,1
+STU585,Sneha Patil,92,98,95,0,In Progress,Preparing,0
+STU586,Kiran Joshi,95,84,76,0,In Progress,Preparing,0
+STU587,Neha Shetty,86,81,88,0,Completed,Ready,0
+STU588,Akash Joshi,71,77,81,1,Not Started,Preparing,0
+STU589,Aarav Rao,85,83,83,0,In Progress,Preparing,0
+STU590,Aditya More,52,62,56,0,In Progress,Not Ready,0
+STU591,Sahil More,63,67,61,0,Not Started,Not Ready,0
+STU592,Arjun Jadhav,47,50,38,0,In Progress,Not Ready,1
+STU593,Varun Jadhav,70,70,75,0,In Progress,Not Ready,0
+STU594,Vivek Kumar,84,68,65,0,Completed,Preparing,0
+STU595,Priya Sharma,94,83,91,0,Completed,Ready,0
+STU596,Arjun Nair,95,98,100,0,Completed,Ready,0
+STU597,Tanvi Pawar,91,73,68,0,In Progress,Ready,0
+STU598,Nikhil Joshi,57,52,52,1,In Progress,Preparing,0
+STU599,Sneha Jadhav,83,81,88,0,Completed,Ready,0
+STU600,Aman Kulkarni,93,86,91,0,In Progress,Ready,0
+STU601,Isha Joshi,44,36,32,4,In Progress,Not Ready,1
+STU602,Aditya Naik,81,85,93,0,Completed,Preparing,0
+STU603,Aarav Pawar,94,98,100,0,Completed,Ready,0
+STU604,Riya Shetty,71,62,58,1,In Progress,Preparing,0
+STU605,Sahil Naik,76,84,78,0,In Progress,Ready,0
+STU606,Kavya Patil,70,73,72,0,Not Started,Preparing,0
+STU607,Sneha More,70,56,67,1,Not Started,Preparing,0
+STU608,Neha Naik,61,63,53,0,In Progress,Not Ready,0
+STU609,Pooja Sharma,96,88,87,0,Completed,Preparing,0
+STU610,Aryan Reddy,95,97,100,0,In Progress,Ready,0
+STU611,Aditya Jadhav,47,56,65,1,In Progress,Not Ready,0
+STU612,Ananya Desai,94,80,72,1,Completed,Not Ready,0
+STU613,Arjun Desai,95,98,91,0,Completed,Ready,0
+STU614,Riya Naik,80,63,51,0,In Progress,Preparing,0
+STU615,Rohan Shah,50,47,59,0,Not Started,Not Ready,1
+STU616,Rahul Kumar,80,75,75,0,Completed,Ready,0
+STU617,Aarav Pawar,86,79,67,1,In Progress,Preparing,0
+STU618,Tanvi More,40,42,53,2,Not Started,Not Ready,1
+STU619,Arjun Patil,62,53,45,0,In Progress,Not Ready,0
+STU620,Neha More,92,75,72,1,Completed,Not Ready,0
+STU621,Arjun More,83,69,67,1,Completed,Preparing,0
+STU622,Aryan Shetty,98,98,98,0,Completed,Preparing,0
+STU623,Krishna Shetty,41,41,45,2,Not Started,Not Ready,1
+STU624,Rohan Sharma,81,88,77,0,In Progress,Preparing,0
+STU625,Tanvi Patil,78,61,70,0,Not Started,Preparing,0
+STU626,Aryan Shetty,66,62,62,0,In Progress,Preparing,0
+STU627,Isha Nair,83,85,73,0,In Progress,Ready,0
+STU628,Rohan Patil,78,82,74,0,In Progress,Ready,0
+STU629,Rohan Kumar,58,43,34,3,Not Started,Not Ready,1
+STU630,Kavya Rao,89,79,83,1,Completed,Not Ready,0
+STU631,Kiran Kumar,42,41,44,2,In Progress,Not Ready,1
+STU632,Riya Pawar,40,25,34,2,Not Started,Not Ready,1
+STU633,Varun Patil,71,57,47,2,In Progress,Not Ready,1
+STU634,Nikhil Sharma,97,87,95,0,In Progress,Ready,0
+STU635,Sneha Desai,46,54,47,0,Not Started,Not Ready,1
+STU636,Aarav Jadhav,67,72,63,0,Not Started,Preparing,0
+STU637,Rohan Joshi,48,51,59,0,In Progress,Not Ready,0
+STU638,Meera Kulkarni,96,98,88,0,Completed,Ready,0
+STU639,Sahil More,57,65,65,0,In Progress,Not Ready,0
+STU640,Arjun Patil,91,78,69,0,In Progress,Preparing,0
+STU641,Rohan Shah,66,66,69,0,In Progress,Preparing,0
+STU642,Ananya Kulkarni,89,82,89,0,In Progress,Preparing,0
+STU643,Isha Pawar,98,95,86,1,Completed,Preparing,0
+STU644,Sneha Jadhav,60,42,52,4,Not Started,Not Ready,1
+STU645,Aman Shah,61,59,63,2,Not Started,Not Ready,0
+STU646,Ananya Jadhav,82,87,82,0,In Progress,Ready,0
+STU647,Pooja Jadhav,92,91,98,0,In Progress,Ready,0
+STU648,Kiran Joshi,71,80,73,0,In Progress,Preparing,0
+STU649,Meera Jadhav,43,41,36,4,In Progress,Not Ready,1
+STU650,Akash Jadhav,55,39,41,3,In Progress,Not Ready,1
+STU651,Aman Shah,71,67,65,0,In Progress,Preparing,0
+STU652,Akash Naik,66,49,54,2,Not Started,Not Ready,1
+STU653,Sneha Kulkarni,78,79,87,0,Completed,Ready,0
+STU654,Rahul Naik,61,54,43,0,Not Started,Not Ready,0
+STU655,Aman Naik,79,80,83,0,Completed,Ready,0
+STU656,Kavya Reddy,82,71,59,0,In Progress,Preparing,0
+STU657,Ananya Jadhav,73,66,76,0,Not Started,Not Ready,0
+STU658,Aman More,85,90,100,0,Completed,Ready,0
+STU659,Aman Naik,94,88,82,0,In Progress,Preparing,0
+STU660,Vivek More,66,49,57,2,Not Started,Not Ready,1
+STU661,Aarav Reddy,68,64,73,0,In Progress,Not Ready,0
+STU662,Priya Naik,87,70,75,1,In Progress,Not Ready,0
+STU663,Meera Pawar,98,85,95,0,In Progress,Ready,0
+STU664,Tanvi Naik,78,79,77,0,Completed,Preparing,0
+STU665,Nikhil Naik,55,45,45,1,In Progress,Not Ready,1
+STU666,Tanvi Reddy,48,34,35,4,In Progress,Not Ready,1
+STU667,Aryan Nair,95,87,97,0,Completed,Ready,0
+STU668,Sahil Rao,85,76,85,0,In Progress,Preparing,0
+STU669,Rahul Kulkarni,72,71,81,0,Not Started,Not Ready,0
+STU670,Rahul Joshi,77,77,86,0,In Progress,Preparing,0
+STU671,Ananya Sharma,96,98,99,0,Completed,Ready,0
+STU672,Sneha Joshi,82,65,59,0,In Progress,Preparing,0
+STU673,Aryan Naik,49,57,46,2,Not Started,Not Ready,1
+STU674,Varun Pawar,74,57,56,1,In Progress,Preparing,0
+STU675,Tanvi Pawar,75,69,64,0,In Progress,Ready,0
+STU676,Rahul Sharma,43,37,37,3,In Progress,Not Ready,1
+STU677,Diya More,40,45,41,0,In Progress,Not Ready,1
+STU678,Rohan Kumar,80,84,94,0,In Progress,Ready,0
+STU679,Arjun Rao,89,94,88,0,Completed,Ready,0
+STU680,Ananya Rao,87,85,76,0,Completed,Ready,0
+STU681,Aditya Rao,77,86,82,0,Completed,Preparing,0
+STU682,Pooja Naik,60,61,50,0,In Progress,Not Ready,0
+STU683,Arjun Reddy,76,75,74,0,In Progress,Ready,0
+STU684,Akash Desai,44,51,55,0,In Progress,Not Ready,0
+STU685,Aryan Naik,54,64,58,0,In Progress,Not Ready,0
+STU686,Aman Pawar,79,77,80,1,In Progress,Preparing,0
+STU687,Rohan Kumar,62,58,53,2,In Progress,Not Ready,0
+STU688,Meera Joshi,42,45,43,1,Not Started,Not Ready,1
+STU689,Priya Naik,74,79,76,0,In Progress,Not Ready,0
+STU690,Kiran Reddy,72,68,71,0,Not Started,Preparing,0
+STU691,Sahil Patil,45,30,25,4,Not Started,Not Ready,1
+STU692,Aman Kumar,53,56,64,0,Not Started,Not Ready,0
+STU693,Sahil Jadhav,74,82,92,1,Not Started,Not Ready,0
+STU694,Nikhil Shetty,44,49,58,0,Not Started,Not Ready,1
+STU695,Arjun Naik,61,44,34,2,Not Started,Not Ready,1
+STU696,Isha Shah,56,55,45,2,Not Started,Not Ready,1
+STU697,Sneha Patil,64,60,68,0,In Progress,Not Ready,0
+STU698,Vivek Shetty,74,56,64,2,In Progress,Not Ready,0
+STU699,Kavya Naik,77,60,70,0,In Progress,Preparing,0
+STU700,Meera Jadhav,83,74,81,0,In Progress,Ready,0
+STU701,Rahul Joshi,82,64,67,0,In Progress,Not Ready,0
+STU702,Varun Pawar,80,66,63,0,In Progress,Preparing,0
+STU703,Aman Sharma,63,45,50,2,Not Started,Not Ready,1
+STU704,Kavya Kumar,40,40,47,3,Not Started,Not Ready,1
+STU705,Priya Rao,87,92,100,0,Completed,Ready,0
+STU706,Aryan Patil,50,37,32,4,In Progress,Not Ready,1
+STU707,Sahil Reddy,51,54,60,0,Not Started,Not Ready,0
+STU708,Aman Kumar,44,35,44,2,In Progress,Not Ready,1
+STU709,Aman Joshi,86,86,89,1,Completed,Preparing,0
+STU710,Tanvi Nair,79,63,57,0,In Progress,Not Ready,0
+STU711,Neha Rao,49,49,55,1,In Progress,Not Ready,1
+STU712,Isha Jadhav,40,32,27,2,In Progress,Not Ready,1
+STU713,Pooja Kulkarni,63,49,58,2,In Progress,Not Ready,1
+STU714,Sahil Nair,68,61,73,0,In Progress,Preparing,0
+STU715,Isha Shetty,45,53,49,0,Not Started,Preparing,1
+STU716,Sahil Sharma,96,98,88,0,In Progress,Preparing,0
+STU717,Rahul Joshi,92,92,98,0,Completed,Preparing,0
+STU718,Meera Kumar,74,84,89,0,Not Started,Not Ready,0
+STU719,Priya Patil,97,98,100,0,Completed,Ready,0
+STU720,Vivek Reddy,65,58,62,0,In Progress,Preparing,0
+STU721,Varun Shetty,48,44,37,2,Not Started,Not Ready,1
+STU722,Isha Desai,70,63,52,0,In Progress,Preparing,0
+STU723,Meera Kulkarni,54,37,46,2,In Progress,Not Ready,1
+STU724,Priya Pawar,98,94,83,0,In Progress,Ready,0
+STU725,Sahil Shah,93,83,94,0,Completed,Ready,0
+STU726,Meera More,63,63,71,1,In Progress,Not Ready,0
+STU727,Pooja Naik,54,52,52,1,Not Started,Not Ready,0
+STU728,Arjun Kumar,70,80,87,0,Not Started,Not Ready,0
+STU729,Ananya Rao,44,42,50,3,Not Started,Not Ready,1
+STU730,Sneha Kumar,50,43,50,4,Not Started,Not Ready,1
+STU731,Pooja Kumar,66,73,71,0,In Progress,Not Ready,0
+STU732,Ananya Nair,77,64,72,0,In Progress,Preparing,0
+STU733,Aditya Rao,77,64,56,0,In Progress,Preparing,0
+STU734,Varun Shetty,56,43,47,3,Not Started,Not Ready,1
+STU735,Pooja Rao,82,90,87,1,Completed,Not Ready,0
+STU736,Rohan Pawar,54,62,63,0,Not Started,Preparing,0
+STU737,Rohan Nair,72,62,55,0,In Progress,Not Ready,0
+STU738,Aman Sharma,44,33,33,3,Not Started,Not Ready,1
+STU739,Ananya Nair,52,50,54,2,In Progress,Not Ready,1
+STU740,Rahul Reddy,46,33,36,4,Not Started,Not Ready,1
+STU741,Aarav More,88,73,63,0,Completed,Ready,0
+STU742,Tanvi Reddy,89,92,100,0,Completed,Preparing,0
+STU743,Neha Rao,67,56,59,1,In Progress,Preparing,0
+STU744,Kavya Nair,56,53,65,0,Not Started,Preparing,0
+STU745,Aarav Nair,96,95,96,0,Completed,Preparing,0
+STU746,Tanvi Naik,73,58,62,0,In Progress,Preparing,0
+STU747,Isha Jadhav,60,55,54,0,In Progress,Not Ready,0
+STU748,Vivek Kumar,74,69,75,0,In Progress,Not Ready,0
+STU749,Isha Joshi,66,65,70,0,In Progress,Not Ready,0
+STU750,Sneha Patil,76,69,81,0,In Progress,Preparing,0
+STU751,Priya Shah,87,76,78,0,In Progress,Ready,0
+STU752,Meera Pawar,90,82,87,0,In Progress,Ready,0
+STU753,Rohan Shah,40,47,37,0,In Progress,Not Ready,1
+STU754,Akash Nair,45,29,25,2,In Progress,Not Ready,1
+STU755,Tanvi Nair,42,47,47,1,In Progress,Not Ready,1
+STU756,Nikhil Sharma,43,49,42,2,In Progress,Not Ready,1
+STU757,Aditya Naik,52,61,70,1,In Progress,Preparing,0
+STU758,Krishna Kumar,78,76,80,0,In Progress,Ready,0
+STU759,Krishna Pawar,81,63,56,0,In Progress,Not Ready,0
+STU760,Akash Reddy,65,59,65,0,In Progress,Preparing,0
+STU761,Diya Nair,58,63,68,1,In Progress,Not Ready,0
+STU762,Isha Rao,52,48,48,2,Not Started,Not Ready,1
+STU763,Aman Naik,66,64,55,0,In Progress,Not Ready,0
+STU764,Meera Nair,72,62,67,0,In Progress,Not Ready,0
+STU765,Sneha Kulkarni,70,76,71,0,Not Started,Not Ready,0
+STU766,Diya Pawar,97,97,85,0,Completed,Ready,0
+STU767,Tanvi Jadhav,84,73,71,0,Completed,Ready,0
+STU768,Sneha Shetty,56,45,42,0,In Progress,Not Ready,1
+STU769,Aryan More,92,84,74,0,Completed,Ready,0
+STU770,Pooja Shetty,76,66,59,1,In Progress,Preparing,0
+STU771,Aryan Kumar,52,41,52,2,In Progress,Not Ready,1
+STU772,Aman More,52,60,55,0,In Progress,Preparing,0
+STU773,Vivek Jadhav,45,48,57,1,Not Started,Not Ready,1
+STU774,Riya Jadhav,74,57,60,1,In Progress,Not Ready,0
+STU775,Diya Naik,57,54,47,2,In Progress,Not Ready,1
+STU776,Priya Desai,76,62,51,0,In Progress,Preparing,0
+STU777,Tanvi Reddy,65,74,83,0,In Progress,Preparing,0
+STU778,Riya Patil,69,61,71,0,In Progress,Not Ready,0
+STU779,Diya Joshi,60,53,60,1,In Progress,Not Ready,0
+STU780,Neha Shetty,70,71,69,0,In Progress,Preparing,0
+STU781,Riya Rao,88,81,80,1,Completed,Preparing,0
+STU782,Rahul Shah,76,79,74,0,In Progress,Preparing,0
+STU783,Aarav Rao,94,88,82,0,In Progress,Ready,0
+STU784,Pooja Joshi,66,63,55,1,Not Started,Not Ready,0
+STU785,Aditya Kumar,56,55,61,0,In Progress,Preparing,0
+STU786,Isha Desai,92,82,85,0,Completed,Preparing,0
+STU787,Neha Patil,63,62,67,1,In Progress,Preparing,0
+STU788,Vivek Joshi,62,71,80,1,In Progress,Preparing,0
+STU789,Varun Kulkarni,62,54,63,2,In Progress,Not Ready,0
+STU790,Arjun Pawar,96,80,80,0,Completed,Preparing,0
+STU791,Akash Patil,91,83,84,0,Completed,Preparing,0
+STU792,Sahil Joshi,50,42,37,3,In Progress,Not Ready,1
+STU793,Krishna Shetty,85,75,82,0,Completed,Ready,0
+STU794,Varun Kumar,77,75,77,0,Completed,Ready,0
+STU795,Aman Patil,82,72,83,0,Completed,Ready,0
+STU796,Vivek Shah,44,54,57,2,In Progress,Not Ready,1
+STU797,Sahil More,73,79,69,0,In Progress,Preparing,0
+STU798,Ananya Rao,96,90,87,0,In Progress,Ready,0
+STU799,Pooja Kulkarni,73,81,74,0,In Progress,Not Ready,0
+STU800,Rahul Rao,95,94,90,0,Completed,Preparing,0
+STU801,Priya Pawar,77,78,80,0,In Progress,Ready,0
+STU802,Akash Kulkarni,80,79,76,1,Completed,Preparing,0
+STU803,Aarav Reddy,59,52,53,1,In Progress,Preparing,0
+STU804,Pooja Naik,92,98,90,0,Completed,Ready,0
+STU805,Aarav Reddy,70,61,49,0,Not Started,Preparing,0
+STU806,Diya Rao,63,51,52,2,In Progress,Not Ready,0
+STU807,Neha Pawar,85,90,98,0,Completed,Ready,0
+STU808,Sneha Joshi,55,53,65,2,Not Started,Not Ready,1
+STU809,Akash Rao,58,60,71,0,In Progress,Preparing,0
+STU810,Rohan Kulkarni,48,39,30,4,In Progress,Not Ready,1
+STU811,Aditya Reddy,57,61,68,0,In Progress,Preparing,0
+STU812,Ananya Shetty,41,28,25,3,In Progress,Not Ready,1
+STU813,Aryan Desai,68,73,61,0,In Progress,Not Ready,0
+STU814,Kiran Patil,66,57,60,1,In Progress,Preparing,0
+STU815,Pooja Rao,93,98,90,0,In Progress,Ready,0
+STU816,Vivek Shetty,52,62,58,0,Not Started,Preparing,0
+STU817,Varun Sharma,55,49,61,1,Not Started,Not Ready,1
+STU818,Pooja Shah,52,48,59,0,Not Started,Not Ready,1
+STU819,Rahul Reddy,83,74,72,0,In Progress,Preparing,0
+STU820,Aryan Desai,47,37,40,4,In Progress,Not Ready,1
+STU821,Kiran Sharma,96,79,88,0,Completed,Ready,0
+STU822,Diya Sharma,50,57,53,2,In Progress,Not Ready,1
+STU823,Krishna Naik,42,42,52,3,Not Started,Not Ready,1
+STU824,Sneha Nair,45,34,27,3,Not Started,Not Ready,1
+STU825,Tanvi Reddy,61,67,75,0,In Progress,Preparing,0
+STU826,Sahil Naik,90,75,67,0,Completed,Ready,0
+STU827,Krishna Shetty,62,69,71,0,In Progress,Not Ready,0
+STU828,Rahul Joshi,48,38,27,3,In Progress,Not Ready,1
+STU829,Kiran Shetty,74,78,81,0,In Progress,Not Ready,0
+STU830,Priya Rao,69,59,66,2,In Progress,Not Ready,0
+STU831,Aarav Naik,68,59,55,2,In Progress,Not Ready,0
+STU832,Krishna Naik,80,78,78,0,In Progress,Ready,0
+STU833,Meera Kumar,79,68,66,0,In Progress,Ready,0
+STU834,Kiran Shah,73,76,79,0,In Progress,Not Ready,0
+STU835,Ananya Rao,81,73,64,0,In Progress,Ready,0
+STU836,Sahil Jadhav,95,78,72,0,Completed,Ready,0
+STU837,Aditya Desai,64,67,70,0,Not Started,Not Ready,0
+STU838,Sahil Kulkarni,54,55,65,0,In Progress,Preparing,0
+STU839,Varun More,96,98,88,0,In Progress,Ready,0
+STU840,Priya Sharma,66,74,73,0,In Progress,Not Ready,0
+STU841,Aman Shetty,86,70,67,0,Completed,Ready,0
+STU842,Riya Pawar,54,53,53,0,In Progress,Preparing,0
+STU843,Aman Naik,51,50,61,2,In Progress,Not Ready,1
+STU844,Aman Rao,80,80,79,0,In Progress,Ready,0
+STU845,Rohan Kulkarni,90,77,82,0,Completed,Ready,0
+STU846,Neha Naik,62,72,70,0,Not Started,Not Ready,0
+STU847,Meera Naik,80,75,86,0,Completed,Ready,0
+STU848,Aarav Shetty,75,80,76,0,Completed,Preparing,0
+STU849,Kavya Sharma,42,33,40,2,Not Started,Not Ready,1
+STU850,Vivek Jadhav,59,48,42,1,Not Started,Not Ready,1
+STU851,Aman Sharma,84,92,88,1,Completed,Preparing,0
+STU852,Diya Joshi,69,62,54,0,In Progress,Preparing,0
+STU853,Akash Shetty,91,82,72,0,Completed,Ready,0
+STU854,Rohan Pawar,60,67,70,0,Not Started,Preparing,0
+STU855,Akash Naik,59,42,53,4,In Progress,Not Ready,1
+STU856,Neha More,43,49,47,1,In Progress,Not Ready,1
+STU857,Aarav Pawar,95,80,92,0,In Progress,Ready,0
+STU858,Riya Rao,89,91,91,0,Completed,Ready,0
+STU859,Nikhil Naik,60,58,68,0,In Progress,Not Ready,0
+STU860,Ananya Rao,78,78,82,0,Completed,Preparing,0
+STU861,Rahul Shah,61,45,48,2,Not Started,Not Ready,1
+STU862,Vivek Shetty,56,40,40,4,In Progress,Not Ready,1
+STU863,Meera Pawar,48,54,46,1,In Progress,Not Ready,1
+STU864,Diya Patil,76,64,69,0,Not Started,Preparing,0
+STU865,Aman Pawar,57,63,64,0,Not Started,Preparing,0
+STU866,Vivek Joshi,66,61,60,0,In Progress,Preparing,0
+STU867,Nikhil Sharma,50,43,50,3,Not Started,Not Ready,1
+STU868,Akash Patil,92,81,75,0,Completed,Preparing,0
+STU869,Aarav Desai,87,70,65,1,In Progress,Not Ready,0
+STU870,Varun Reddy,84,91,82,0,Completed,Ready,0
+STU871,Rahul Kulkarni,53,41,46,4,In Progress,Not Ready,1
+STU872,Sneha Reddy,79,84,76,0,In Progress,Ready,0
+STU873,Aryan Naik,42,32,25,2,In Progress,Not Ready,1
+STU874,Meera Pawar,84,85,81,0,In Progress,Ready,0
+STU875,Sahil Shah,57,60,69,0,In Progress,Not Ready,0
+STU876,Kiran Kulkarni,54,48,52,2,Not Started,Not Ready,1
+STU877,Rahul More,95,96,100,0,Completed,Preparing,0
+STU878,Meera Shetty,85,67,56,0,Completed,Ready,0
+STU879,Krishna Pawar,50,32,31,4,In Progress,Not Ready,1
+STU880,Sahil Joshi,59,48,52,1,Not Started,Not Ready,1
+STU881,Ananya Desai,96,90,78,1,In Progress,Preparing,0
+STU882,Sneha Nair,97,91,100,0,In Progress,Ready,0
+STU883,Kavya More,95,97,100,0,Completed,Ready,0
+STU884,Rahul Pawar,78,70,72,0,Completed,Ready,0
+STU885,Ananya Shah,91,79,71,0,In Progress,Ready,0
+STU886,Akash Reddy,98,98,90,0,Completed,Ready,0
+STU887,Varun Sharma,74,79,70,0,Not Started,Preparing,0
+STU888,Ananya Naik,88,80,81,1,Completed,Not Ready,0
+STU889,Vivek Nair,52,37,29,2,Not Started,Not Ready,1
+STU890,Sneha Sharma,79,69,76,0,Completed,Ready,0
+STU891,Priya Jadhav,62,46,56,1,Not Started,Not Ready,0
+STU892,Pooja Rao,78,75,85,0,Completed,Ready,0
+STU893,Vivek Sharma,50,38,33,2,In Progress,Not Ready,1
+STU894,Aryan Naik,57,52,47,2,In Progress,Not Ready,1
+STU895,Tanvi Desai,53,37,30,3,In Progress,Not Ready,1
+STU896,Meera Shetty,95,91,86,0,In Progress,Ready,0
+STU897,Rahul Reddy,60,54,61,2,In Progress,Not Ready,0
+STU898,Aditya More,81,91,100,0,Completed,Ready,0
+STU899,Rahul Shah,55,53,58,1,Not Started,Preparing,0
+STU900,Meera More,73,79,87,1,In Progress,Not Ready,0
+STU901,Tanvi Reddy,59,65,62,0,In Progress,Preparing,0
+STU902,Aman Rao,97,83,85,0,Completed,Preparing,0
+STU903,Aarav Rao,89,89,99,0,Completed,Ready,0
+STU904,Isha Desai,69,69,79,1,Not Started,Preparing,0
+STU905,Aman Shetty,84,86,96,0,In Progress,Ready,0
+STU906,Meera Reddy,68,70,69,0,Not Started,Preparing,0
+STU907,Riya Jadhav,64,47,59,0,In Progress,Not Ready,0
+STU908,Aditya Shah,82,91,83,0,Completed,Preparing,0
+STU909,Aman More,59,50,61,1,In Progress,Preparing,0
+STU910,Aarav Kulkarni,48,36,25,4,In Progress,Not Ready,1
+STU911,Diya Kumar,71,80,83,0,In Progress,Not Ready,0
+STU912,Aarav Kumar,77,80,83,0,Completed,Ready,0
+STU913,Aditya Rao,96,95,91,0,Completed,Preparing,0
+STU914,Ananya Jadhav,49,32,40,3,Not Started,Not Ready,1
+STU915,Kiran More,42,45,51,2,In Progress,Not Ready,1
+STU916,Arjun Pawar,45,28,25,3,Not Started,Not Ready,1
+STU917,Riya Naik,58,59,68,2,In Progress,Not Ready,1
+STU918,Akash Naik,75,62,64,0,In Progress,Preparing,0
+STU919,Rahul Patil,59,51,50,1,Not Started,Not Ready,0
+STU920,Kiran Reddy,58,55,47,0,In Progress,Not Ready,1
+STU921,Riya Shetty,66,64,58,0,In Progress,Preparing,0
+STU922,Tanvi Joshi,80,78,68,0,In Progress,Preparing,0
+STU923,Ananya Nair,67,68,66,0,In Progress,Not Ready,0
+STU924,Rohan Kumar,76,73,77,0,Completed,Preparing,0
+STU925,Aman Shetty,85,76,70,0,Completed,Ready,0
+STU926,Krishna Reddy,94,82,89,1,Completed,Not Ready,0
+STU927,Akash Joshi,91,93,87,0,Completed,Ready,0
+STU928,Sneha Desai,59,57,62,1,Not Started,Preparing,0
+STU929,Aarav Jadhav,61,55,66,2,In Progress,Not Ready,0
+STU930,Pooja Naik,51,39,37,3,In Progress,Not Ready,1
+STU931,Sahil Kulkarni,42,44,36,3,Not Started,Not Ready,1
+STU932,Varun Sharma,97,98,100,1,Completed,Not Ready,0
+STU933,Aarav Kumar,93,91,88,0,In Progress,Ready,0
+STU934,Ananya Joshi,76,79,77,0,In Progress,Ready,0
+STU935,Riya Nair,93,75,73,1,In Progress,Preparing,0
+STU936,Tanvi Jadhav,64,51,58,0,Not Started,Not Ready,0
+STU937,Krishna Kulkarni,60,64,53,0,In Progress,Preparing,0
+STU938,Aditya Naik,93,84,78,0,Completed,Ready,0
+STU939,Pooja More,52,36,38,4,Not Started,Not Ready,1
+STU940,Vivek Desai,72,58,52,1,Not Started,Not Ready,0
+STU941,Ananya Kumar,49,55,46,2,In Progress,Not Ready,1
+STU942,Kavya More,86,69,71,0,In Progress,Ready,0
+STU943,Nikhil More,42,45,52,0,In Progress,Not Ready,1
+STU944,Aarav Nair,42,27,31,4,In Progress,Not Ready,1
+STU945,Kavya Joshi,88,79,87,1,Completed,Preparing,0
+STU946,Arjun Joshi,74,66,78,0,In Progress,Preparing,0
+STU947,Aryan Reddy,47,29,36,4,Not Started,Not Ready,1
+STU948,Riya Kumar,62,61,59,0,Not Started,Not Ready,0
+STU949,Rahul Kulkarni,50,34,31,4,In Progress,Not Ready,1
+STU950,Aman Shah,43,29,25,3,Not Started,Not Ready,1
+STU951,Tanvi Nair,43,27,28,3,Not Started,Not Ready,1
+STU952,Kavya Desai,97,97,100,0,In Progress,Ready,0
+STU953,Vivek Naik,92,80,90,0,In Progress,Ready,0
+STU954,Aman Kulkarni,69,69,61,0,Not Started,Not Ready,0
+STU955,Diya Rao,59,62,70,0,In Progress,Preparing,0
+STU956,Sneha Desai,95,98,100,0,Completed,Ready,0
+STU957,Krishna Kulkarni,90,98,96,0,Completed,Ready,0
+STU958,Priya Patil,69,78,71,0,In Progress,Preparing,0
+STU959,Kavya Reddy,65,73,83,0,In Progress,Preparing,0
+STU960,Pooja Shah,69,63,69,0,In Progress,Preparing,0
+STU961,Neha Nair,44,36,30,4,In Progress,Not Ready,1
+STU962,Varun More,90,82,87,0,Completed,Ready,0
+STU963,Aman Jadhav,85,85,88,0,Completed,Ready,0
+STU964,Sneha Jadhav,68,55,52,1,In Progress,Preparing,0
+STU965,Aryan Jadhav,78,84,84,0,In Progress,Ready,0
+STU966,Vivek Rao,48,58,64,2,Not Started,Not Ready,1
+STU967,Aryan Kumar,82,68,70,0,Completed,Ready,0
+STU968,Neha Shetty,83,93,91,0,In Progress,Ready,0
+STU969,Ananya Jadhav,98,91,81,0,In Progress,Ready,0
+STU970,Aarav Shetty,58,41,40,4,Not Started,Not Ready,1
+STU971,Neha Shetty,75,83,82,0,Completed,Ready,0
+STU972,Rahul Kumar,77,71,79,0,Completed,Ready,0
+STU973,Krishna Jadhav,82,69,72,0,Completed,Preparing,0
+STU974,Aarav Patil,66,52,49,2,In Progress,Not Ready,1
+STU975,Ananya Patil,81,63,55,0,In Progress,Not Ready,0
+STU976,Rohan Rao,48,50,51,1,Not Started,Not Ready,0
+STU977,Diya Rao,69,67,68,0,In Progress,Not Ready,0
+STU978,Tanvi Reddy,67,68,56,0,Not Started,Preparing,0
+STU979,Aditya Nair,57,52,57,2,In Progress,Not Ready,1
+STU980,Ananya Shetty,70,74,73,0,In Progress,Preparing,0
+STU981,Rohan Patil,86,84,96,0,Completed,Ready,0
+STU982,Sneha Patil,55,52,60,2,In Progress,Not Ready,1
+STU983,Kiran Reddy,83,85,90,0,Completed,Ready,0
+STU984,Kiran Shah,89,71,74,0,In Progress,Ready,0
+STU985,Varun Naik,62,69,66,0,In Progress,Not Ready,0
+STU986,Sneha Joshi,76,66,55,0,Completed,Ready,0
+STU987,Akash Jadhav,91,96,100,0,Completed,Ready,0
+STU988,Aarav Shetty,90,80,76,0,Completed,Preparing,0
+STU989,Sneha Kulkarni,47,48,41,2,Not Started,Not Ready,1
+STU990,Arjun Naik,63,70,63,0,Not Started,Not Ready,0
+STU991,Rohan More,73,82,71,0,In Progress,Preparing,0
+STU992,Sneha Kulkarni,92,78,81,0,Completed,Ready,0
+STU993,Sahil Joshi,86,88,81,0,In Progress,Ready,0
+STU994,Pooja Shetty,88,96,87,0,Completed,Ready,0
+STU995,Ananya Reddy,88,87,82,0,In Progress,Ready,0
+STU996,Kiran Reddy,95,90,78,0,In Progress,Ready,0
+STU997,Rohan More,83,66,57,1,In Progress,Not Ready,0
+STU998,Sahil Nair,81,90,86,0,Completed,Ready,0
+STU999,Priya Desai,65,61,73,0,In Progress,Preparing,0
+STU1000,Akash Sharma,83,87,80,0,Completed,Ready,0

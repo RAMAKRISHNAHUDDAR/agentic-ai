@@ -27,9 +27,10 @@ def seed_students():
                     assignments,
                     backlogs,
                     internship_status,
-                    placement_status
+                    placement_status,
+                    risk_label
                 )
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
                 """,
                 (
                     row["student_id"],
@@ -40,6 +41,7 @@ def seed_students():
                     int(row["backlogs"]),
                     row["internship_status"],
                     row["placement_status"],
+                    int(row["risk_label"]),
                 ),
             )
 
