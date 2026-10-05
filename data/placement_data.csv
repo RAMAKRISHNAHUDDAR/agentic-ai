@@ -1,0 +1,1001 @@
+student_id,placement_status
+STU001,Ready
+STU002,Preparing
+STU003,Not Ready
+STU004,Preparing
+STU005,Not Ready
+STU006,Ready
+STU007,Preparing
+STU008,Not Ready
+STU009,Ready
+STU010,Preparing
+STU011,Ready
+STU012,Ready
+STU013,Not Ready
+STU014,Ready
+STU015,Preparing
+STU016,Preparing
+STU017,Ready
+STU018,Not Ready
+STU019,Not Ready
+STU020,Preparing
+STU021,Not Ready
+STU022,Not Ready
+STU023,Ready
+STU024,Not Ready
+STU025,Preparing
+STU026,Preparing
+STU027,Preparing
+STU028,Ready
+STU029,Not Ready
+STU030,Not Ready
+STU031,Not Ready
+STU032,Not Ready
+STU033,Preparing
+STU034,Not Ready
+STU035,Preparing
+STU036,Preparing
+STU037,Not Ready
+STU038,Not Ready
+STU039,Preparing
+STU040,Not Ready
+STU041,Preparing
+STU042,Not Ready
+STU043,Ready
+STU044,Not Ready
+STU045,Preparing
+STU046,Ready
+STU047,Preparing
+STU048,Preparing
+STU049,Preparing
+STU050,Not Ready
+STU051,Not Ready
+STU052,Not Ready
+STU053,Preparing
+STU054,Ready
+STU055,Not Ready
+STU056,Not Ready
+STU057,Preparing
+STU058,Preparing
+STU059,Not Ready
+STU060,Preparing
+STU061,Not Ready
+STU062,Preparing
+STU063,Not Ready
+STU064,Not Ready
+STU065,Preparing
+STU066,Ready
+STU067,Preparing
+STU068,Preparing
+STU069,Not Ready
+STU070,Preparing
+STU071,Ready
+STU072,Ready
+STU073,Not Ready
+STU074,Preparing
+STU075,Not Ready
+STU076,Not Ready
+STU077,Not Ready
+STU078,Ready
+STU079,Not Ready
+STU080,Not Ready
+STU081,Not Ready
+STU082,Preparing
+STU083,Not Ready
+STU084,Preparing
+STU085,Not Ready
+STU086,Ready
+STU087,Preparing
+STU088,Preparing
+STU089,Preparing
+STU090,Preparing
+STU091,Ready
+STU092,Not Ready
+STU093,Ready
+STU094,Not Ready
+STU095,Preparing
+STU096,Not Ready
+STU097,Not Ready
+STU098,Preparing
+STU099,Preparing
+STU100,Not Ready
+STU101,Not Ready
+STU102,Not Ready
+STU103,Not Ready
+STU104,Preparing
+STU105,Preparing
+STU106,Not Ready
+STU107,Not Ready
+STU108,Preparing
+STU109,Not Ready
+STU110,Preparing
+STU111,Preparing
+STU112,Not Ready
+STU113,Not Ready
+STU114,Not Ready
+STU115,Preparing
+STU116,Preparing
+STU117,Ready
+STU118,Preparing
+STU119,Preparing
+STU120,Ready
+STU121,Not Ready
+STU122,Not Ready
+STU123,Not Ready
+STU124,Not Ready
+STU125,Ready
+STU126,Ready
+STU127,Not Ready
+STU128,Ready
+STU129,Not Ready
+STU130,Not Ready
+STU131,Ready
+STU132,Ready
+STU133,Ready
+STU134,Ready
+STU135,Not Ready
+STU136,Not Ready
+STU137,Not Ready
+STU138,Preparing
+STU139,Not Ready
+STU140,Not Ready
+STU141,Not Ready
+STU142,Preparing
+STU143,Not Ready
+STU144,Not Ready
+STU145,Ready
+STU146,Not Ready
+STU147,Not Ready
+STU148,Not Ready
+STU149,Ready
+STU150,Ready
+STU151,Ready
+STU152,Not Ready
+STU153,Preparing
+STU154,Ready
+STU155,Preparing
+STU156,Ready
+STU157,Preparing
+STU158,Not Ready
+STU159,Not Ready
+STU160,Not Ready
+STU161,Preparing
+STU162,Not Ready
+STU163,Not Ready
+STU164,Not Ready
+STU165,Not Ready
+STU166,Preparing
+STU167,Ready
+STU168,Ready
+STU169,Not Ready
+STU170,Preparing
+STU171,Ready
+STU172,Preparing
+STU173,Not Ready
+STU174,Ready
+STU175,Not Ready
+STU176,Not Ready
+STU177,Ready
+STU178,Preparing
+STU179,Not Ready
+STU180,Ready
+STU181,Preparing
+STU182,Preparing
+STU183,Not Ready
+STU184,Preparing
+STU185,Not Ready
+STU186,Not Ready
+STU187,Ready
+STU188,Ready
+STU189,Ready
+STU190,Not Ready
+STU191,Not Ready
+STU192,Ready
+STU193,Preparing
+STU194,Preparing
+STU195,Ready
+STU196,Preparing
+STU197,Ready
+STU198,Ready
+STU199,Preparing
+STU200,Ready
+STU201,Not Ready
+STU202,Not Ready
+STU203,Preparing
+STU204,Preparing
+STU205,Not Ready
+STU206,Preparing
+STU207,Preparing
+STU208,Ready
+STU209,Not Ready
+STU210,Not Ready
+STU211,Ready
+STU212,Not Ready
+STU213,Preparing
+STU214,Not Ready
+STU215,Not Ready
+STU216,Preparing
+STU217,Preparing
+STU218,Not Ready
+STU219,Ready
+STU220,Not Ready
+STU221,Preparing
+STU222,Not Ready
+STU223,Preparing
+STU224,Ready
+STU225,Not Ready
+STU226,Not Ready
+STU227,Not Ready
+STU228,Ready
+STU229,Preparing
+STU230,Not Ready
+STU231,Ready
+STU232,Preparing
+STU233,Preparing
+STU234,Not Ready
+STU235,Not Ready
+STU236,Ready
+STU237,Ready
+STU238,Not Ready
+STU239,Not Ready
+STU240,Ready
+STU241,Not Ready
+STU242,Not Ready
+STU243,Not Ready
+STU244,Ready
+STU245,Preparing
+STU246,Not Ready
+STU247,Not Ready
+STU248,Preparing
+STU249,Preparing
+STU250,Preparing
+STU251,Not Ready
+STU252,Not Ready
+STU253,Not Ready
+STU254,Ready
+STU255,Not Ready
+STU256,Not Ready
+STU257,Not Ready
+STU258,Preparing
+STU259,Preparing
+STU260,Preparing
+STU261,Not Ready
+STU262,Preparing
+STU263,Not Ready
+STU264,Not Ready
+STU265,Not Ready
+STU266,Not Ready
+STU267,Not Ready
+STU268,Preparing
+STU269,Not Ready
+STU270,Not Ready
+STU271,Not Ready
+STU272,Not Ready
+STU273,Not Ready
+STU274,Not Ready
+STU275,Not Ready
+STU276,Ready
+STU277,Not Ready
+STU278,Preparing
+STU279,Preparing
+STU280,Ready
+STU281,Preparing
+STU282,Not Ready
+STU283,Not Ready
+STU284,Ready
+STU285,Not Ready
+STU286,Preparing
+STU287,Not Ready
+STU288,Not Ready
+STU289,Ready
+STU290,Not Ready
+STU291,Ready
+STU292,Ready
+STU293,Preparing
+STU294,Preparing
+STU295,Not Ready
+STU296,Preparing
+STU297,Not Ready
+STU298,Ready
+STU299,Ready
+STU300,Preparing
+STU301,Not Ready
+STU302,Ready
+STU303,Preparing
+STU304,Ready
+STU305,Not Ready
+STU306,Preparing
+STU307,Ready
+STU308,Ready
+STU309,Not Ready
+STU310,Ready
+STU311,Not Ready
+STU312,Not Ready
+STU313,Not Ready
+STU314,Not Ready
+STU315,Not Ready
+STU316,Preparing
+STU317,Not Ready
+STU318,Not Ready
+STU319,Not Ready
+STU320,Preparing
+STU321,Preparing
+STU322,Not Ready
+STU323,Not Ready
+STU324,Not Ready
+STU325,Not Ready
+STU326,Not Ready
+STU327,Not Ready
+STU328,Ready
+STU329,Preparing
+STU330,Ready
+STU331,Not Ready
+STU332,Not Ready
+STU333,Ready
+STU334,Not Ready
+STU335,Not Ready
+STU336,Ready
+STU337,Ready
+STU338,Preparing
+STU339,Not Ready
+STU340,Not Ready
+STU341,Ready
+STU342,Preparing
+STU343,Preparing
+STU344,Preparing
+STU345,Not Ready
+STU346,Preparing
+STU347,Preparing
+STU348,Not Ready
+STU349,Preparing
+STU350,Ready
+STU351,Not Ready
+STU352,Not Ready
+STU353,Not Ready
+STU354,Not Ready
+STU355,Ready
+STU356,Not Ready
+STU357,Not Ready
+STU358,Ready
+STU359,Preparing
+STU360,Ready
+STU361,Not Ready
+STU362,Not Ready
+STU363,Ready
+STU364,Preparing
+STU365,Preparing
+STU366,Ready
+STU367,Not Ready
+STU368,Not Ready
+STU369,Ready
+STU370,Not Ready
+STU371,Not Ready
+STU372,Ready
+STU373,Ready
+STU374,Ready
+STU375,Preparing
+STU376,Not Ready
+STU377,Not Ready
+STU378,Not Ready
+STU379,Preparing
+STU380,Not Ready
+STU381,Not Ready
+STU382,Preparing
+STU383,Not Ready
+STU384,Ready
+STU385,Preparing
+STU386,Not Ready
+STU387,Not Ready
+STU388,Not Ready
+STU389,Not Ready
+STU390,Preparing
+STU391,Not Ready
+STU392,Not Ready
+STU393,Not Ready
+STU394,Ready
+STU395,Not Ready
+STU396,Preparing
+STU397,Not Ready
+STU398,Not Ready
+STU399,Not Ready
+STU400,Ready
+STU401,Ready
+STU402,Preparing
+STU403,Preparing
+STU404,Not Ready
+STU405,Not Ready
+STU406,Not Ready
+STU407,Not Ready
+STU408,Not Ready
+STU409,Preparing
+STU410,Not Ready
+STU411,Not Ready
+STU412,Not Ready
+STU413,Ready
+STU414,Preparing
+STU415,Ready
+STU416,Preparing
+STU417,Ready
+STU418,Not Ready
+STU419,Preparing
+STU420,Not Ready
+STU421,Not Ready
+STU422,Ready
+STU423,Not Ready
+STU424,Not Ready
+STU425,Not Ready
+STU426,Not Ready
+STU427,Ready
+STU428,Ready
+STU429,Preparing
+STU430,Preparing
+STU431,Preparing
+STU432,Ready
+STU433,Preparing
+STU434,Preparing
+STU435,Not Ready
+STU436,Not Ready
+STU437,Not Ready
+STU438,Preparing
+STU439,Preparing
+STU440,Ready
+STU441,Not Ready
+STU442,Not Ready
+STU443,Not Ready
+STU444,Preparing
+STU445,Not Ready
+STU446,Ready
+STU447,Preparing
+STU448,Not Ready
+STU449,Not Ready
+STU450,Not Ready
+STU451,Not Ready
+STU452,Not Ready
+STU453,Not Ready
+STU454,Ready
+STU455,Not Ready
+STU456,Ready
+STU457,Preparing
+STU458,Not Ready
+STU459,Preparing
+STU460,Preparing
+STU461,Preparing
+STU462,Not Ready
+STU463,Not Ready
+STU464,Preparing
+STU465,Not Ready
+STU466,Preparing
+STU467,Preparing
+STU468,Not Ready
+STU469,Ready
+STU470,Not Ready
+STU471,Preparing
+STU472,Not Ready
+STU473,Not Ready
+STU474,Preparing
+STU475,Preparing
+STU476,Ready
+STU477,Not Ready
+STU478,Preparing
+STU479,Ready
+STU480,Not Ready
+STU481,Preparing
+STU482,Not Ready
+STU483,Ready
+STU484,Ready
+STU485,Ready
+STU486,Preparing
+STU487,Not Ready
+STU488,Ready
+STU489,Not Ready
+STU490,Ready
+STU491,Not Ready
+STU492,Not Ready
+STU493,Preparing
+STU494,Not Ready
+STU495,Not Ready
+STU496,Not Ready
+STU497,Not Ready
+STU498,Preparing
+STU499,Not Ready
+STU500,Preparing
+STU501,Ready
+STU502,Preparing
+STU503,Not Ready
+STU504,Not Ready
+STU505,Not Ready
+STU506,Preparing
+STU507,Ready
+STU508,Ready
+STU509,Preparing
+STU510,Not Ready
+STU511,Not Ready
+STU512,Not Ready
+STU513,Not Ready
+STU514,Ready
+STU515,Not Ready
+STU516,Not Ready
+STU517,Not Ready
+STU518,Not Ready
+STU519,Not Ready
+STU520,Preparing
+STU521,Not Ready
+STU522,Ready
+STU523,Not Ready
+STU524,Not Ready
+STU525,Preparing
+STU526,Ready
+STU527,Not Ready
+STU528,Preparing
+STU529,Preparing
+STU530,Not Ready
+STU531,Preparing
+STU532,Not Ready
+STU533,Not Ready
+STU534,Not Ready
+STU535,Ready
+STU536,Not Ready
+STU537,Preparing
+STU538,Not Ready
+STU539,Not Ready
+STU540,Not Ready
+STU541,Not Ready
+STU542,Not Ready
+STU543,Ready
+STU544,Preparing
+STU545,Ready
+STU546,Preparing
+STU547,Preparing
+STU548,Preparing
+STU549,Not Ready
+STU550,Not Ready
+STU551,Not Ready
+STU552,Preparing
+STU553,Not Ready
+STU554,Preparing
+STU555,Preparing
+STU556,Preparing
+STU557,Not Ready
+STU558,Not Ready
+STU559,Preparing
+STU560,Not Ready
+STU561,Preparing
+STU562,Not Ready
+STU563,Not Ready
+STU564,Preparing
+STU565,Not Ready
+STU566,Not Ready
+STU567,Ready
+STU568,Ready
+STU569,Preparing
+STU570,Ready
+STU571,Not Ready
+STU572,Not Ready
+STU573,Preparing
+STU574,Preparing
+STU575,Not Ready
+STU576,Preparing
+STU577,Not Ready
+STU578,Not Ready
+STU579,Not Ready
+STU580,Not Ready
+STU581,Not Ready
+STU582,Ready
+STU583,Preparing
+STU584,Not Ready
+STU585,Preparing
+STU586,Preparing
+STU587,Ready
+STU588,Preparing
+STU589,Preparing
+STU590,Not Ready
+STU591,Not Ready
+STU592,Not Ready
+STU593,Not Ready
+STU594,Preparing
+STU595,Ready
+STU596,Ready
+STU597,Ready
+STU598,Preparing
+STU599,Ready
+STU600,Ready
+STU601,Not Ready
+STU602,Preparing
+STU603,Ready
+STU604,Preparing
+STU605,Ready
+STU606,Preparing
+STU607,Preparing
+STU608,Not Ready
+STU609,Preparing
+STU610,Ready
+STU611,Not Ready
+STU612,Not Ready
+STU613,Ready
+STU614,Preparing
+STU615,Not Ready
+STU616,Ready
+STU617,Preparing
+STU618,Not Ready
+STU619,Not Ready
+STU620,Not Ready
+STU621,Preparing
+STU622,Preparing
+STU623,Not Ready
+STU624,Preparing
+STU625,Preparing
+STU626,Preparing
+STU627,Ready
+STU628,Ready
+STU629,Not Ready
+STU630,Not Ready
+STU631,Not Ready
+STU632,Not Ready
+STU633,Not Ready
+STU634,Ready
+STU635,Not Ready
+STU636,Preparing
+STU637,Not Ready
+STU638,Ready
+STU639,Not Ready
+STU640,Preparing
+STU641,Preparing
+STU642,Preparing
+STU643,Preparing
+STU644,Not Ready
+STU645,Not Ready
+STU646,Ready
+STU647,Ready
+STU648,Preparing
+STU649,Not Ready
+STU650,Not Ready
+STU651,Preparing
+STU652,Not Ready
+STU653,Ready
+STU654,Not Ready
+STU655,Ready
+STU656,Preparing
+STU657,Not Ready
+STU658,Ready
+STU659,Preparing
+STU660,Not Ready
+STU661,Not Ready
+STU662,Not Ready
+STU663,Ready
+STU664,Preparing
+STU665,Not Ready
+STU666,Not Ready
+STU667,Ready
+STU668,Preparing
+STU669,Not Ready
+STU670,Preparing
+STU671,Ready
+STU672,Preparing
+STU673,Not Ready
+STU674,Preparing
+STU675,Ready
+STU676,Not Ready
+STU677,Not Ready
+STU678,Ready
+STU679,Ready
+STU680,Ready
+STU681,Preparing
+STU682,Not Ready
+STU683,Ready
+STU684,Not Ready
+STU685,Not Ready
+STU686,Preparing
+STU687,Not Ready
+STU688,Not Ready
+STU689,Not Ready
+STU690,Preparing
+STU691,Not Ready
+STU692,Not Ready
+STU693,Not Ready
+STU694,Not Ready
+STU695,Not Ready
+STU696,Not Ready
+STU697,Not Ready
+STU698,Not Ready
+STU699,Preparing
+STU700,Ready
+STU701,Not Ready
+STU702,Preparing
+STU703,Not Ready
+STU704,Not Ready
+STU705,Ready
+STU706,Not Ready
+STU707,Not Ready
+STU708,Not Ready
+STU709,Preparing
+STU710,Not Ready
+STU711,Not Ready
+STU712,Not Ready
+STU713,Not Ready
+STU714,Preparing
+STU715,Preparing
+STU716,Preparing
+STU717,Preparing
+STU718,Not Ready
+STU719,Ready
+STU720,Preparing
+STU721,Not Ready
+STU722,Preparing
+STU723,Not Ready
+STU724,Ready
+STU725,Ready
+STU726,Not Ready
+STU727,Not Ready
+STU728,Not Ready
+STU729,Not Ready
+STU730,Not Ready
+STU731,Not Ready
+STU732,Preparing
+STU733,Preparing
+STU734,Not Ready
+STU735,Not Ready
+STU736,Preparing
+STU737,Not Ready
+STU738,Not Ready
+STU739,Not Ready
+STU740,Not Ready
+STU741,Ready
+STU742,Preparing
+STU743,Preparing
+STU744,Preparing
+STU745,Preparing
+STU746,Preparing
+STU747,Not Ready
+STU748,Not Ready
+STU749,Not Ready
+STU750,Preparing
+STU751,Ready
+STU752,Ready
+STU753,Not Ready
+STU754,Not Ready
+STU755,Not Ready
+STU756,Not Ready
+STU757,Preparing
+STU758,Ready
+STU759,Not Ready
+STU760,Preparing
+STU761,Not Ready
+STU762,Not Ready
+STU763,Not Ready
+STU764,Not Ready
+STU765,Not Ready
+STU766,Ready
+STU767,Ready
+STU768,Not Ready
+STU769,Ready
+STU770,Preparing
+STU771,Not Ready
+STU772,Preparing
+STU773,Not Ready
+STU774,Not Ready
+STU775,Not Ready
+STU776,Preparing
+STU777,Preparing
+STU778,Not Ready
+STU779,Not Ready
+STU780,Preparing
+STU781,Preparing
+STU782,Preparing
+STU783,Ready
+STU784,Not Ready
+STU785,Preparing
+STU786,Preparing
+STU787,Preparing
+STU788,Preparing
+STU789,Not Ready
+STU790,Preparing
+STU791,Preparing
+STU792,Not Ready
+STU793,Ready
+STU794,Ready
+STU795,Ready
+STU796,Not Ready
+STU797,Preparing
+STU798,Ready
+STU799,Not Ready
+STU800,Preparing
+STU801,Ready
+STU802,Preparing
+STU803,Preparing
+STU804,Ready
+STU805,Preparing
+STU806,Not Ready
+STU807,Ready
+STU808,Not Ready
+STU809,Preparing
+STU810,Not Ready
+STU811,Preparing
+STU812,Not Ready
+STU813,Not Ready
+STU814,Preparing
+STU815,Ready
+STU816,Preparing
+STU817,Not Ready
+STU818,Not Ready
+STU819,Preparing
+STU820,Not Ready
+STU821,Ready
+STU822,Not Ready
+STU823,Not Ready
+STU824,Not Ready
+STU825,Preparing
+STU826,Ready
+STU827,Not Ready
+STU828,Not Ready
+STU829,Not Ready
+STU830,Not Ready
+STU831,Not Ready
+STU832,Ready
+STU833,Ready
+STU834,Not Ready
+STU835,Ready
+STU836,Ready
+STU837,Not Ready
+STU838,Preparing
+STU839,Ready
+STU840,Not Ready
+STU841,Ready
+STU842,Preparing
+STU843,Not Ready
+STU844,Ready
+STU845,Ready
+STU846,Not Ready
+STU847,Ready
+STU848,Preparing
+STU849,Not Ready
+STU850,Not Ready
+STU851,Preparing
+STU852,Preparing
+STU853,Ready
+STU854,Preparing
+STU855,Not Ready
+STU856,Not Ready
+STU857,Ready
+STU858,Ready
+STU859,Not Ready
+STU860,Preparing
+STU861,Not Ready
+STU862,Not Ready
+STU863,Not Ready
+STU864,Preparing
+STU865,Preparing
+STU866,Preparing
+STU867,Not Ready
+STU868,Preparing
+STU869,Not Ready
+STU870,Ready
+STU871,Not Ready
+STU872,Ready
+STU873,Not Ready
+STU874,Ready
+STU875,Not Ready
+STU876,Not Ready
+STU877,Preparing
+STU878,Ready
+STU879,Not Ready
+STU880,Not Ready
+STU881,Preparing
+STU882,Ready
+STU883,Ready
+STU884,Ready
+STU885,Ready
+STU886,Ready
+STU887,Preparing
+STU888,Not Ready
+STU889,Not Ready
+STU890,Ready
+STU891,Not Ready
+STU892,Ready
+STU893,Not Ready
+STU894,Not Ready
+STU895,Not Ready
+STU896,Ready
+STU897,Not Ready
+STU898,Ready
+STU899,Preparing
+STU900,Not Ready
+STU901,Preparing
+STU902,Preparing
+STU903,Ready
+STU904,Preparing
+STU905,Ready
+STU906,Preparing
+STU907,Not Ready
+STU908,Preparing
+STU909,Preparing
+STU910,Not Ready
+STU911,Not Ready
+STU912,Ready
+STU913,Preparing
+STU914,Not Ready
+STU915,Not Ready
+STU916,Not Ready
+STU917,Not Ready
+STU918,Preparing
+STU919,Not Ready
+STU920,Not Ready
+STU921,Preparing
+STU922,Preparing
+STU923,Not Ready
+STU924,Preparing
+STU925,Ready
+STU926,Not Ready
+STU927,Ready
+STU928,Preparing
+STU929,Not Ready
+STU930,Not Ready
+STU931,Not Ready
+STU932,Not Ready
+STU933,Ready
+STU934,Ready
+STU935,Preparing
+STU936,Not Ready
+STU937,Preparing
+STU938,Ready
+STU939,Not Ready
+STU940,Not Ready
+STU941,Not Ready
+STU942,Ready
+STU943,Not Ready
+STU944,Not Ready
+STU945,Preparing
+STU946,Preparing
+STU947,Not Ready
+STU948,Not Ready
+STU949,Not Ready
+STU950,Not Ready
+STU951,Not Ready
+STU952,Ready
+STU953,Ready
+STU954,Not Ready
+STU955,Preparing
+STU956,Ready
+STU957,Ready
+STU958,Preparing
+STU959,Preparing
+STU960,Preparing
+STU961,Not Ready
+STU962,Ready
+STU963,Ready
+STU964,Preparing
+STU965,Ready
+STU966,Not Ready
+STU967,Ready
+STU968,Ready
+STU969,Ready
+STU970,Not Ready
+STU971,Ready
+STU972,Ready
+STU973,Preparing
+STU974,Not Ready
+STU975,Not Ready
+STU976,Not Ready
+STU977,Not Ready
+STU978,Preparing
+STU979,Not Ready
+STU980,Preparing
+STU981,Ready
+STU982,Not Ready
+STU983,Ready
+STU984,Ready
+STU985,Not Ready
+STU986,Ready
+STU987,Ready
+STU988,Preparing
+STU989,Not Ready
+STU990,Not Ready
+STU991,Preparing
+STU992,Ready
+STU993,Ready
+STU994,Ready
+STU995,Ready
+STU996,Ready
+STU997,Not Ready
+STU998,Ready
+STU999,Preparing
+STU1000,Ready

@@ -26,7 +26,8 @@ def create_tables():
             assignments REAL NOT NULL,
             backlogs INTEGER NOT NULL,
             internship_status TEXT NOT NULL,
-            placement_status TEXT NOT NULL
+            placement_status TEXT NOT NULL,
+            risk_label INTEGER NOT NULL
         )
     """)
 
