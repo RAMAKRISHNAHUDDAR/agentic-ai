@@ -24,3 +24,13 @@ def test_coordinator_handles_invalid_student():
     )
 
     assert result["status"] == "error"
+    
+def test_coordinator_handles_missing_student_id():
+    agent = CoordinatorAgent()
+
+    result = agent.run(
+        "Collect complete student information"
+    )
+
+    assert result["status"] == "error"
+    assert "student ID" in result["message"]
