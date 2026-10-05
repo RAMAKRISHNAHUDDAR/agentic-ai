@@ -1,0 +1,11 @@
+student_id,name,attendance,marks,assignments,backlogs,internship_status,placement_status
+STU001,Rahul Sharma,92,85,95,0,Completed,Ready
+STU002,Amit Kumar,68,58,65,1,In Progress,Preparing
+STU003,Sneha Patil,45,38,42,2,Not Started,Not Ready
+STU004,Arjun Rao,78,72,80,0,In Progress,Preparing
+STU005,Priya Shah,55,48,52,1,Not Started,Not Ready
+STU006,Kiran Joshi,88,81,90,0,Completed,Ready
+STU007,Neha Kulkarni,62,55,60,1,In Progress,Preparing
+STU008,Vivek Desai,40,35,30,3,Not Started,Not Ready
+STU009,Ananya Rao,95,91,96,0,Completed,Ready
+STU010,Rohit Patil,72,65,70,0,In Progress,Preparing
