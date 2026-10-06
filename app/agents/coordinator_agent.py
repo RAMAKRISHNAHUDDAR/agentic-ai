@@ -30,6 +30,12 @@ class CoordinatorAgent:
         if contineo.get("status") == "error":
             return contineo
 
+        if not contineo.get("student"):
+            return {
+        "status": "error",
+        "message": f"Student {student_id} not found."
+        }   
+
         lms = self.lms_agent.collect(student_id)
         internship = self.internship_agent.collect(student_id)
         placement = self.placement_agent.collect(student_id)
