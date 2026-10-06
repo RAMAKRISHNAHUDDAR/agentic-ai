@@ -53,7 +53,8 @@ def analyze_student_risk(student_id):
 
 
 if __name__ == "__main__":
-    result = analyze_student_risk("STU003")
+    student_id = input("Enter student ID: ")
+    result = analyze_student_risk(student_id)
 
     print("Student Risk Analysis")
     print("---------------------")
