@@ -1,6 +1,7 @@
 from app.database.database import get_student
 from app.agents.risk_agent import analyze_student_risk
 from app.memory.intervention_memory import log_intervention
+from app.runtime.audit_logger import log_action
 
 
 def generate_recommendations(student):
@@ -46,16 +47,18 @@ def generate_recommendations(student):
 
 
 def create_action_plan(student_id):
-    """Create an intervention action plan for a student."""
     student = get_student(student_id)
 
     if not student:
-        return {
-            "error": "Student not found"
-        }
+        log_action(
+            student_id,
+            "Recommendation Agent",
+            "create_action_plan",
+            "Student not found"
+        )
+        return {"error": "Student not found"}
 
     risk_analysis = analyze_student_risk(student_id)
-
     recommendations = generate_recommendations(student)
 
     interventions = []
@@ -67,6 +70,13 @@ def create_action_plan(student_id):
                 intervention=recommendation
             )
         )
+
+    log_action(
+        student["student_id"],
+        "Recommendation Agent",
+        "create_action_plan",
+        f"{len(recommendations)} recommendations generated"
+    )
 
     return {
         "student_id": student["student_id"],
