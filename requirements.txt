@@ -1,0 +1,9 @@
+streamlit==1.65.0
+pandas==3.0.6
+scikit-learn==1.9.1
+mcp==2.3.0
+
+for a new user, use:
+
+$env:PYTHONPATH="."
+streamlit run app/ui/dashboard.py

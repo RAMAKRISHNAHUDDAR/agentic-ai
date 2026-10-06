@@ -1,9 +1,9 @@
 from app.database.database import get_student
 from app.ml.risk_model import train_model, predict_risk
+from app.runtime.audit_logger import log_action
 
 
 def generate_reasons(student):
-    """Generate simple reasons for the student's risk."""
     reasons = []
 
     if student["attendance"] < 60:
@@ -25,28 +25,35 @@ def generate_reasons(student):
 
 
 def analyze_student_risk(student_id):
-    """Analyze the risk of one student."""
     student = get_student(student_id)
 
     if not student:
-        return {
-            "error": "Student not found"
-        }
+        log_action(
+            student_id,
+            "Risk Analysis Agent",
+            "analyze_risk",
+            "Student not found"
+        )
+
+        return {"error": "Student not found"}
 
     model, _, _ = train_model()
-
     prediction = predict_risk(model, student)
-
     reasons = generate_reasons(student)
+
+    risk = "At Risk" if prediction["prediction"] == 1 else "Not At Risk"
+
+    log_action(
+        student["student_id"],
+        "Risk Analysis Agent",
+        "analyze_risk",
+        risk
+    )
 
     return {
         "student_id": student["student_id"],
         "name": student["name"],
-        "risk": (
-            "At Risk"
-            if prediction["prediction"] == 1
-            else "Not At Risk"
-        ),
+        "risk": risk,
         "risk_probability": prediction["risk_probability"],
         "reasons": reasons,
     }
@@ -54,16 +61,19 @@ def analyze_student_risk(student_id):
 
 if __name__ == "__main__":
     student_id = input("Enter student ID: ")
+
     result = analyze_student_risk(student_id)
 
-    print("Student Risk Analysis")
-    print("---------------------")
-    print(f"Student ID: {result['student_id']}")
-    print(f"Name: {result['name']}")
-    print(f"Risk: {result['risk']}")
-    print(f"Risk Probability: {result['risk_probability']:.2%}")
+    if "error" in result:
+        print(result["error"])
+    else:
+        print("Student Risk Analysis")
+        print("---------------------")
+        print(f"Student ID: {result['student_id']}")
+        print(f"Name: {result['name']}")
+        print(f"Risk: {result['risk']}")
+        print(f"Risk Probability: {result['risk_probability']:.2%}")
 
-    print()
-    print("Reasons:")
-    for reason in result["reasons"]:
-        print(f"- {reason}")
+        print("\nReasons:")
+        for reason in result["reasons"]:
+            print(f"- {reason}")
