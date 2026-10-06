@@ -18,6 +18,7 @@ class PlacementDataCollectionAgent:
 if __name__ == "__main__":
     agent = PlacementDataCollectionAgent()
 
-    result = agent.collect("STU003")
+    student_id = input("Enter student ID: ")
+    result = agent.collect(student_id)
 
     print(result)

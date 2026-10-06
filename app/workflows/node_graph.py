@@ -58,6 +58,7 @@ class StudentSuccessNodeGraph:
 if __name__ == "__main__":
     workflow = StudentSuccessNodeGraph()
 
-    result = workflow.run("STU003")
+    student_id = input("Enter student ID: ")
+    result = workflow.run(student_id)
 
     print(result)
