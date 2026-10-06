@@ -1,5 +1,6 @@
 from app.database.database import get_student
 from app.agents.risk_agent import analyze_student_risk
+from app.memory.intervention_memory import log_intervention
 
 
 def generate_recommendations(student):
@@ -57,11 +58,22 @@ def create_action_plan(student_id):
 
     recommendations = generate_recommendations(student)
 
+    interventions = []
+
+    for recommendation in recommendations:
+        interventions.append(
+            log_intervention(
+                student_id=student_id,
+                intervention=recommendation
+            )
+        )
+
     return {
         "student_id": student["student_id"],
         "name": student["name"],
         "risk": risk_analysis["risk"],
         "risk_probability": risk_analysis["risk_probability"],
         "recommendations": recommendations,
+        "interventions": interventions,
         "mentor_approval_required": True,
     }
