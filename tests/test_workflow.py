@@ -20,7 +20,7 @@ def test_coordinator_handles_invalid_student():
     agent = CoordinatorAgent()
 
     result = agent.run(
-        "Collect complete student information for STU999"
+        "Collect complete student information for STU9999"
     )
 
     assert result["status"] == "error"
