@@ -100,3 +100,7 @@ dist/
 *.tmp
 *.temp
 *.bak
+
+# Runtime data
+data/audit_log.json
+data/intervention_memory.json
