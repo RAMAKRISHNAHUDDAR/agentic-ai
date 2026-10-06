@@ -1,7 +1,13 @@
+from app.database.database import update_intervention
 from app.memory.memory_manager import load_memory, save_memory
 from app.runtime.audit_logger import log_action
 
-def approve_intervention(student_id, intervention, mentor_feedback=""):
+
+def approve_intervention(
+    student_id,
+    intervention,
+    mentor_feedback=""
+):
     """Approve a pending intervention for a student."""
     records = load_memory()
 
@@ -13,7 +19,15 @@ def approve_intervention(student_id, intervention, mentor_feedback=""):
         ):
             record["status"] = "approved"
             record["mentor_feedback"] = mentor_feedback
+
             save_memory(records)
+
+            update_intervention(
+                student_id=student_id,
+                intervention=intervention,
+                status="approved",
+                mentor_feedback=mentor_feedback,
+            )
 
             log_action(
                 student_id,
@@ -27,7 +41,11 @@ def approve_intervention(student_id, intervention, mentor_feedback=""):
     return {"error": "Pending intervention not found"}
 
 
-def reject_intervention(student_id, intervention, mentor_feedback=""):
+def reject_intervention(
+    student_id,
+    intervention,
+    mentor_feedback=""
+):
     """Reject a pending intervention for a student."""
     records = load_memory()
 
@@ -39,7 +57,15 @@ def reject_intervention(student_id, intervention, mentor_feedback=""):
         ):
             record["status"] = "rejected"
             record["mentor_feedback"] = mentor_feedback
+
             save_memory(records)
+
+            update_intervention(
+                student_id=student_id,
+                intervention=intervention,
+                status="rejected",
+                mentor_feedback=mentor_feedback,
+            )
 
             log_action(
                 student_id,

@@ -30,7 +30,16 @@ def create_tables():
             risk_label INTEGER NOT NULL
         )
     """)
-
+    connection.execute("""
+        CREATE TABLE IF NOT EXISTS interventions (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            student_id TEXT NOT NULL,
+            intervention TEXT NOT NULL,
+            status TEXT NOT NULL,
+            mentor_feedback TEXT DEFAULT '',
+            timestamp TEXT NOT NULL
+        )
+    """)
     connection.commit()
     connection.close()
 
@@ -62,3 +71,98 @@ def get_all_students():
     connection.close()
 
     return students
+
+def add_intervention(
+    student_id,
+    intervention,
+    status,
+    mentor_feedback,
+    timestamp
+):
+    """Store an intervention in the SQLite database."""
+    connection = get_connection()
+
+    connection.execute(
+        """
+        INSERT INTO interventions (
+            student_id,
+            intervention,
+            status,
+            mentor_feedback,
+            timestamp
+        )
+        VALUES (?, ?, ?, ?, ?)
+        """,
+        (
+            student_id,
+            intervention,
+            status,
+            mentor_feedback,
+            timestamp,
+        ),
+    )
+
+    connection.commit()
+    connection.close()
+
+
+def get_student_interventions(student_id):
+    """Return all interventions for a student from SQLite."""
+    connection = get_connection()
+
+    cursor = connection.execute(
+        """
+        SELECT
+            id,
+            student_id,
+            intervention,
+            status,
+            mentor_feedback,
+            timestamp
+        FROM interventions
+        WHERE student_id = ?
+        ORDER BY id
+        """,
+        (student_id,),
+    )
+
+    interventions = [
+        dict(row)
+        for row in cursor.fetchall()
+    ]
+
+    connection.close()
+
+    return interventions
+
+
+def update_intervention(
+    student_id,
+    intervention,
+    status,
+    mentor_feedback
+):
+    """Update an intervention's status and mentor feedback."""
+    connection = get_connection()
+
+    cursor = connection.execute(
+        """
+        UPDATE interventions
+        SET
+            status = ?,
+            mentor_feedback = ?
+        WHERE student_id = ?
+          AND intervention = ?
+        """,
+        (
+            status,
+            mentor_feedback,
+            student_id,
+            intervention,
+        ),
+    )
+
+    connection.commit()
+    connection.close()
+
+    return cursor.rowcount > 0
