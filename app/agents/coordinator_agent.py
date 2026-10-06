@@ -45,7 +45,7 @@ class CoordinatorAgent:
 
     @staticmethod
     def _extract_student_id(task: str):
-        """Find a student ID such as STU001 from the task."""
+        """Find a student ID from the task."""
         words = task.upper().replace(",", " ").split()
 
         for word in words:
@@ -58,8 +58,7 @@ class CoordinatorAgent:
 if __name__ == "__main__":
     agent = CoordinatorAgent()
 
-    result = agent.run(
-        "Collect complete student information for STU003"
-    )
+    task = input("Enter task: ")
+    result = agent.run(task)
 
     print(result)
