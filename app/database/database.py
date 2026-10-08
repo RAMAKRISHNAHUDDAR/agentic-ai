@@ -14,7 +14,7 @@ def get_connection():
 
 
 def create_tables():
-    """Create the students table if it does not already exist."""
+    """Create the database tables if they do not already exist."""
     connection = get_connection()
 
     connection.execute("""
@@ -30,6 +30,7 @@ def create_tables():
             risk_label INTEGER NOT NULL
         )
     """)
+
     connection.execute("""
         CREATE TABLE IF NOT EXISTS interventions (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -37,9 +38,11 @@ def create_tables():
             intervention TEXT NOT NULL,
             status TEXT NOT NULL,
             mentor_feedback TEXT DEFAULT '',
-            timestamp TEXT NOT NULL
+            timestamp TEXT NOT NULL,
+            UNIQUE(student_id, intervention)
         )
     """)
+
     connection.commit()
     connection.close()
 
@@ -72,6 +75,7 @@ def get_all_students():
 
     return students
 
+
 def add_intervention(
     student_id,
     intervention,
@@ -79,10 +83,29 @@ def add_intervention(
     mentor_feedback,
     timestamp
 ):
-    """Store an intervention in the SQLite database."""
+    """Store an intervention if it does not already exist."""
     connection = get_connection()
 
-    connection.execute(
+    cursor = connection.execute(
+        """
+        SELECT *
+        FROM interventions
+        WHERE student_id = ?
+          AND intervention = ?
+        """,
+        (
+            student_id,
+            intervention,
+        ),
+    )
+
+    existing = cursor.fetchone()
+
+    if existing:
+        connection.close()
+        return dict(existing)
+
+    cursor = connection.execute(
         """
         INSERT INTO interventions (
             student_id,
@@ -103,7 +126,22 @@ def add_intervention(
     )
 
     connection.commit()
+
+    intervention_id = cursor.lastrowid
+
+    cursor = connection.execute(
+        """
+        SELECT *
+        FROM interventions
+        WHERE id = ?
+        """,
+        (intervention_id,),
+    )
+
+    record = cursor.fetchone()
     connection.close()
+
+    return dict(record)
 
 
 def get_student_interventions(student_id):

@@ -5,7 +5,7 @@ import streamlit as st
 
 from app.database.database import get_student
 from app.agents.risk_agent import analyze_student_risk
-from app.agents.recommendation_agent import generate_recommendations
+from app.agents.recommendation_agent import create_action_plan
 from app.memory.intervention_memory import get_intervention_history
 
 
@@ -787,7 +787,6 @@ if st.button(
             )
 
         else:
-
             with st.spinner(
                 "Analyzing student risk..."
             ):
@@ -803,15 +802,31 @@ if st.button(
 
             else:
 
-                recommendations = generate_recommendations(
-                    student
-                )
-
-                intervention_history = (
-                    get_intervention_history(
-                        normalized_student_id
+                with st.spinner(
+                    "Generating intervention plan..."
+                ):
+                    action_plan = create_action_plan(
+                        normalized_student_id,
+                        risk_analysis=risk
                     )
-                )
+
+                if "error" in action_plan:
+
+                    st.error(
+                        action_plan["error"]
+                    )
+
+                else:
+
+                    recommendations = action_plan[
+                        "recommendations"
+                    ]
+
+                    intervention_history = (
+                        get_intervention_history(
+                            normalized_student_id
+                        )
+                    )
 
 
                 # ====================================================

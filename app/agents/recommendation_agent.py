@@ -23,6 +23,11 @@ def generate_recommendations(student):
             "Complete pending assignments and maintain regular submission."
         )
 
+    if student["backlogs"] >= 1:
+        recommendations.append(
+        "Focus on clearing the active backlog and maintain consistent study preparation."
+        )    
+
     if student["backlogs"] >= 2:
         recommendations.append(
             "Create a backlog clearance plan with mentor guidance."
@@ -46,7 +51,7 @@ def generate_recommendations(student):
     return recommendations
 
 
-def create_action_plan(student_id):
+def create_action_plan(student_id, risk_analysis=None):
     student = get_student(student_id)
 
     if not student:
@@ -59,6 +64,27 @@ def create_action_plan(student_id):
         return {"error": "Student not found"}
 
     risk_analysis = analyze_student_risk(student_id)
+
+    # Generate interventions only for students who are At Risk.
+    if risk_analysis is None:
+        risk_analysis = analyze_student_risk(student_id)
+        log_action(
+            student["student_id"],
+            "Recommendation Agent",
+            "create_action_plan",
+            "No intervention required - student is not at risk"
+        )
+
+        return {
+            "student_id": student["student_id"],
+            "name": student["name"],
+            "risk": risk_analysis["risk"],
+            "risk_probability": risk_analysis["risk_probability"],
+            "recommendations": [],
+            "interventions": [],
+            "mentor_approval_required": False,
+        }
+
     recommendations = generate_recommendations(student)
 
     interventions = []
