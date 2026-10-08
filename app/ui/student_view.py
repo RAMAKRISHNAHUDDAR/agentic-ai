@@ -1,4 +1,5 @@
 import html
+from pathlib import Path
 
 import streamlit as st
 
@@ -9,14 +10,13 @@ from app.memory.intervention_memory import get_intervention_history
 
 
 # ============================================================
-# PAGE CONFIG
+# PATHS
 # ============================================================
 
-st.set_page_config(
-    page_title="Student View | Student Success System",
-    page_icon="",
-    layout="wide",
-    initial_sidebar_state="collapsed",
+LOGO_PATH = (
+    Path(__file__).resolve().parent
+    / "assets"
+    / "kle_tech_logo.png"
 )
 
 
@@ -33,25 +33,13 @@ st.markdown(
        ======================================================== */
 
     .stApp {
-        background:
-            radial-gradient(
-                circle at 10% 0%,
-                rgba(37, 99, 235, 0.10),
-                transparent 30%
-            ),
-            radial-gradient(
-                circle at 90% 10%,
-                rgba(124, 58, 237, 0.08),
-                transparent 30%
-            ),
-            #080b12;
-
-        color: #f5f7fb;
+        background: #2a2020;
+        color: #ffffff;
     }
 
     .main .block-container {
         max-width: 1400px;
-        padding-top: 2.5rem;
+        padding-top: 1.5rem;
         padding-bottom: 4rem;
     }
 
@@ -65,117 +53,101 @@ st.markdown(
 
 
     /* ========================================================
-       HEADER
+       COLLEGE HEADER
        ======================================================== */
 
-    .student-header {
-        position: relative;
+    .college-header {
+        display: flex;
+        align-items: center;
+        gap: 22px;
 
-        padding: 2.8rem 2rem 2.5rem;
+        padding: 1.2rem 1.5rem;
+
+        background: #2a2020;
+
+        border-bottom: 3px solid #c4161c;
+
         margin-bottom: 2rem;
-
-        border-radius: 24px;
-
-        background:
-            radial-gradient(
-                circle at 50% 0%,
-                rgba(59, 130, 246, 0.15),
-                transparent 45%
-            ),
-            linear-gradient(
-                145deg,
-                rgba(25, 38, 62, 0.98),
-                rgba(11, 18, 32, 0.96)
-            );
-
-        border: 1px solid rgba(148, 163, 184, 0.16);
-
-        box-shadow:
-            0 25px 70px rgba(0, 0, 0, 0.32),
-            inset 0 1px 0 rgba(255, 255, 255, 0.05);
-
-        text-align: center;
-
-        overflow: hidden;
     }
 
-    .student-header::before {
-        content: "";
+    .college-logo {
+        width: 78px;
+        height: auto;
+        flex-shrink: 0;
+    }
 
-        position: absolute;
+    .college-name {
+        color: #ffffff;
 
-        top: 0;
-        left: 50%;
+        font-size: clamp(
+            1.1rem,
+            2vw,
+            1.6rem
+        );
 
-        width: 380px;
-        height: 2px;
+        font-weight: 600;
 
-        transform: translateX(-50%);
+        line-height: 1.4;
+    }
 
-        background:
-            linear-gradient(
-                90deg,
-                transparent,
-                #60a5fa,
-                #818cf8,
-                transparent
-            );
+
+    /* ========================================================
+       HOME BUTTON
+       ======================================================== */
+
+    .home-button-area {
+        margin-bottom: 1.5rem;
+    }
+
+    .home-button-area .stButton > button {
+        width: auto;
+        min-width: 150px;
+    }
+
+
+    /* ========================================================
+       PAGE HEADER
+       ======================================================== */
+
+    .page-header {
+        padding: 2rem 2.2rem;
+
+        margin-bottom: 2rem;
+
+        background: #c4161c;
+
+        border-radius: 4px;
 
         box-shadow:
-            0 0 25px rgba(96, 165, 250, 0.55);
+            0 12px 35px rgba(0, 0, 0, 0.25);
     }
 
     .page-title {
         margin: 0;
 
-        font-size: clamp(2rem, 4vw, 3rem);
+        color: #ffffff;
 
-        font-weight: 800;
+        font-size: clamp(
+            2rem,
+            4vw,
+            3rem
+        );
+
+        font-weight: 700;
 
         line-height: 1.15;
-
-        letter-spacing: -0.045em;
-
-        background:
-            linear-gradient(
-                90deg,
-                #ffffff 10%,
-                #dbeafe 50%,
-                #93c5fd 75%,
-                #ffffff 95%
-            );
-
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
     }
 
     .page-subtitle {
-        margin-top: 1rem;
+        margin-top: 0.8rem;
 
-        color: #94a3b8;
+        max-width: 850px;
 
-        font-size: 0.95rem;
+        color: #f8dede;
 
-        letter-spacing: 0.02em;
-    }
+        font-size: 0.98rem;
 
-    .header-line {
-        width: 65px;
-        height: 3px;
-
-        margin: 1.1rem auto 0;
-
-        border-radius: 999px;
-
-        background:
-            linear-gradient(
-                90deg,
-                #3b82f6,
-                #8b5cf6
-            );
-
-        box-shadow:
-            0 0 15px rgba(99, 102, 241, 0.4);
+        line-height: 1.6;
     }
 
 
@@ -185,22 +157,23 @@ st.markdown(
 
     .section-title {
         margin-top: 2rem;
-        margin-bottom: 0.45rem;
+        margin-bottom: 0.35rem;
 
-        color: #f8fafc;
+        color: #ffffff;
 
-        font-size: 1.25rem;
-        font-weight: 750;
+        font-size: 1.35rem;
 
-        letter-spacing: -0.015em;
+        font-weight: 650;
     }
 
     .section-subtitle {
-        margin-bottom: 1.15rem;
+        margin-bottom: 1.2rem;
 
-        color: #64748b;
+        color: #c8bebe;
 
         font-size: 0.88rem;
+
+        line-height: 1.5;
     }
 
 
@@ -209,49 +182,61 @@ st.markdown(
        ======================================================== */
 
     div[data-baseweb="input"] {
-        background: rgba(15, 23, 42, 0.88);
+        background: #ffffff;
 
-        border-radius: 11px;
+        border-radius: 3px;
 
-        border: 1px solid rgba(148, 163, 184, 0.18);
+        border: 1px solid #d8d0d0;
+    }
+
+    div[data-baseweb="input"] input {
+        color: #302525;
     }
 
     div[data-baseweb="input"]:focus-within {
-        border-color: #3b82f6;
+        border-color: #c4161c;
 
         box-shadow:
-            0 0 0 1px rgba(59, 130, 246, 0.3),
-            0 0 20px rgba(59, 130, 246, 0.08);
+            0 0 0 1px rgba(196, 22, 28, 0.25);
     }
+
+
+    /* ========================================================
+       BUTTONS
+       ======================================================== */
 
     .stButton > button {
         min-height: 44px;
 
-        border-radius: 10px;
+        border-radius: 3px;
 
-        border: 1px solid rgba(96, 165, 250, 0.35);
+        border: 1px solid #c4161c;
 
-        background:
-            linear-gradient(
-                135deg,
-                #2563eb,
-                #4f46e5
-            );
+        background: #c4161c;
 
-        color: white;
+        color: #ffffff;
 
-        font-weight: 650;
+        font-size: 0.9rem;
+
+        font-weight: 600;
 
         transition:
+            background 0.2s ease,
             transform 0.2s ease,
             box-shadow 0.2s ease;
     }
 
     .stButton > button:hover {
-        transform: translateY(-2px);
+        background: #a90f15;
+
+        border-color: #a90f15;
+
+        color: #ffffff;
+
+        transform: translateY(-1px);
 
         box-shadow:
-            0 10px 28px rgba(37, 99, 235, 0.32);
+            0 7px 18px rgba(196, 22, 28, 0.30);
     }
 
 
@@ -262,56 +247,36 @@ st.markdown(
     .info-card {
         padding: 1.35rem;
 
-        min-height: 108px;
+        min-height: 105px;
 
-        border-radius: 16px;
+        background: #ffffff;
 
-        background:
-            linear-gradient(
-                145deg,
-                rgba(30, 41, 59, 0.92),
-                rgba(15, 23, 42, 0.88)
-            );
+        border-radius: 4px;
 
-        border: 1px solid rgba(148, 163, 184, 0.13);
+        border-left: 5px solid #c4161c;
 
         box-shadow:
-            0 10px 30px rgba(0, 0, 0, 0.20);
-
-        transition:
-            transform 0.25s ease,
-            border-color 0.25s ease,
-            box-shadow 0.25s ease;
-    }
-
-    .info-card:hover {
-        transform: translateY(-3px);
-
-        border-color:
-            rgba(96, 165, 250, 0.35);
-
-        box-shadow:
-            0 18px 40px rgba(0, 0, 0, 0.28);
+            0 8px 25px rgba(0, 0, 0, 0.20);
     }
 
     .card-label {
-        color: #64748b;
+        color: #756969;
 
         font-size: 0.72rem;
 
-        font-weight: 650;
+        font-weight: 700;
 
         text-transform: uppercase;
 
-        letter-spacing: 0.09em;
+        letter-spacing: 0.08em;
     }
 
     .card-value {
         margin-top: 0.55rem;
 
-        color: #f8fafc;
+        color: #302525;
 
-        font-size: 1.45rem;
+        font-size: 1.4rem;
 
         font-weight: 700;
     }
@@ -324,41 +289,35 @@ st.markdown(
     .academic-card {
         padding: 1.25rem;
 
-        min-height: 112px;
+        min-height: 110px;
 
-        border-radius: 15px;
+        background: #ffffff;
 
-        background:
-            linear-gradient(
-                145deg,
-                rgba(15, 23, 42, 0.94),
-                rgba(17, 24, 39, 0.90)
-            );
+        border-radius: 4px;
 
-        border: 1px solid rgba(148, 163, 184, 0.13);
+        border-top: 4px solid #c4161c;
+
+        box-shadow:
+            0 8px 25px rgba(0, 0, 0, 0.18);
 
         transition:
-            transform 0.25s ease,
-            border-color 0.25s ease,
-            box-shadow 0.25s ease;
+            transform 0.2s ease,
+            box-shadow 0.2s ease;
     }
 
     .academic-card:hover {
         transform: translateY(-3px);
 
-        border-color:
-            rgba(59, 130, 246, 0.38);
-
         box-shadow:
-            0 15px 35px rgba(0, 0, 0, 0.25);
+            0 13px 30px rgba(0, 0, 0, 0.25);
     }
 
     .academic-label {
-        color: #64748b;
+        color: #756969;
 
         font-size: 0.72rem;
 
-        font-weight: 650;
+        font-weight: 700;
 
         text-transform: uppercase;
 
@@ -368,7 +327,7 @@ st.markdown(
     .academic-value {
         margin-top: 0.45rem;
 
-        color: #f8fafc;
+        color: #302525;
 
         font-size: 1.65rem;
 
@@ -377,43 +336,30 @@ st.markdown(
 
 
     /* ========================================================
-       STATUS CARD
+       STATUS CARDS
        ======================================================== */
 
     .status-card {
         padding: 1.25rem;
 
-        min-height: 112px;
+        min-height: 105px;
 
-        border-radius: 15px;
+        background: #ffffff;
 
-        background:
-            linear-gradient(
-                145deg,
-                rgba(15, 23, 42, 0.94),
-                rgba(17, 24, 39, 0.90)
-            );
+        border-radius: 4px;
 
-        border: 1px solid rgba(148, 163, 184, 0.13);
+        border-left: 5px solid #c4161c;
 
-        transition:
-            transform 0.25s ease,
-            border-color 0.25s ease;
-    }
-
-    .status-card:hover {
-        transform: translateY(-3px);
-
-        border-color:
-            rgba(96, 165, 250, 0.32);
+        box-shadow:
+            0 8px 25px rgba(0, 0, 0, 0.18);
     }
 
     .status-label {
-        color: #64748b;
+        color: #756969;
 
         font-size: 0.72rem;
 
-        font-weight: 650;
+        font-weight: 700;
 
         text-transform: uppercase;
 
@@ -423,7 +369,7 @@ st.markdown(
     .status-value {
         margin-top: 0.55rem;
 
-        color: #e2e8f0;
+        color: #302525;
 
         font-size: 1rem;
 
@@ -438,21 +384,16 @@ st.markdown(
     .risk-panel {
         margin-top: 0.5rem;
 
-        padding: 1.8rem;
+        padding: 1.7rem;
 
-        border-radius: 20px;
+        background: #ffffff;
 
-        background:
-            linear-gradient(
-                145deg,
-                rgba(30, 41, 59, 0.96),
-                rgba(15, 23, 42, 0.92)
-            );
+        border-radius: 4px;
 
-        border: 1px solid rgba(148, 163, 184, 0.14);
+        border-left: 6px solid #c4161c;
 
         box-shadow:
-            0 20px 50px rgba(0, 0, 0, 0.24);
+            0 10px 30px rgba(0, 0, 0, 0.22);
     }
 
     .risk-status {
@@ -460,21 +401,21 @@ st.markdown(
 
         font-weight: 800;
 
-        letter-spacing: -0.025em;
+        letter-spacing: -0.02em;
     }
 
     .risk-danger {
-        color: #f87171;
+        color: #c4161c;
     }
 
     .risk-safe {
-        color: #4ade80;
+        color: #287a45;
     }
 
     .risk-description {
-        margin-top: 0.45rem;
+        margin-top: 0.4rem;
 
-        color: #94a3b8;
+        color: #665b5b;
 
         font-size: 0.9rem;
     }
@@ -490,9 +431,11 @@ st.markdown(
 
         margin-bottom: 0.55rem;
 
-        color: #94a3b8;
+        color: #665b5b;
 
         font-size: 0.82rem;
+
+        font-weight: 600;
     }
 
     .progress-track {
@@ -504,7 +447,7 @@ st.markdown(
 
         border-radius: 999px;
 
-        background: #1e293b;
+        background: #e4dddd;
     }
 
     .progress-fill {
@@ -512,15 +455,7 @@ st.markdown(
 
         border-radius: 999px;
 
-        background:
-            linear-gradient(
-                90deg,
-                #3b82f6,
-                #8b5cf6
-            );
-
-        box-shadow:
-            0 0 14px rgba(99, 102, 241, 0.35);
+        background: #c4161c;
 
         animation:
             progressGrow 0.9s ease;
@@ -536,34 +471,25 @@ st.markdown(
 
         padding: 0.9rem 1rem;
 
-        border-radius: 10px;
+        background: #ffffff;
 
-        background:
-            rgba(30, 41, 59, 0.65);
+        border-radius: 3px;
 
-        border-left:
-            3px solid #3b82f6;
+        border-left: 4px solid #c4161c;
 
-        color: #cbd5e1;
+        color: #4d4444;
 
         font-size: 0.9rem;
 
-        transition:
-            background 0.2s ease,
-            transform 0.2s ease;
-    }
+        line-height: 1.5;
 
-    .reason-card:hover {
-        background:
-            rgba(30, 41, 59, 0.90);
-
-        transform:
-            translateX(3px);
+        box-shadow:
+            0 5px 18px rgba(0, 0, 0, 0.13);
     }
 
 
     /* ========================================================
-       RECOMMENDATION CARDS
+       RECOMMENDATIONS
        ======================================================== */
 
     .recommendation-card {
@@ -573,58 +499,20 @@ st.markdown(
 
         padding: 1rem 1.15rem 1rem 1.25rem;
 
-        border-radius: 12px;
+        background: #ffffff;
 
-        background:
-            linear-gradient(
-                145deg,
-                rgba(30, 41, 59, 0.82),
-                rgba(15, 23, 42, 0.78)
-            );
+        border-radius: 3px;
 
-        border: 1px solid rgba(148, 163, 184, 0.13);
+        border-left: 4px solid #c4161c;
 
-        color: #dbe4f0;
+        color: #4d4444;
 
         font-size: 0.9rem;
 
-        line-height: 1.5;
+        line-height: 1.55;
 
-        transition:
-            transform 0.2s ease,
-            border-color 0.2s ease,
-            background 0.2s ease;
-    }
-
-    .recommendation-card::before {
-        content: "";
-
-        position: absolute;
-
-        left: 0;
-        top: 12px;
-        bottom: 12px;
-
-        width: 3px;
-
-        border-radius: 999px;
-
-        background:
-            linear-gradient(
-                180deg,
-                #3b82f6,
-                #8b5cf6
-            );
-    }
-
-    .recommendation-card:hover {
-        transform: translateX(3px);
-
-        border-color:
-            rgba(96, 165, 250, 0.30);
-
-        background:
-            rgba(30, 41, 59, 0.94);
+        box-shadow:
+            0 5px 18px rgba(0, 0, 0, 0.13);
     }
 
 
@@ -637,20 +525,22 @@ st.markdown(
 
         padding: 1rem 1.1rem;
 
-        border-radius: 12px;
+        background: #ffffff;
 
-        background:
-            rgba(15, 23, 42, 0.82);
+        border-radius: 3px;
 
-        border: 1px solid rgba(148, 163, 184, 0.12);
+        border-left: 4px solid #c4161c;
+
+        box-shadow:
+            0 5px 18px rgba(0, 0, 0, 0.13);
     }
 
     .history-intervention {
-        color: #e2e8f0;
+        color: #302525;
 
         font-size: 0.92rem;
 
-        font-weight: 600;
+        font-weight: 650;
 
         line-height: 1.45;
     }
@@ -658,7 +548,7 @@ st.markdown(
     .history-meta {
         margin-top: 0.5rem;
 
-        color: #64748b;
+        color: #756969;
 
         font-size: 0.76rem;
     }
@@ -670,17 +560,17 @@ st.markdown(
 
         padding: 0.3rem 0.65rem;
 
-        border-radius: 999px;
+        border-radius: 3px;
 
-        background: rgba(59, 130, 246, 0.10);
+        background: #f7e1e1;
 
-        border: 1px solid rgba(59, 130, 246, 0.20);
+        border: 1px solid #e6bfc1;
 
-        color: #93c5fd;
+        color: #a90f15;
 
         font-size: 0.72rem;
 
-        font-weight: 650;
+        font-weight: 700;
 
         text-transform: uppercase;
 
@@ -690,7 +580,7 @@ st.markdown(
     .history-feedback {
         margin-top: 0.65rem;
 
-        color: #94a3b8;
+        color: #665b5b;
 
         font-size: 0.82rem;
 
@@ -708,11 +598,11 @@ st.markdown(
         margin: 2rem 0;
 
         background:
-            linear-gradient(
-                90deg,
-                transparent,
-                rgba(148, 163, 184, 0.20),
-                transparent
+            rgba(
+                255,
+                255,
+                255,
+                0.12
             );
     }
 
@@ -739,8 +629,22 @@ st.markdown(
             padding-right: 1rem;
         }
 
-        .student-header {
-            padding: 2.3rem 1.2rem 2rem;
+        .college-header {
+            gap: 14px;
+
+            padding: 1rem;
+        }
+
+        .college-logo {
+            width: 65px;
+        }
+
+        .college-name {
+            font-size: 1rem;
+        }
+
+        .page-header {
+            padding: 1.7rem 1.4rem;
         }
 
         .page-title {
@@ -748,7 +652,7 @@ st.markdown(
         }
 
         .risk-panel {
-            padding: 1.35rem;
+            padding: 1.3rem;
         }
 
         .risk-status {
@@ -763,21 +667,66 @@ st.markdown(
 
 
 # ============================================================
-# HEADER
+# COLLEGE HEADER
+# ============================================================
+
+header_col1, header_col2 = st.columns(
+    [1, 15],
+    vertical_alignment="center",
+)
+
+with header_col1:
+    st.image(
+        str(LOGO_PATH),
+        width=78,
+    )
+
+with header_col2:
+    st.html(
+        """
+        <div class="college-name">
+            KLE Technological University's, Dr. M. S. Sheshgiri Campus.
+        </div>
+        """
+    )
+
+
+# ============================================================
+# HOME BUTTON
+# ============================================================
+
+st.markdown(
+    '<div class="home-button-area">',
+    unsafe_allow_html=True,
+)
+
+if st.button(
+    "← Home",
+    key="student_home",
+):
+    st.switch_page("ui/dashboard.py")
+
+st.markdown(
+    "</div>",
+    unsafe_allow_html=True,
+)
+
+
+# ============================================================
+# PAGE HEADER
 # ============================================================
 
 st.html(
     """
-    <div class="student-header">
+    <div class="page-header">
 
         <div class="page-title">
             Student View
         </div>
 
-        <div class="header-line"></div>
-
         <div class="page-subtitle">
-            Individual academic performance, risk assessment and action plan
+            Individual academic performance, risk assessment,
+            recommendations and intervention history.
         </div>
 
     </div>
@@ -809,19 +758,27 @@ student_id = st.text_input(
 )
 
 
-if st.button("View Student"):
+if st.button(
+    "View Student",
+    key="view_student",
+):
 
     normalized_student_id = student_id.strip().upper()
 
     if not normalized_student_id:
 
-        st.warning("Please enter a Student ID.")
+        st.warning(
+            "Please enter a Student ID."
+        )
 
     else:
 
-        with st.spinner("Loading student information..."):
-
-            student = get_student(normalized_student_id)
+        with st.spinner(
+            "Loading student information..."
+        ):
+            student = get_student(
+                normalized_student_id
+            )
 
         if not student:
 
@@ -831,8 +788,9 @@ if st.button("View Student"):
 
         else:
 
-            with st.spinner("Analyzing student risk..."):
-
+            with st.spinner(
+                "Analyzing student risk..."
+            ):
                 risk = analyze_student_risk(
                     normalized_student_id
                 )
@@ -849,8 +807,10 @@ if st.button("View Student"):
                     student
                 )
 
-                intervention_history = get_intervention_history(
-                    normalized_student_id
+                intervention_history = (
+                    get_intervention_history(
+                        normalized_student_id
+                    )
                 )
 
 
@@ -885,7 +845,9 @@ if st.button("View Student"):
                             </div>
 
                             <div class="card-value">
-                                {html.escape(str(student["student_id"]))}
+                                {html.escape(
+                                    str(student["student_id"])
+                                )}
                             </div>
 
                         </div>
@@ -903,7 +865,9 @@ if st.button("View Student"):
                             </div>
 
                             <div class="card-value">
-                                {html.escape(str(student["name"]))}
+                                {html.escape(
+                                    str(student["name"])
+                                )}
                             </div>
 
                         </div>
@@ -922,7 +886,8 @@ if st.button("View Student"):
                     </div>
 
                     <div class="section-subtitle">
-                        Current academic indicators used by the risk system.
+                        Current academic indicators used by
+                        the risk system.
                     </div>
                     """
                 )
@@ -1002,7 +967,13 @@ if st.button("View Student"):
                             </div>
 
                             <div class="status-value">
-                                {html.escape(str(student["internship_status"]))}
+                                {html.escape(
+                                    str(
+                                        student[
+                                            "internship_status"
+                                        ]
+                                    )
+                                )}
                             </div>
 
                         </div>
@@ -1020,7 +991,13 @@ if st.button("View Student"):
                             </div>
 
                             <div class="status-value">
-                                {html.escape(str(student["placement_status"]))}
+                                {html.escape(
+                                    str(
+                                        student[
+                                            "placement_status"
+                                        ]
+                                    )
+                                )}
                             </div>
 
                         </div>
@@ -1039,7 +1016,8 @@ if st.button("View Student"):
                     </div>
 
                     <div class="section-subtitle">
-                        Risk classification generated by the student risk analysis agent.
+                        Risk classification generated by
+                        the student risk analysis agent.
                     </div>
                     """
                 )
@@ -1048,7 +1026,9 @@ if st.button("View Student"):
                     risk["risk_probability"]
                 )
 
-                probability_percent = probability * 100
+                probability_percent = (
+                    probability * 100
+                )
 
                 progress_width = max(
                     0,
@@ -1079,7 +1059,6 @@ if st.button("View Student"):
                         "No significant academic risk indicators "
                         "were detected."
                     )
-
 
                 st.html(
                     f"""
@@ -1134,7 +1113,8 @@ if st.button("View Student"):
                     </div>
 
                     <div class="section-subtitle">
-                        Indicators contributing to the student's current assessment.
+                        Indicators contributing to the student's
+                        current assessment.
                     </div>
                     """
                 )
@@ -1161,7 +1141,8 @@ if st.button("View Student"):
                     </div>
 
                     <div class="section-subtitle">
-                        Suggested actions based on the student's academic and career indicators.
+                        Suggested actions based on the student's
+                        academic and career indicators.
                     </div>
                     """
                 )
@@ -1171,7 +1152,9 @@ if st.button("View Student"):
                     st.html(
                         f"""
                         <div class="recommendation-card">
-                            {html.escape(str(recommendation))}
+                            {html.escape(
+                                str(recommendation)
+                            )}
                         </div>
                         """
                     )
@@ -1188,7 +1171,8 @@ if st.button("View Student"):
                     </div>
 
                     <div class="section-subtitle">
-                        Previously recorded mentor interventions for this student.
+                        Previously recorded mentor interventions
+                        for this student.
                     </div>
                     """
                 )
@@ -1196,12 +1180,15 @@ if st.button("View Student"):
                 if not intervention_history:
 
                     st.info(
-                        "No intervention records have been created for this student yet."
+                        "No intervention records have been "
+                        "created for this student yet."
                     )
 
                 else:
 
-                    for record in reversed(intervention_history):
+                    for record in reversed(
+                        intervention_history
+                    ):
 
                         intervention = html.escape(
                             str(

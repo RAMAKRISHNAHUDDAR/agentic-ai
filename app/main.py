@@ -29,7 +29,8 @@ pg = st.navigation(
         dashboard,
         student_view,
         intervention_view,
-    ]
+    ],
+    position="hidden",
 )
 
 pg.run()
