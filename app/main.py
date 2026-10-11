@@ -1,3 +1,4 @@
+
 import streamlit as st
 
 st.set_page_config(
@@ -6,10 +7,30 @@ st.set_page_config(
     layout="wide",
 )
 
-dashboard = st.Page(
+# Demo credentials
+DEMO_USERS = {
+    "mentor": {
+        "password": "mentor123",
+        "role": "mentor",
+    },
+    "student": {
+        "password": "student123",
+        "role": "student",
+    },
+}
+
+# Initialize session state
+if "logged_in" not in st.session_state:
+    st.session_state.logged_in = False
+
+if "user_role" not in st.session_state:
+    st.session_state.user_role = None
+
+# Register pages
+login_page = st.Page(
     "ui/dashboard.py",
-    title="Dashboard",
-    icon="📊",
+    title="Login",
+    icon="🔐",
 )
 
 student_view = st.Page(
@@ -24,13 +45,19 @@ intervention_view = st.Page(
     icon="🛡️",
 )
 
-pg = st.navigation(
-    [
-        dashboard,
-        student_view,
-        intervention_view,
-    ],
-    position="hidden",
-)
+# Show login until a user signs in
+if not st.session_state.logged_in:
+    pg = st.navigation([login_page], position="hidden")
+
+elif st.session_state.user_role == "mentor":
+    pg = st.navigation([intervention_view], position="hidden")
+
+elif st.session_state.user_role == "student":
+    pg = st.navigation([student_view], position="hidden")
+
+else:
+    st.session_state.logged_in = False
+    st.session_state.user_role = None
+    st.rerun()
 
 pg.run()
