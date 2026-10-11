@@ -537,25 +537,18 @@ with header_col2:
     )
 
 
-# ============================================================
-# HOME BUTTON
-# ============================================================
-
-st.markdown(
-    '<div class="home-button-area">',
-    unsafe_allow_html=True,
-)
+# ---------------------------------------------------------
+# LOGOUT BUTTON
+# ---------------------------------------------------------
 
 if st.button(
-    "← Home",
-    key="intervention_home",
+    "Logout",
+    key="intervention_logout",
 ):
-    st.switch_page("ui/dashboard.py")
-
-st.markdown(
-    "</div>",
-    unsafe_allow_html=True,
-)
+    st.session_state.logged_in = False
+    st.session_state.user_role = None
+    st.session_state.username = None
+    st.rerun()
 
 
 # ============================================================
