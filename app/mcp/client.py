@@ -4,7 +4,7 @@ from pathlib import Path
 
 from mcp import ClientSession, StdioServerParameters
 from mcp.client.stdio import stdio_client
-
+from app.runtime.audit_logger import log_action
 
 BASE_DIR = Path(__file__).resolve().parents[2]
 
@@ -20,16 +20,58 @@ async def call_mcp_tool(tool_name: str, arguments: dict):
         async with ClientSession(read, write) as session:
             await session.initialize()
 
-            result = await session.call_tool(tool_name, arguments)
+            try:
+                result = await session.call_tool(tool_name, arguments)
 
-            if result.is_error:
-                raise RuntimeError(f"MCP tool failed: {tool_name}")
+                if result.is_error:
+                    output = {
+                        "error": f"MCP tool failed: {tool_name}"
+                    }
+                    log_action(
+                        arguments.get("student_id"),
+                        "mcp_client",
+                        "tool_call",
+                        {
+                            "tool_name": tool_name,
+                            "tool_input": arguments,
+                            "tool_output": output,
+                        },
+                    )
+                    raise RuntimeError(
+                        f"MCP tool failed: {tool_name}"
+                    )
 
-            if not result.content:
-                return None
+                if not result.content:
+                    output = None
+                else:
+                    output = json.loads(result.content[0].text)
 
-            return json.loads(result.content[0].text)
+                log_action(
+                    arguments.get("student_id"),
+                    "mcp_client",
+                    "tool_call",
+                    {
+                        "tool_name": tool_name,
+                        "tool_input": arguments,
+                        "tool_output": output,
+                    },
+                )
 
+                return output
+
+            except Exception as error:
+                if not isinstance(error, RuntimeError):
+                    log_action(
+                        arguments.get("student_id"),
+                        "mcp_client",
+                        "tool_call_error",
+                        {
+                            "tool_name": tool_name,
+                            "tool_input": arguments,
+                            "error": str(error),
+                        },
+                    )
+                raise
 
 async def read_mcp_resource(resource_uri: str):
     server_params = StdioServerParameters(
