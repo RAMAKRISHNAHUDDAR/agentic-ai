@@ -19,8 +19,8 @@ def get_student_from_database(student_id: str) -> dict:
 
 @server.tool()
 def get_all_students_from_database() -> list:
-    """Get all students from SQLite database."""
-    return get_all_students()
+    students = get_all_students()
+    return {"students": students, "count": len(students)}
 
 
 @server.resource("file://students")
