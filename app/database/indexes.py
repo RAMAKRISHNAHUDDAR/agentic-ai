@@ -65,6 +65,13 @@ def create_indexes(db=None):
         unique=True,
         name="unique_notification_id"
     )
+    
+    # Prevent multiple notification records for one intervention.
+    db.notifications.create_index(
+    [("intervention_id", 1)],
+    unique=True,
+    name="unique_notification_intervention"
+    )
 
     db.notifications.create_index(
         [("intervention_id", 1), ("status", 1)],

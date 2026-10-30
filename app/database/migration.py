@@ -25,7 +25,8 @@ SUPPLEMENTAL_CSVS = [
 SQLITE_DB = DATA_DIR / "student_success.db"
 
 SPECIAL_PARENT_EMAILS = {
-    "STU378": "neilrego3@gmail.com"
+    "STU378": "neilrego3@gmail.com",
+    "STU007": "ramakrishnahuddar@gmail.com"
 }
 
 
