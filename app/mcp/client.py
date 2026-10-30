@@ -92,7 +92,7 @@ async def read_mcp_resource(resource_uri: str):
             return result.contents[0].text
 
 
-# 1. Get one student from SQLite through MCP
+# 1. Get one student from MongoDB Atlas through MCP
 async def get_student_from_mcp(student_id: str):
     return await call_mcp_tool(
         "get_student_from_database",

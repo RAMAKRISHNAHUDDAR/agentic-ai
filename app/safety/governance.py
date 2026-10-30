@@ -1,17 +1,22 @@
-from app.memory.memory_manager import load_memory
+
+from app.database.repositories import get_interventions
 
 
 def check_intervention_approval(student_id, intervention):
-    """Check whether an intervention has mentor approval."""
+    """Check whether an intervention has mentor approval using MongoDB."""
 
-    records = load_memory()
+    records = get_interventions(student_id)
 
     for record in records:
-        if (
-            record.get("student_id") == student_id
-            and record.get("intervention") == intervention
-        ):
-            if record.get("status") == "approved":
+        description = record.get(
+            "description",
+            record.get("intervention", "")
+        )
+
+        if description == intervention:
+            status = record.get("status", "pending")
+
+            if status == "approved":
                 return {
                     "approved": True,
                     "status": "approved",
@@ -20,7 +25,7 @@ def check_intervention_approval(student_id, intervention):
 
             return {
                 "approved": False,
-                "status": record.get("status", "pending"),
+                "status": status,
                 "mentor_feedback": record.get("mentor_feedback", "")
             }
 

@@ -3,6 +3,10 @@ pandas==3.0.6
 scikit-learn==1.9.1
 mcp==2.3.0
 
+pymongo
+python-dotenv
+dnspython
+
 for a new user, use:
 
 $env:PYTHONPATH="."

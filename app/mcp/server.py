@@ -1,6 +1,7 @@
+
 from mcp.server import MCPServer
 
-from app.database.database import get_student, get_all_students
+from app.database.repositories import get_student, get_all_students
 
 
 server = MCPServer("student-success-server")
@@ -8,7 +9,7 @@ server = MCPServer("student-success-server")
 
 @server.tool()
 def get_student_from_database(student_id: str) -> dict:
-    """Get student information from SQLite database."""
+    """Get student information from MongoDB Atlas."""
     student = get_student(student_id)
 
     if not student:
@@ -19,6 +20,7 @@ def get_student_from_database(student_id: str) -> dict:
 
 @server.tool()
 def get_all_students_from_database() -> list:
+    """Get all students from MongoDB Atlas."""
     students = get_all_students()
     return {"students": students, "count": len(students)}
 
@@ -32,7 +34,7 @@ def get_student_file() -> str:
 
 @server.tool()
 def get_student_api_data(student_id: str) -> dict:
-    """Mock API returning student data."""
+    """Mock API returning student data from MongoDB Atlas."""
     student = get_student(student_id)
 
     if not student:

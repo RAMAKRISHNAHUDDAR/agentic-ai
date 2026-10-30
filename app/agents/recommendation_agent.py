@@ -1,4 +1,5 @@
-from app.database.database import get_student
+
+from app.database.repositories import get_student
 from app.agents.risk_agent import analyze_student_risk
 from app.memory.intervention_memory import log_intervention
 from app.runtime.audit_logger import log_action
@@ -25,8 +26,8 @@ def generate_recommendations(student):
 
     if student["backlogs"] >= 1:
         recommendations.append(
-        "Focus on clearing the active backlog and maintain consistent study preparation."
-        )    
+            "Focus on clearing the active backlog and maintain consistent study preparation."
+        )
 
     if student["backlogs"] >= 2:
         recommendations.append(
@@ -52,6 +53,8 @@ def generate_recommendations(student):
 
 
 def create_action_plan(student_id, risk_analysis=None):
+    """Create interventions only when the student is At Risk."""
+
     student = get_student(student_id)
 
     if not student:
@@ -63,11 +66,21 @@ def create_action_plan(student_id, risk_analysis=None):
         )
         return {"error": "Student not found"}
 
-    risk_analysis = analyze_student_risk(student_id)
-
-    # Generate interventions only for students who are At Risk.
+    # Use the supplied risk analysis; analyze only if it was not provided.
     if risk_analysis is None:
         risk_analysis = analyze_student_risk(student_id)
+
+    if not risk_analysis or risk_analysis.get("error"):
+        log_action(
+            student_id,
+            "Recommendation Agent",
+            "create_action_plan",
+            "Risk analysis unavailable"
+        )
+        return {"error": "Risk analysis unavailable"}
+
+    # Generate interventions only for students who are At Risk.
+    if risk_analysis.get("risk") != "At Risk":
         log_action(
             student["student_id"],
             "Recommendation Agent",

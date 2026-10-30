@@ -1,4 +1,4 @@
-from app.database.database import get_student
+from app.database.repositories import get_student
 from app.ml.risk_model import train_model, predict_risk
 from app.runtime.audit_logger import log_action
 

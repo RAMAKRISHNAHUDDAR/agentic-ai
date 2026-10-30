@@ -1,13 +1,29 @@
-from datetime import datetime
 
-from app.database.database import (
-    add_intervention,
-    get_student_interventions,
+from uuid import uuid4
+
+from app.database.repositories import (
+    create_intervention,
+    get_interventions,
 )
-from app.memory.memory_manager import (
-    add_memory,
-    get_student_memory,
-)
+
+
+def _format_intervention(record):
+    """Convert a MongoDB intervention into the existing application format."""
+
+    return {
+        "intervention_id": record["intervention_id"],
+        "student_id": record["student_id"],
+        "intervention": record.get(
+            "description",
+            record.get("intervention", "")
+        ),
+        "status": record.get("status", "pending"),
+        "mentor_feedback": record.get("mentor_feedback", ""),
+        "timestamp": record.get(
+            "created_at",
+            record.get("timestamp", "")
+        ),
+    }
 
 
 def log_intervention(
@@ -16,40 +32,45 @@ def log_intervention(
     status="pending",
     mentor_feedback=""
 ):
-    """Create and store an intervention if it does not already exist."""
+    """Create and store an intervention in MongoDB if it does not already exist."""
 
-    # Check existing memory records first.
-    existing_records = get_student_memory(student_id)
+    # Check existing MongoDB intervention records first.
+    existing_records = get_interventions(student_id)
 
     for record in existing_records:
-        if record.get("intervention") == intervention:
-            return record
+        description = record.get(
+            "description",
+            record.get("intervention", "")
+        )
 
-    timestamp = datetime.now().isoformat()
+        if description == intervention:
+            return _format_intervention(record)
 
-    record = {
+    # New interventions must always start as pending.
+    if status != "pending":
+        raise ValueError(
+            "New interventions must have pending status."
+        )
+
+    document = {
+        "intervention_id": str(uuid4()),
         "student_id": student_id,
-        "intervention": intervention,
-        "status": status,
+        "description": intervention,
         "mentor_feedback": mentor_feedback,
-        "timestamp": timestamp,
     }
 
-    # Store in JSON memory.
-    add_memory(record)
+    # Store the intervention in MongoDB.
+    created_record = create_intervention(document)
 
-    # Store in SQLite.
-    add_intervention(
-        student_id=student_id,
-        intervention=intervention,
-        status=status,
-        mentor_feedback=mentor_feedback,
-        timestamp=timestamp,
-    )
-
-    return record
+    return _format_intervention(created_record)
 
 
 def get_intervention_history(student_id):
-    """Retrieve intervention history for a student."""
-    return get_student_memory(student_id)
+    """Retrieve intervention history from MongoDB."""
+
+    records = get_interventions(student_id)
+
+    return [
+        _format_intervention(record)
+        for record in records
+    ]
