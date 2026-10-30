@@ -3,7 +3,7 @@ from pathlib import Path
 
 import streamlit as st
 
-from app.database.database import get_student
+from app.database.repositories import get_student
 from app.memory.intervention_memory import get_intervention_history
 from app.safety.approval import (
     approve_intervention,

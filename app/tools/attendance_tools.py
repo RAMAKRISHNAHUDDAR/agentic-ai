@@ -1,8 +1,9 @@
-from app.database.database import get_student
+
+from app.database.repositories import get_student
 
 
 def get_attendance(student_id: str):
-    """Get attendance information for a student."""
+    """Get attendance information for a student from MongoDB."""
     student = get_student(student_id)
 
     if not student:

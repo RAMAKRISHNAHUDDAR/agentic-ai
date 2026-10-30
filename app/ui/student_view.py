@@ -3,7 +3,7 @@ from pathlib import Path
 
 import streamlit as st
 
-from app.database.database import get_student
+from app.database.repositories import get_student
 from app.agents.risk_agent import analyze_student_risk
 from app.agents.recommendation_agent import create_action_plan
 from app.memory.intervention_memory import get_intervention_history
