@@ -437,64 +437,113 @@ def update_intervention_status(
         )
     )
 
-
 # --------------------------------------------------
 # 6. NOTIFICATION OPERATIONS
 # --------------------------------------------------
 
 def create_notification(data, db=None):
-    """Create an email notification record."""
+    """Create one notification record per intervention."""
 
-    validators.validate_notification(data)
+    if not isinstance(data, dict):
+        raise ValueError("Notification data must be a dictionary.")
 
     database = _get_db(db)
 
-    validators.validate_student_reference(
-        database,
-        data["student_id"]
+    # Validate notification fields.
+    validators.validate_notification(data)
+
+    intervention_id = data["intervention_id"]
+    student_id = data["student_id"]
+    parent_id = data["parent_id"]
+
+    # Verify student exists.
+    student = database.students.find_one(
+        {"student_id": student_id}
     )
 
+    if not student:
+        raise ValueError("Student not found.")
+
+    # Verify parent exists and is linked to the student.
     parent = database.parents.find_one(
-        {"parent_id": data["parent_id"]}
+        {"parent_id": parent_id}
     )
 
-    if parent is None:
-        raise ValueError("Parent does not exist.")
+    if not parent:
+        raise ValueError("Parent not found.")
 
+    if student.get("parent_id") != parent_id:
+        raise ValueError("Parent is not linked to this student.")
+
+    # Check parent email notification preference.
     if parent.get("email_opt_in", True) is not True:
         raise ValueError(
             "Parent has not opted in to email notifications."
         )
 
+    # Verify recipient email.
+    if parent.get("email") != data["recipient_email"]:
+        raise ValueError(
+            "Recipient email does not match parent email."
+        )
+
+    # Verify intervention exists and is approved.
     intervention = database.interventions.find_one(
-        {"intervention_id": data["intervention_id"]}
+        {
+            "intervention_id": intervention_id,
+            "student_id": student_id,
+        }
     )
 
-    if intervention is None:
-        raise ValueError("Intervention does not exist.")
+    if not intervention:
+        raise ValueError("Intervention not found.")
 
     if intervention.get("status") != "approved":
         raise ValueError(
             "Notifications can only be created for approved interventions."
         )
 
-    document = data.copy()
+    # Return an existing notification instead of creating a duplicate.
+    existing_notification = database.notifications.find_one(
+        {"intervention_id": intervention_id}
+    )
 
-    document.setdefault("provider_message_id", None)
-    document.setdefault("sent_at", None)
-    document.setdefault("error", None)
+    if existing_notification:
+        return _serialize(existing_notification)
+
+    # Prepare notification record.
+    notification = data.copy()
+
+    notification.setdefault("provider_message_id", None)
+    notification.setdefault("sent_at", None)
+    notification.setdefault("error", None)
+    notification.setdefault("attempt_count", 0)
+    notification.setdefault(
+        "created_at",
+        datetime.now(timezone.utc)
+    )
+
+    validators.validate_notification(notification)
 
     try:
-        result = database.notifications.insert_one(document)
+        database.notifications.insert_one(notification)
 
-        return _serialize(
-            database.notifications.find_one(
-                {"_id": result.inserted_id}
-            )
+    except DuplicateKeyError:
+        # Another request may have created the notification simultaneously.
+        existing_notification = database.notifications.find_one(
+            {"intervention_id": intervention_id}
         )
 
-    except DuplicateKeyError as error:
-        _handle_duplicate(error)
+        if existing_notification:
+            return _serialize(existing_notification)
+
+        raise
+
+    return _serialize(
+        database.notifications.find_one(
+            {"notification_id": notification["notification_id"]}
+        )
+    )
 
 
 def update_notification_status(
@@ -535,7 +584,7 @@ def update_notification_status(
             {"notification_id": notification_id}
         )
     )
-
+    
 
 def get_notifications(student_id, db=None):
     """Retrieve notification history for a student."""
@@ -547,3 +596,4 @@ def get_notifications(student_id, db=None):
     ).sort("sent_at", -1)
 
     return _serialize_many(records)
+
