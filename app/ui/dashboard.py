@@ -1,4 +1,4 @@
-
+from app.auth.authentication import login_user, register_user
 from pathlib import Path
 
 import streamlit as st
@@ -10,17 +10,6 @@ LOGO_PATH = (
     / "kle_tech_logo.png"
 )
 
-# Demo-only credentials
-DEMO_USERS = {
-    "mentor": {
-        "password": "mentor123",
-        "role": "mentor",
-    },
-    "student": {
-        "password": "student123",
-        "role": "student",
-    },
-}
 
 # ---------------------------------------------------------
 # COLLEGE BRANDING
@@ -156,8 +145,9 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
+
 # ---------------------------------------------------------
-# CENTERED LOGIN
+# CENTERED LOGIN AND SIGNUP
 # ---------------------------------------------------------
 
 st.html(
@@ -173,37 +163,116 @@ left, center, right = st.columns([1, 1.15, 1])
 
 with center:
     with st.container(border=True):
-        st.markdown("### Sign In")
-        st.caption("Enter your demo account credentials.")
 
-        with st.form("demo_login_form"):
-            username = st.text_input(
-                "Username",
-                placeholder="Enter username",
+        login_tab, signup_tab = st.tabs(["Sign In", "Student Sign Up"])
+
+        # -------------------------------------------------
+        # LOGIN
+        # -------------------------------------------------
+
+        with login_tab:
+            st.markdown("### Sign In")
+            st.caption("Sign in using your registered email.")
+
+            with st.form("login_form"):
+                email = st.text_input(
+                    "Email",
+                    placeholder="Enter your registered email"
+                )
+
+                password = st.text_input(
+                    "Password",
+                    type="password",
+                    placeholder="Enter your password"
+                )
+
+                login_submitted = st.form_submit_button("Sign In")
+
+            if login_submitted:
+                try:
+                    user = login_user(email, password)
+
+                    if user:
+                        st.session_state.logged_in = True
+                        st.session_state.user_role = user["role"]
+                        st.session_state.username = user["email"]
+                        st.session_state.user_id = user["user_id"]
+
+                        st.rerun()
+                    else:
+                        st.error("Invalid email or password.")
+
+                except Exception as error:
+                    st.error(f"Login failed: {error}")
+
+        # -------------------------------------------------
+        # STUDENT SIGNUP
+        # -------------------------------------------------
+
+        with signup_tab:
+            st.markdown("### Create Student Account")
+            st.caption(
+                "Register using your existing student ID."
             )
 
-            password = st.text_input(
-                "Password",
-                type="password",
-                placeholder="Enter password",
-            )
+            with st.form("student_signup_form"):
+                student_id = st.text_input(
+                    "Student ID",
+                    placeholder="Example: STU001"
+                )
 
-            submitted = st.form_submit_button("Sign In")
+                signup_email = st.text_input(
+                    "Email",
+                    placeholder="Enter your email"
+                )
 
-    if submitted:
-        normalized_username = username.strip().lower()
-        user = DEMO_USERS.get(normalized_username)
+                signup_password = st.text_input(
+                    "Create Password",
+                    type="password",
+                    placeholder="Minimum 8 characters"
+                )
 
-        if user and password == user["password"]:
-            st.session_state.logged_in = True
-            st.session_state.user_role = user["role"]
-            st.session_state.username = normalized_username
+                confirm_password = st.text_input(
+                    "Confirm Password",
+                    type="password",
+                    placeholder="Re-enter your password"
+                )
 
-            # main.py will route the user to their role's page.
-            st.rerun()
-        else:
-            st.error("Invalid username or password. Please try again.")
+                signup_submitted = st.form_submit_button(
+                    "Create Account"
+                )
 
+            if signup_submitted:
+                if signup_password != confirm_password:
+                    st.error("Passwords do not match.")
+
+                else:
+                    try:
+                        register_user(
+                            user_id=student_id,
+                            email=signup_email,
+                            password=signup_password,
+                            role="student"
+                        )
+
+                        st.success(
+                            "Account created successfully! "
+                            "You can now sign in."
+                        )
+
+                    except ValueError as error:
+                        st.error(str(error))
+
+                    except Exception:
+                        st.error(
+                            "Unable to create account. "
+                            "Please try again later."
+                        )
+
+
+# ---------------------------------------------------------
+# FOOTER
+# ---------------------------------------------------------
 
 st.html(
     """

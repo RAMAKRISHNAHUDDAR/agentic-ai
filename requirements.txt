@@ -5,3 +5,4 @@ mcp==2.3.0
 pymongo
 python-dotenv
 dnspython
+werkzeug
