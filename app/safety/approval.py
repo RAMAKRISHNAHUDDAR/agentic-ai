@@ -50,7 +50,10 @@ def _review_intervention(
         )
 
         if (
-            description == intervention
+            (
+                record.get("intervention_id") == intervention
+                or description == intervention
+            )
             and record.get("status") == "pending"
         ):
 
