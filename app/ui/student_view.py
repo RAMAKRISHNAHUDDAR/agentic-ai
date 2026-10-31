@@ -728,105 +728,106 @@ st.html(
 
 
 # ============================================================
-# STUDENT SEARCH
+# STUDENT ACCESS CONTROL
 # ============================================================
 
-st.html(
-    """
-    <div class="section-title">
-        Student Lookup
-    </div>
+user_role = st.session_state.get("user_role")
+logged_in_user_id = st.session_state.get("user_id")
 
-    <div class="section-subtitle">
-        Enter a student ID to view the complete student profile.
-    </div>
-    """
-)
+if user_role == "student":
 
-
-student_id = st.text_input(
-    "Student ID",
-    placeholder="Example: STU003",
-    label_visibility="collapsed",
-)
-
-
-if st.button(
-    "View Student",
-    key="view_student",
-):
-
-    normalized_student_id = student_id.strip().upper()
+    # Students can access only their own profile.
+    normalized_student_id = logged_in_user_id
 
     if not normalized_student_id:
+        st.error("Student account information is missing.")
+        st.stop()
 
-        st.warning(
-            "Please enter a Student ID."
-        )
+    student = get_student(normalized_student_id)
 
-    else:
+    if not student:
+        st.error("Your student profile could not be found.")
+        st.stop()
 
-        with st.spinner(
-            "Loading student information..."
-        ):
-            student = get_student(
-                normalized_student_id
-            )
+elif user_role == "mentor":
+
+    # Mentors can search for student profiles.
+    st.html(
+        """
+        <div class="section-title">
+            Student Lookup
+        </div>
+
+        <div class="section-subtitle">
+            Enter a student ID to view the complete student profile.
+        </div>
+        """
+    )
+
+    student_id = st.text_input(
+        "Student ID",
+        placeholder="Example: STU003",
+        label_visibility="collapsed",
+    )
+
+    if st.button("View Student", key="view_student"):
+
+        normalized_student_id = student_id.strip().upper()
+
+        if not normalized_student_id:
+            st.warning("Please enter a Student ID.")
+            st.stop()
+
+        student = get_student(normalized_student_id)
 
         if not student:
-
             st.error(
                 f"Student '{normalized_student_id}' was not found."
             )
+            st.stop()
 
-        else:
-            with st.spinner(
-                "Analyzing student risk..."
-            ):
-                risk = analyze_student_risk(
-                    normalized_student_id
-                )
+    else:
+        st.info("Enter a student ID and click View Student.")
+        st.stop()
 
-            if "error" in risk:
-
-                st.error(
-                    risk["error"]
-                )
-
-            else:
-
-                with st.spinner(
-                    "Generating intervention plan..."
-                ):
-                    action_plan = create_action_plan(
-                        normalized_student_id,
-                        risk_analysis=risk
-                    )
-
-                if "error" in action_plan:
-
-                    st.error(
-                        action_plan["error"]
-                    )
-
-                else:
-
-                    recommendations = action_plan[
-                        "recommendations"
-                    ]
-
-                    intervention_history = (
-                        get_intervention_history(
-                            normalized_student_id
-                        )
-                    )
+else:
+    st.error("You are not authorized to access this page.")
+    st.stop()
 
 
-                # ====================================================
-                # STUDENT DETAILS
-                # ====================================================
+# ============================================================
+# STUDENT ANALYSIS
+# ============================================================
 
-                st.html(
+with st.spinner("Analyzing student risk..."):
+    risk = analyze_student_risk(normalized_student_id)
+
+if "error" in risk:
+    st.error(risk["error"])
+    st.stop()
+
+with st.spinner("Generating intervention plan..."):
+    action_plan = create_action_plan(
+        normalized_student_id,
+        risk_analysis=risk
+    )
+
+if "error" in action_plan:
+    st.error(action_plan["error"])
+    st.stop()
+
+recommendations = action_plan["recommendations"]
+
+intervention_history = get_intervention_history(
+    normalized_student_id
+)
+
+
+# ====================================================
+ # STUDENT DETAILS
+# ====================================================
+
+st.html(
                     """
                     <div class="custom-divider"></div>
 
@@ -840,11 +841,11 @@ if st.button(
                     """
                 )
 
-                col1, col2 = st.columns(2)
+col1, col2 = st.columns(2)
 
-                with col1:
+with col1:
 
-                    st.html(
+        st.html(
                         f"""
                         <div class="info-card">
 
@@ -861,8 +862,7 @@ if st.button(
                         </div>
                         """
                     )
-
-                with col2:
+with col2:
 
                     st.html(
                         f"""
@@ -887,7 +887,7 @@ if st.button(
                 # ACADEMIC PERFORMANCE
                 # ====================================================
 
-                st.html(
+st.html(
                     """
                     <div class="section-title">
                         Academic Performance
@@ -900,9 +900,9 @@ if st.button(
                     """
                 )
 
-                col1, col2, col3, col4 = st.columns(4)
+col1, col2, col3, col4 = st.columns(4)
 
-                academic_values = [
+academic_values = [
                     (
                         col1,
                         "Attendance",
@@ -925,9 +925,9 @@ if st.button(
                     ),
                 ]
 
-                for column, label, value in academic_values:
+for column, label, value in academic_values:
 
-                    with column:
+    with column:
 
                         st.html(
                             f"""
@@ -950,7 +950,7 @@ if st.button(
                 # CAREER STATUS
                 # ====================================================
 
-                st.html(
+st.html(
                     """
                     <div class="section-title">
                         Career Status
@@ -962,9 +962,9 @@ if st.button(
                     """
                 )
 
-                col1, col2 = st.columns(2)
+col1, col2 = st.columns(2)
 
-                with col1:
+with col1:
 
                     st.html(
                         f"""
@@ -988,7 +988,7 @@ if st.button(
                         """
                     )
 
-                with col2:
+with col2:
 
                     st.html(
                         f"""
@@ -1017,7 +1017,7 @@ if st.button(
                 # RISK ASSESSMENT
                 # ====================================================
 
-                st.html(
+st.html(
                     """
                     <div class="section-title">
                         Risk Assessment
@@ -1030,15 +1030,15 @@ if st.button(
                     """
                 )
 
-                probability = float(
+probability = float(
                     risk["risk_probability"]
                 )
 
-                probability_percent = (
+probability_percent = (
                     probability * 100
                 )
 
-                progress_width = max(
+progress_width = max(
                     0,
                     min(
                         probability_percent,
@@ -1046,7 +1046,7 @@ if st.button(
                     )
                 )
 
-                if risk["risk"] == "At Risk":
+if risk["risk"] == "At Risk":
 
                     status_class = "risk-danger"
 
@@ -1057,7 +1057,7 @@ if st.button(
                         "that require attention."
                     )
 
-                else:
+else:
 
                     status_class = "risk-safe"
 
@@ -1068,7 +1068,7 @@ if st.button(
                         "were detected."
                     )
 
-                st.html(
+st.html(
                     f"""
                     <div class="risk-panel">
 
@@ -1114,7 +1114,7 @@ if st.button(
                 # RISK REASONS
                 # ====================================================
 
-                st.html(
+st.html(
                     """
                     <div class="section-title">
                         Risk Reasons
@@ -1127,7 +1127,7 @@ if st.button(
                     """
                 )
 
-                for reason in risk["reasons"]:
+for reason in risk["reasons"]:
 
                     st.html(
                         f"""
@@ -1142,7 +1142,7 @@ if st.button(
                 # RECOMMENDATIONS
                 # ====================================================
 
-                st.html(
+st.html(
                     """
                     <div class="section-title">
                         Recommendations & Action Plan
@@ -1155,7 +1155,7 @@ if st.button(
                     """
                 )
 
-                for recommendation in recommendations:
+for recommendation in recommendations:
 
                     st.html(
                         f"""
@@ -1172,7 +1172,7 @@ if st.button(
                 # INTERVENTION HISTORY
                 # ====================================================
 
-                st.html(
+st.html(
                     """
                     <div class="section-title">
                         Intervention History
@@ -1185,14 +1185,14 @@ if st.button(
                     """
                 )
 
-                if not intervention_history:
+if not intervention_history:
 
                     st.info(
                         "No intervention records have been "
                         "created for this student yet."
                     )
 
-                else:
+else:
 
                     for record in reversed(
                         intervention_history
