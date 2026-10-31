@@ -642,6 +642,29 @@ selected_student_id = st.session_state.get(
 
 
 if selected_student_id:
+    if "approval_flash" in st.session_state:
+        flash = st.session_state.pop("approval_flash")
+
+        if flash["status"] == "sent":
+            st.success("Intervention approved. Parent notification email sent successfully.")
+
+        elif flash["status"] == "already_sent":
+            st.info("Intervention approved. Parent notification email was already sent.")
+
+        elif flash["status"] == "skipped":
+            st.warning(
+                f"Intervention approved. Parent notification skipped: "
+                f"{flash.get('reason', 'Not specified')}"
+            )
+
+        elif flash["status"] == "failed":
+            st.error(
+                "Intervention approved, but parent email delivery failed. "
+                "Check the email configuration."
+            )
+
+        else:
+            st.info("Intervention approved. No parent notification status was returned.")
 
     student = get_student(
         selected_student_id
@@ -877,7 +900,7 @@ if selected_student_id:
 
                             result = approve_intervention(
                                 selected_student_id,
-                                intervention,
+                                record["intervention_id"],
                                 feedback_input.strip(),
                             )
 
@@ -888,10 +911,12 @@ if selected_student_id:
                                 )
 
                             else:
+                                notification = result.get("notification", {})
 
-                                st.success(
-                                    "Intervention approved successfully."
-                                )
+                                st.session_state["approval_flash"] = {
+                                "status": notification.get("status", "unknown"),
+                                "reason": notification.get("reason", "Not specified"),
+                                }
 
                                 st.rerun()
 
@@ -912,7 +937,7 @@ if selected_student_id:
 
                             result = reject_intervention(
                                 selected_student_id,
-                                intervention,
+                                record["intervention_id"],
                                 feedback_input.strip(),
                             )
 

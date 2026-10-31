@@ -44,6 +44,11 @@ intervention_view = st.Page(
     title="Intervention View",
     icon="🛡️",
 )
+student_view = st.Page(
+    "ui/student_view.py",
+    title="Student View",
+    icon="🎓",
+)
 
 # Show login until a user signs in
 if not st.session_state.logged_in:
