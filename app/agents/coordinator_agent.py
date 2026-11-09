@@ -1,19 +1,10 @@
-from app.agents.contineo_agent import ContineoDataCollectionAgent
-from app.agents.lms_agent import LMSDataCollectionAgent
-from app.agents.internship_agent import InternshipDataCollectionAgent
-from app.agents.placement_agent import PlacementDataCollectionAgent
+from app.runtime.agent_runtime import agent_runtime
 
 
 class CoordinatorAgent:
     """
     Coordinates the student data collection agents.
     """
-
-    def __init__(self):
-        self.contineo_agent = ContineoDataCollectionAgent()
-        self.lms_agent = LMSDataCollectionAgent()
-        self.internship_agent = InternshipDataCollectionAgent()
-        self.placement_agent = PlacementDataCollectionAgent()
 
     def run(self, task: str):
         student_id = self._extract_student_id(task)
@@ -24,21 +15,31 @@ class CoordinatorAgent:
                 "message": "No valid student ID found in the task."
             }
 
-        # Collect data through specialized agents
-        contineo = self.contineo_agent.collect(student_id)
+        # Collect data through Agent Runtime
+        contineo = agent_runtime.execute_agent(
+            "contineo_agent", student_id=student_id
+        )
 
         if contineo.get("status") == "error":
             return contineo
 
         if not contineo.get("student"):
             return {
-        "status": "error",
-        "message": f"Student {student_id} not found."
-        }   
+                "status": "error",
+                "message": f"Student {student_id} not found."
+            }
 
-        lms = self.lms_agent.collect(student_id)
-        internship = self.internship_agent.collect(student_id)
-        placement = self.placement_agent.collect(student_id)
+        lms = agent_runtime.execute_agent(
+            "lms_agent", student_id=student_id
+        )
+
+        internship = agent_runtime.execute_agent(
+            "internship_agent", student_id=student_id
+        )
+
+        placement = agent_runtime.execute_agent(
+            "placement_agent", student_id=student_id
+        )
 
         return {
             "status": "success",
