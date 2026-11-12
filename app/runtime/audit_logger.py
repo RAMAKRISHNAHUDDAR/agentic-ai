@@ -1,10 +1,15 @@
+
 import json
 from datetime import datetime
 from pathlib import Path
+from threading import RLock
 
 
 BASE_DIR = Path(__file__).resolve().parents[2]
 AUDIT_FILE = BASE_DIR / "data" / "audit_log.json"
+
+# Protect shared audit-file access across parallel agent executions.
+_audit_lock = RLock()
 
 
 def _ensure_audit_file():
@@ -16,43 +21,46 @@ def _ensure_audit_file():
 
 def log_action(student_id, agent, action, result):
     """Store an audit record for an agent action."""
-    _ensure_audit_file()
 
-    records = json.loads(
-        AUDIT_FILE.read_text(encoding="utf-8")
-    )
+    with _audit_lock:
+        _ensure_audit_file()
 
-    record = {
-        "student_id": student_id,
-        "agent": agent,
-        "action": action,
-        "result": result,
-        "timestamp": datetime.now().isoformat(),
-    }
+        records = json.loads(
+            AUDIT_FILE.read_text(encoding="utf-8")
+        )
 
-    records.append(record)
+        record = {
+            "student_id": student_id,
+            "agent": agent,
+            "action": action,
+            "result": result,
+            "timestamp": datetime.now().isoformat(),
+        }
 
-    AUDIT_FILE.write_text(
-        json.dumps(records, indent=2),
-        encoding="utf-8"
-    )
+        records.append(record)
 
-    return record
+        AUDIT_FILE.write_text(
+            json.dumps(records, indent=2),
+            encoding="utf-8"
+        )
+
+        return record
 
 
 def get_audit_logs(student_id=None):
     """Retrieve audit records, optionally filtered by student."""
-    _ensure_audit_file()
 
-    records = json.loads(
-        AUDIT_FILE.read_text(encoding="utf-8")
-    )
+    with _audit_lock:
+        _ensure_audit_file()
 
-    if student_id is None:
-        return records
+        records = json.loads(
+            AUDIT_FILE.read_text(encoding="utf-8")
+        )
 
-    return [
-        record
-        for record in records
-        if record.get("student_id") == student_id
-    ]
+        if student_id is None:
+            return records
+
+        return [
+            record for record in records
+            if record.get("student_id") == student_id
+        ]
