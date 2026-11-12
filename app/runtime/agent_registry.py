@@ -5,7 +5,7 @@ from app.agents.contineo_agent import ContineoDataCollectionAgent
 from app.agents.lms_agent import LMSDataCollectionAgent
 from app.agents.internship_agent import InternshipDataCollectionAgent
 from app.agents.placement_agent import PlacementDataCollectionAgent
-
+from app.agents.cloud_operations_agent import run_cloud_operations
 
 class AgentRegistry:
     """Register and manage existing project agents."""
@@ -53,3 +53,6 @@ agent_registry.register_agent("contineo_agent", contineo_agent.collect)
 agent_registry.register_agent("lms_agent", lms_agent.collect)
 agent_registry.register_agent("internship_agent", internship_agent.collect)
 agent_registry.register_agent("placement_agent", placement_agent.collect)
+from app.agents.deep_research_agent import run_deep_research
+agent_registry.register_agent('deep_research_agent', run_deep_research)
+agent_registry.register_agent("cloud_operations_agent", run_cloud_operations)
