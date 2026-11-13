@@ -49,25 +49,10 @@ agentic-ai/
 │
 ├── app/
 │   ├── agents/
-│   │   ├── coordinator_agent.py
-│   │   ├── deep_research_agent.py
-│   │   └── cloud_operations_agent.py
-│   │
 │   ├── auth/
-│   │
 │   ├── database/
-│   │
 │   ├── runtime/
-│   │   ├── agent_registry.py
-│   │   ├── agent_runtime.py
-│   │   ├── audit_logger.py
-│   │   ├── skill_registry.py
-│   │   └── tool_registry.py
-│   │
 │   ├── workflows/
-│   │   ├── node_graph.py
-│   │   └── parallel_swarm.py
-│   │
 │   └── ui/
 │
 ├── tests/
@@ -212,32 +197,9 @@ Implemented capabilities include:
 
 These mechanisms help maintain transparency, accountability, and human oversight during agent execution.
 
-## Agentic AI Lab Coverage
 
-The project has been developed alongside the Agentic AI laboratory curriculum.
 
-| Lab | Topic | Status |
-|---|---|---|
-| Lab 1 | Agent vs Chatbot | Completed |
-| Lab 2 | Tool-Using Agent | Completed |
-| Lab 3 | Skill Creation | Completed |
-| Lab 4 | Memory & Retrieval | Completed |
-| Lab 5 | MCP-Style Connector | Completed |
-| Lab 6 | Agent Runtime / Registries | Implemented |
-| Lab 7 | Agentic Node Graph | Implemented |
-| Lab 8 | Parallel Swarm | Implemented |
-| Lab 9 | Deep Research Agent | Implemented |
-| Lab 10 | Cloud Operations Agent | Implemented |
-| Lab 11 | Agentic SDLC Factory | Planned |
-| Lab 12 | Safety & Governance | Considered Implemented |
-| Lab 13 | Discipline-Specific Agents | Planned |
-| Lab 14 | Capstone Project Studio | Planned |
 
-## Team Collaboration
-
-The project is developed collaboratively using Git and GitHub.
-
-Before starting new work, synchronize your branch:
 
 ```bash
 git fetch origin
@@ -256,6 +218,4 @@ Use feature branches and pull requests to integrate changes into the main branch
 - Database credentials and API keys must never be committed to the repository.
 - Test results should be verified before claiming successful execution.
 
-## License
 
-Add the license and usage terms selected by the project team before distributing the repository.
