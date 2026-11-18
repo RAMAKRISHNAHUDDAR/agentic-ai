@@ -104,3 +104,6 @@ dist/
 # Runtime data
 data/audit_log.json
 data/intervention_memory.json
+
+# Project images
+Images/
