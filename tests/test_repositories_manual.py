@@ -30,9 +30,9 @@ from app.database.repositories import (
 
 
 # Connect to separate test database.
-client = MongoClient(MONGODB_URI)
+client = None
 
-db = client["student_success_test_db"]
+db = None
 
 
 def reset_test_database():
@@ -53,9 +53,6 @@ def reset_test_database():
     print("Test database reset successfully!")
 
 
-# Reset test data and recreate indexes.
-reset_test_database()
-create_indexes(db)
 
 def run_tests():
 
@@ -344,6 +341,10 @@ def run_additional_tests():
 
 
 if __name__ == "__main__":
+    client = MongoClient(MONGODB_URI)
+    db = client["student_success_test_db"]
+    reset_test_database()
+    create_indexes(db)
     try:
         run_tests()
         run_additional_tests()

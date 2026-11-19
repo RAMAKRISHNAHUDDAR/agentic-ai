@@ -24,8 +24,8 @@ def generate_reasons(student):
     return reasons
 
 
-def analyze_student_risk(student_id):
-    student = get_student(student_id)
+def analyze_student_risk(student_id, student=None):
+    student = get_student(student_id) if student is None else student
 
     if not student:
         log_action(

@@ -3,8 +3,9 @@ from pathlib import Path
 
 import streamlit as st
 
+from app.auth.permissions import require_login
 from app.database.repositories import get_student
-from app.agents.risk_agent import analyze_student_risk
+from app.workflows.node_graph import StudentSuccessNodeGraph
 from app.agents.recommendation_agent import create_action_plan
 from app.memory.intervention_memory import get_intervention_history
 
@@ -12,6 +13,8 @@ from app.memory.intervention_memory import get_intervention_history
 # ============================================================
 # PATHS
 # ============================================================
+
+require_login()
 
 LOGO_PATH = (
     Path(__file__).resolve().parent
@@ -33,7 +36,7 @@ st.markdown(
        ======================================================== */
 
     .stApp {
-        background: #2a2020;
+        background: #142d3b;
         color: #ffffff;
     }
 
@@ -63,9 +66,9 @@ st.markdown(
 
         padding: 1.2rem 1.5rem;
 
-        background: #2a2020;
+        background: #142d3b;
 
-        border-bottom: 3px solid #c4161c;
+        border-bottom: 3px solid #09686a;
 
         margin-bottom: 2rem;
     }
@@ -114,7 +117,7 @@ st.markdown(
 
         margin-bottom: 2rem;
 
-        background: #c4161c;
+        background: #09686a;
 
         border-radius: 4px;
 
@@ -143,7 +146,7 @@ st.markdown(
 
         max-width: 850px;
 
-        color: #f8dede;
+        color: #dcf3f1;
 
         font-size: 0.98rem;
 
@@ -169,7 +172,7 @@ st.markdown(
     .section-subtitle {
         margin-bottom: 1.2rem;
 
-        color: #c8bebe;
+        color: #cedee1;
 
         font-size: 0.88rem;
 
@@ -190,11 +193,11 @@ st.markdown(
     }
 
     div[data-baseweb="input"] input {
-        color: #302525;
+        color: #193647;
     }
 
     div[data-baseweb="input"]:focus-within {
-        border-color: #c4161c;
+        border-color: #09686a;
 
         box-shadow:
             0 0 0 1px rgba(196, 22, 28, 0.25);
@@ -210,9 +213,9 @@ st.markdown(
 
         border-radius: 3px;
 
-        border: 1px solid #c4161c;
+        border: 1px solid #09686a;
 
-        background: #c4161c;
+        background: #09686a;
 
         color: #ffffff;
 
@@ -227,9 +230,9 @@ st.markdown(
     }
 
     .stButton > button:hover {
-        background: #a90f15;
+        background: #085354;
 
-        border-color: #a90f15;
+        border-color: #085354;
 
         color: #ffffff;
 
@@ -253,14 +256,14 @@ st.markdown(
 
         border-radius: 4px;
 
-        border-left: 5px solid #c4161c;
+        border-left: 5px solid #09686a;
 
         box-shadow:
             0 8px 25px rgba(0, 0, 0, 0.20);
     }
 
     .card-label {
-        color: #756969;
+        color: #526670;
 
         font-size: 0.72rem;
 
@@ -274,7 +277,7 @@ st.markdown(
     .card-value {
         margin-top: 0.55rem;
 
-        color: #302525;
+        color: #193647;
 
         font-size: 1.4rem;
 
@@ -295,7 +298,7 @@ st.markdown(
 
         border-radius: 4px;
 
-        border-top: 4px solid #c4161c;
+        border-top: 4px solid #09686a;
 
         box-shadow:
             0 8px 25px rgba(0, 0, 0, 0.18);
@@ -313,7 +316,7 @@ st.markdown(
     }
 
     .academic-label {
-        color: #756969;
+        color: #526670;
 
         font-size: 0.72rem;
 
@@ -327,7 +330,7 @@ st.markdown(
     .academic-value {
         margin-top: 0.45rem;
 
-        color: #302525;
+        color: #193647;
 
         font-size: 1.65rem;
 
@@ -348,14 +351,14 @@ st.markdown(
 
         border-radius: 4px;
 
-        border-left: 5px solid #c4161c;
+        border-left: 5px solid #09686a;
 
         box-shadow:
             0 8px 25px rgba(0, 0, 0, 0.18);
     }
 
     .status-label {
-        color: #756969;
+        color: #526670;
 
         font-size: 0.72rem;
 
@@ -369,7 +372,7 @@ st.markdown(
     .status-value {
         margin-top: 0.55rem;
 
-        color: #302525;
+        color: #193647;
 
         font-size: 1rem;
 
@@ -390,7 +393,7 @@ st.markdown(
 
         border-radius: 4px;
 
-        border-left: 6px solid #c4161c;
+        border-left: 6px solid #09686a;
 
         box-shadow:
             0 10px 30px rgba(0, 0, 0, 0.22);
@@ -405,7 +408,7 @@ st.markdown(
     }
 
     .risk-danger {
-        color: #c4161c;
+        color: #09686a;
     }
 
     .risk-safe {
@@ -455,7 +458,7 @@ st.markdown(
 
         border-radius: 999px;
 
-        background: #c4161c;
+        background: #09686a;
 
         animation:
             progressGrow 0.9s ease;
@@ -475,7 +478,7 @@ st.markdown(
 
         border-radius: 3px;
 
-        border-left: 4px solid #c4161c;
+        border-left: 4px solid #09686a;
 
         color: #4d4444;
 
@@ -503,7 +506,7 @@ st.markdown(
 
         border-radius: 3px;
 
-        border-left: 4px solid #c4161c;
+        border-left: 4px solid #09686a;
 
         color: #4d4444;
 
@@ -529,14 +532,14 @@ st.markdown(
 
         border-radius: 3px;
 
-        border-left: 4px solid #c4161c;
+        border-left: 4px solid #09686a;
 
         box-shadow:
             0 5px 18px rgba(0, 0, 0, 0.13);
     }
 
     .history-intervention {
-        color: #302525;
+        color: #193647;
 
         font-size: 0.92rem;
 
@@ -548,7 +551,7 @@ st.markdown(
     .history-meta {
         margin-top: 0.5rem;
 
-        color: #756969;
+        color: #526670;
 
         font-size: 0.76rem;
     }
@@ -566,7 +569,7 @@ st.markdown(
 
         border: 1px solid #e6bfc1;
 
-        color: #a90f15;
+        color: #085354;
 
         font-size: 0.72rem;
 
@@ -660,6 +663,16 @@ st.markdown(
         }
     }
 
+    [data-testid="stTextArea"] textarea, [data-testid="stTextInput"] input {
+        background-color: #fff !important;
+        color: #183342 !important;
+        -webkit-text-fill-color: #183342 !important;
+        caret-color: #09686a;
+    }
+    [data-testid="stTextArea"] textarea:focus {
+        outline: 2px solid #168987;
+        outline-offset: -2px;
+    }
     </style>
     """,
     unsafe_allow_html=True,
@@ -699,9 +712,7 @@ if st.button(
     "Logout",
     key="student_logout",
 ):
-    st.session_state.logged_in = False
-    st.session_state.user_role = None
-    st.session_state.username = None
+    st.session_state.clear()
     st.rerun()
 
 
@@ -799,8 +810,28 @@ else:
 # STUDENT ANALYSIS
 # ============================================================
 
+checkpoint_key = f"paused_assessment_{normalized_student_id}"
+paused = st.session_state.get(checkpoint_key)
+if paused:
+    st.warning(paused["message"])
+    st.caption(f"Next step: {paused['state']['resume_from']}")
+    if not st.button("Resume assessment"):
+        st.stop()
+
 with st.spinner("Analyzing student risk..."):
-    risk = analyze_student_risk(normalized_student_id)
+    workflow = StudentSuccessNodeGraph()
+    if paused:
+        workflow.checkpoint = paused["state"]
+        workflow.run_id = paused["run_id"]
+        assessment = workflow.resume()
+    else:
+        assessment = workflow.run(normalized_student_id)
+    if assessment["status"] == "error":
+        st.session_state[checkpoint_key] = {"state": workflow.checkpoint, "run_id": workflow.run_id,
+                                            "message": assessment["message"]}
+        st.rerun()
+    st.session_state.pop(checkpoint_key, None)
+    risk = assessment["risk"]
 
 if "error" in risk:
     st.error(risk["error"])
@@ -809,6 +840,7 @@ if "error" in risk:
 with st.spinner("Generating intervention plan..."):
     action_plan = create_action_plan(
         normalized_student_id,
+        student=assessment["student"],
         risk_analysis=risk
     )
 
@@ -817,6 +849,8 @@ if "error" in action_plan:
     st.stop()
 
 recommendations = action_plan["recommendations"]
+for decision in action_plan.get("decisions", []):
+    st.info(decision)
 
 intervention_history = get_intervention_history(
     normalized_student_id
@@ -1154,6 +1188,19 @@ st.html(
                     </div>
                     """
                 )
+
+with st.expander("Plan my next study session"):
+    from app.runtime.agent_runtime import agent_runtime
+    subject = st.text_input("Subject to study")
+    remaining = st.number_input("Topics still to cover", min_value=0, max_value=100, value=3)
+    minutes = st.slider("Minutes available", 5, 120, 30, step=5)
+    if st.button("Update study plan"):
+        session = agent_runtime.execute_agent("study_planner", subject=subject,
+                                              remaining_topics=remaining, available_minutes=minutes)
+        st.session_state.study_plan = session
+    if "study_plan" in st.session_state:
+        session = st.session_state.study_plan
+        st.write(session.get("plan") or session.get("question") or session.get("message"))
 
 for recommendation in recommendations:
 

@@ -7,18 +7,6 @@ st.set_page_config(
     layout="wide",
 )
 
-# Demo credentials
-DEMO_USERS = {
-    "mentor": {
-        "password": "mentor123",
-        "role": "mentor",
-    },
-    "student": {
-        "password": "student123",
-        "role": "student",
-    },
-}
-
 # Initialize session state
 if "logged_in" not in st.session_state:
     st.session_state.logged_in = False
@@ -31,12 +19,6 @@ login_page = st.Page(
     "ui/dashboard.py",
     title="Login",
     icon="🔐",
-)
-
-student_view = st.Page(
-    "ui/student_view.py",
-    title="Student View",
-    icon="👨‍🎓",
 )
 
 intervention_view = st.Page(
@@ -55,7 +37,7 @@ if not st.session_state.logged_in:
     pg = st.navigation([login_page], position="hidden")
 
 elif st.session_state.user_role == "mentor":
-    pg = st.navigation([intervention_view], position="hidden")
+    pg = st.navigation([intervention_view, st.Page("ui/labs.py", title="Mentor labs", icon="🧪")])
 
 elif st.session_state.user_role == "student":
     pg = st.navigation([student_view], position="hidden")

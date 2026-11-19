@@ -1,5 +1,5 @@
 
-from uuid import uuid4
+from uuid import NAMESPACE_URL, uuid5
 
 from app.database.repositories import (
     create_intervention,
@@ -53,14 +53,21 @@ def log_intervention(
         )
 
     document = {
-        "intervention_id": str(uuid4()),
+        "intervention_id": str(uuid5(NAMESPACE_URL, f"student-intervention/{student_id}/{intervention}")),
         "student_id": student_id,
         "description": intervention,
         "mentor_feedback": mentor_feedback,
     }
 
     # Store the intervention in MongoDB.
-    created_record = create_intervention(document)
+    try:
+        created_record = create_intervention(document)
+    except ValueError:
+        # A concurrent dashboard refresh may already have inserted this proposal.
+        created_record = next((record for record in get_interventions(student_id)
+                               if record["intervention_id"] == document["intervention_id"]), None)
+        if created_record is None:
+            raise
 
     return _format_intervention(created_record)
 

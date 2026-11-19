@@ -1,4 +1,10 @@
 
+import argparse
+import json
+import os
+from pathlib import Path
+from tempfile import NamedTemporaryFile
+from uuid import UUID, uuid4
 from typing import TypedDict
 from langgraph.graph import StateGraph, END
 
@@ -12,6 +18,7 @@ from app.runtime.agent_runtime import agent_runtime
 # --------------------------------------------------
 
 class AgentState(TypedDict):
+    resume_from: str
     student_id: str
     student_data: dict
     mcp_student: dict
@@ -74,7 +81,10 @@ NODE_SPECS = {
 
 class StudentSuccessNodeGraph:
 
-    def __init__(self):
+    def __init__(self, checkpoint_dir=None):
+        self.checkpoint_dir = Path(checkpoint_dir) if checkpoint_dir else None
+        self.checkpoint = None
+        self.run_id = None
         self.coordinator = CoordinatorAgent()
         self.graph = self.build_graph()
 
@@ -111,6 +121,9 @@ class StudentSuccessNodeGraph:
                 "message": "MCP student data retrieval failed."
             }
 
+        student = state["student_data"]["student"]
+        if any(mcp_student.get(key) != student.get(key) for key in ("student_id", "attendance", "marks", "assignments", "backlogs")):
+            return {"status": "error", "resume_from": "collect_student_data", "message": "Student evidence changed. Fresh collection is required."}
         return {
             "mcp_student": mcp_student,
             "status": "success"
@@ -135,14 +148,14 @@ class StudentSuccessNodeGraph:
 
         risk = agent_runtime.execute_agent(
             "risk_agent",
-            student_id=state["student_id"]
+            student_id=state["student_id"], student=state["student_data"]["student"]
         )
 
-        if not risk or risk.get("error"):
+        if not isinstance(risk, dict) or "risk" not in risk or risk.get("status") == "error":
             return {
                 "attempts": attempts,
                 "status": "error",
-                "message": risk.get("error", "Risk analysis failed.")
+                "message": (risk.get("message") or risk.get("error") if isinstance(risk, dict) else None) or "Risk analysis failed."
             }
 
         print("Risk analysis completed:", risk["risk"])
@@ -208,7 +221,10 @@ class StudentSuccessNodeGraph:
             self.handle_failure
         )
 
-        workflow.set_entry_point("collect_student_data")
+        workflow.set_conditional_entry_point(
+            lambda state: state["resume_from"],
+            {name: name for name in ("collect_student_data", "retrieve_mcp_data", "analyze_risk")}
+        )
 
         workflow.add_conditional_edges(
             "collect_student_data",
@@ -242,29 +258,62 @@ class StudentSuccessNodeGraph:
 
         return workflow.compile()
 
-    # Execute graph
-    def run(self, student_id: str, simulate_failure=False, simulate_permanent_failure=False):
-
-        initial_state = {
-            "student_id": student_id,
-            "student_data": {},
-            "mcp_student": {},
-            "risk": {},
-            "status": "success",
-            "message": "",
-            "attempts": 0,
-            "simulate_failure": simulate_failure,
-            "simulate_permanent_failure": simulate_permanent_failure
+    def save_progress(self, state, next_node):
+        self.checkpoint = {
+            "student_id": state["student_id"], "resume_from": next_node,
+            "student_data": state["student_data"] if next_node != "collect_student_data" else {},
+            "mcp_student": state["mcp_student"] if next_node == "analyze_risk" else {},
         }
+        if self.checkpoint_dir:
+            self.checkpoint_dir.mkdir(parents=True, exist_ok=True)
+            path = self.checkpoint_dir / f"{self.run_id}.json"
+            with NamedTemporaryFile(mode="w", dir=self.checkpoint_dir, delete=False, encoding="utf-8") as file:
+                json.dump(self.checkpoint, file, default=str)
+            os.replace(file.name, path)
 
-        result = self.graph.invoke(initial_state)
+    def resume(self, run_id=None):
+        if run_id:
+            self.run_id = str(UUID(run_id))
+            path = self.checkpoint_dir / f"{self.run_id}.json"
+            self.checkpoint = json.loads(path.read_text(encoding="utf-8"))
+        if not self.checkpoint:
+            raise ValueError("No paused assessment to resume.")
+        node = self.checkpoint["resume_from"]
+        print(f"Resuming run {self.run_id} at {node}.")
+        if node == "analyze_risk":
+            print("Reusing completed data collection and MCP verification.")
+        elif node == "retrieve_mcp_data":
+            print("Reusing completed data collection.")
+        return self.execute(self.checkpoint.copy())
 
+    def run(self, student_id: str, simulate_failure=False, simulate_permanent_failure=False):
+        self.run_id = str(uuid4())
+        state = {"student_id": student_id, "student_data": {}, "mcp_student": {},
+                 "resume_from": "collect_student_data"}
+        self.save_progress(state, "collect_student_data")
+        return self.execute(state, simulate_failure, simulate_permanent_failure)
+
+    def execute(self, state, simulate_failure=False, simulate_permanent_failure=False):
+        result = {**state, "risk": {}, "status": "success", "message": "", "attempts": 0,
+                  "simulate_failure": simulate_failure, "simulate_permanent_failure": simulate_permanent_failure}
+        next_nodes = {"collect_student_data": "retrieve_mcp_data", "retrieve_mcp_data": "analyze_risk"}
+        for update in self.graph.stream(result.copy(), stream_mode="updates"):
+            for node, changes in update.items():
+                result.update(changes or {})
+                if node in next_nodes and result["status"] == "success":
+                    self.save_progress(result, next_nodes[node])
+                elif changes and changes.get("resume_from") == "collect_student_data":
+                    self.save_progress(result, "collect_student_data")
+        student_id = result["student_id"]
         if result.get("status") == "error":
             return {
                 "status": "error",
                 "message": result.get("message")
             }
 
+        if self.checkpoint_dir:
+            (self.checkpoint_dir / f"{self.run_id}.json").unlink(missing_ok=True)
+        self.checkpoint = None
         data = result["student_data"]
 
         return {
@@ -286,39 +335,32 @@ class StudentSuccessNodeGraph:
 
 if __name__ == "__main__":
 
-    workflow = StudentSuccessNodeGraph()
+    parser = argparse.ArgumentParser(description="Run or resume a student assessment.")
+    group = parser.add_mutually_exclusive_group()
+    group.add_argument("--resume", metavar="RUN_ID")
+    group.add_argument("--demo-recovery", metavar="STUDENT_ID")
+    args = parser.parse_args()
+    workflow = StudentSuccessNodeGraph(Path(__file__).resolve().parents[2] / "data" / "assessment_checkpoints")
 
-    student_id = input("Enter student ID: ")
+    def report(result):
+        print("Assessment:", result.get("message") or result["risk"]["risk"])
+        if result["status"] == "error":
+            print("After resolving the failure, run:")
+            print(f"python -m app.workflows.node_graph --resume {workflow.run_id}")
 
-    print("\n========== SUCCESS PATH ==========")
-
-    result = workflow.run(student_id)
-
-    print("\nFinal Result:")
-    print(result)
-
-    choice = input("\nSimulate failure? (y/n): ")
-
-    if choice.lower() == "y":
-
-        print("\n========== FAILURE PATH ==========")
-
-        result = workflow.run(
-            student_id,
-            simulate_failure=True
-        )
-
-        print("\nFailure Test Result:")
-        print(result)
-
-
-        print("\n========== PERMANENT FAILURE PATH ==========")
-
-        result = workflow.run(
-            student_id,
-            simulate_failure=True,
-            simulate_permanent_failure=True
-        )
-
-        print("\nPermanent Failure Result:")
-        print(result)
+    if args.resume:
+        try:
+            report(workflow.resume(args.resume))
+        except (ValueError, FileNotFoundError) as error:
+            parser.exit(1, f"Checkpoint unavailable: {error}\n")
+    elif args.demo_recovery:
+        report(workflow.run(args.demo_recovery, simulate_failure=True, simulate_permanent_failure=True))
+    else:
+        student_id = input("Enter student ID: ").strip().upper()
+        result = workflow.run(student_id)
+        report(result)
+        if result["status"] == "success" and input("Simulate failure? (y/n): ").lower() == "y":
+            print("Temporary risk failure")
+            report(workflow.run(student_id, simulate_failure=True))
+            print("Persistent risk failure")
+            report(workflow.run(student_id, simulate_failure=True, simulate_permanent_failure=True))

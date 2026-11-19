@@ -219,3 +219,8 @@ Use feature branches and pull requests to integrate changes into the main branch
 - Test results should be verified before claiming successful execution.
 
 
+GitHub: https://github.com/RAMAKRISHNAHUDDAR/agentic-ai
+
+## Lab demonstrations
+
+The [Labs 1–12 walkthrough](docs/lab_mapping.md) lists entry points and fixture setup. Student View runs the parallel evidence graph and revises action plans after mentor review. Sign in as a mentor and open **Mentor labs** for research, incident simulation and versioned attendance-policy releases.

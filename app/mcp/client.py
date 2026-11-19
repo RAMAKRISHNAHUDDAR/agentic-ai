@@ -1,3 +1,4 @@
+import sys
 import asyncio
 import json
 from pathlib import Path
@@ -11,7 +12,7 @@ BASE_DIR = Path(__file__).resolve().parents[2]
 
 async def call_mcp_tool(tool_name: str, arguments: dict):
     server_params = StdioServerParameters(
-        command="python",
+        command=sys.executable,
         args=["-m", "app.mcp.server"],
         cwd=str(BASE_DIR),
     )
@@ -33,8 +34,8 @@ async def call_mcp_tool(tool_name: str, arguments: dict):
                         "tool_call",
                         {
                             "tool_name": tool_name,
-                            "tool_input": arguments,
-                            "tool_output": output,
+                            "argument_names": list(arguments),
+                            "returned_data": bool(output),
                         },
                     )
                     raise RuntimeError(
@@ -52,8 +53,8 @@ async def call_mcp_tool(tool_name: str, arguments: dict):
                     "tool_call",
                     {
                         "tool_name": tool_name,
-                        "tool_input": arguments,
-                        "tool_output": output,
+                        "argument_names": list(arguments),
+                        "returned_data": bool(output),
                     },
                 )
 
@@ -67,7 +68,7 @@ async def call_mcp_tool(tool_name: str, arguments: dict):
                         "tool_call_error",
                         {
                             "tool_name": tool_name,
-                            "tool_input": arguments,
+                            "argument_names": list(arguments),
                             "error": str(error),
                         },
                     )
@@ -75,7 +76,7 @@ async def call_mcp_tool(tool_name: str, arguments: dict):
 
 async def read_mcp_resource(resource_uri: str):
     server_params = StdioServerParameters(
-        command="python",
+        command=sys.executable,
         args=["-m", "app.mcp.server"],
         cwd=str(BASE_DIR),
     )
