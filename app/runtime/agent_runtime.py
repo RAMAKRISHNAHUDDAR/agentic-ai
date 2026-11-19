@@ -13,6 +13,13 @@ from app.memory.memory_manager import (
 from app.safety.governance import check_intervention_approval
 
 
+def normalize_result(result):
+    if isinstance(result, dict) and (result.get("error") or result.get("status") == "error"):
+        message = result.get("error") or result.get("message") or "Operation failed."
+        return {**result, "status": "error", "error": message, "message": message}
+    return result
+
+
 class AgentRuntime:
     """Central runtime for executing skills, tools and memory operations."""
 
@@ -25,11 +32,11 @@ class AgentRuntime:
         student_id = kwargs.get("student_id")
 
         try:
-            result = self.skills.execute_skill(name, **kwargs)
+            result = normalize_result(self.skills.execute_skill(name, **kwargs))
 
             log_action(
                 student_id, "agent_runtime",
-                f"execute_skill:{name}", {"status": "success"}
+                f"execute_skill:{name}", {"status": "error" if isinstance(result, dict) and result.get("status") == "error" else "success"}
             )
             return result
 
@@ -39,17 +46,17 @@ class AgentRuntime:
                 f"execute_skill:{name}",
                 {"status": "error", "error": str(error)}
             )
-            return {"status": "error", "message": str(error)}
+            return normalize_result({"error": str(error)})
 
     def execute_tool(self, name, **kwargs):
         student_id = kwargs.get("student_id")
 
         try:
-            result = self.tools.execute_tool(name, **kwargs)
+            result = normalize_result(self.tools.execute_tool(name, **kwargs))
 
             log_action(
                 student_id, "agent_runtime",
-                f"execute_tool:{name}", {"status": "success"}
+                f"execute_tool:{name}", {"status": "error" if isinstance(result, dict) and result.get("status") == "error" else "success"}
             )
             return result
 
@@ -59,7 +66,7 @@ class AgentRuntime:
                 f"execute_tool:{name}",
                 {"status": "error", "error": str(error)}
             )
-            return {"status": "error", "message": str(error)}
+            return normalize_result({"error": str(error)})
 
     def store_memory(self, record):
         try:
@@ -74,14 +81,14 @@ class AgentRuntime:
             return result
 
         except Exception as error:
-            return {"status": "error", "message": str(error)}
+            return normalize_result({"error": str(error)})
 
     def retrieve_memory(self, student_id):
         try:
             return get_student_memory(student_id)
 
         except Exception as error:
-            return {"status": "error", "message": str(error)}
+            return normalize_result({"error": str(error)})
 
     def check_governance(self, student_id, intervention):
         """Check whether an intervention has mentor approval."""
@@ -129,13 +136,13 @@ class AgentRuntime:
 
         try:
             agent = self.agents.get_agent(name)
-            result = agent(**kwargs)
+            result = normalize_result(agent(**kwargs))
 
             log_action(
                 student_id,
                 "agent_runtime",
                 f"execute_agent:{name}",
-                {"status": "success"}
+                {"status": "error" if isinstance(result, dict) and result.get("status") == "error" else "success"}
             )
 
             return result
@@ -148,7 +155,7 @@ class AgentRuntime:
                 {"status": "error", "error": str(error)}
             )
 
-            return {"status": "error", "message": str(error)}
+            return normalize_result({"error": str(error)})
 
 
     def list_agents(self):

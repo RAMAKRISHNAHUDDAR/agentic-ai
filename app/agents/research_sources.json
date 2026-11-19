@@ -1,0 +1,53 @@
+[
+  {
+    "id": "app/agents/risk_agent.py",
+    "type": "project source",
+    "date": "2026-11",
+    "author": "Project team",
+    "claim": "Low attendance contributes to risk.",
+    "evidence": "The explanation checks attendance below 60%.",
+    "limitation": "Reasons do not measure intervention outcomes.",
+    "relevance": "Student risk assessment",
+    "keywords": [
+      "student",
+      "attendance",
+      "risk",
+      "academic",
+      "students"
+    ]
+  },
+  {
+    "id": "scripts/generate_student_data.py",
+    "type": "project source",
+    "date": "2026-11",
+    "author": "Project team",
+    "claim": "Low attendance contributes to risk.",
+    "evidence": "Attendance is one of four label indicators.",
+    "limitation": "Labels are synthetic.",
+    "relevance": "Student risk assessment",
+    "keywords": [
+      "student",
+      "attendance",
+      "risk",
+      "academic",
+      "students"
+    ]
+  },
+  {
+    "id": "app/ml/risk_model.py",
+    "type": "project source",
+    "date": "2026-11",
+    "author": "Project team",
+    "claim": "Multiple academic indicators contribute to the prediction.",
+    "evidence": "The model fits four numeric features.",
+    "limitation": "The holdout uses the same generated population.",
+    "relevance": "Student risk assessment",
+    "keywords": [
+      "student",
+      "attendance",
+      "risk",
+      "academic",
+      "students"
+    ]
+  }
+]

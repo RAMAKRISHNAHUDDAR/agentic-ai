@@ -56,3 +56,6 @@ skill_registry.register_skill(
     "risk_analysis",
     risk_analysis_skill
 )
+
+from app.agents.deep_research_agent import run_deep_research
+skill_registry.register_skill("research_summary", run_deep_research)

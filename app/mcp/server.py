@@ -19,10 +19,17 @@ def get_student_from_database(student_id: str) -> dict:
 
 
 @server.tool()
-def get_all_students_from_database() -> list:
+def get_all_students_from_database() -> dict:
     """Get all students from MongoDB Atlas."""
     students = get_all_students()
     return {"students": students, "count": len(students)}
+
+
+@server.tool()
+def get_student_from_sqlite(student_id: str) -> dict:
+    """Read the local lab fixture initialized by python -m app.database.seed."""
+    from app.database.database import get_student as lookup
+    return lookup(student_id) or {"error": "Student not found"}
 
 
 @server.resource("file://students")

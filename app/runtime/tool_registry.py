@@ -68,3 +68,16 @@ tool_registry.register_tool("get_academic_data", get_academic_data)
 tool_registry.register_tool("get_attendance", get_attendance)
 tool_registry.register_tool("get_internship_status", get_internship_status)
 tool_registry.register_tool("get_placement_status", get_placement_status)
+
+
+def calculate_percentage(part, total):
+    if total <= 0:
+        raise ValueError("Total must be positive.")
+    return 100 * part / total
+
+
+tool_registry.register_tool("calculate_percentage", calculate_percentage)
+
+from app.mcp.client import get_student_api_data, get_student_file
+tool_registry.register_tool("read_student_file", get_student_file)
+tool_registry.register_tool("mock_student_api", get_student_api_data)

@@ -37,7 +37,8 @@ def _review_intervention(
     student_id,
     intervention,
     status,
-    mentor_feedback=""
+    mentor_feedback="",
+    reviewed_by="Mentor"
 ):
     """Find and review a pending intervention in MongoDB."""
 
@@ -60,7 +61,7 @@ def _review_intervention(
             updated_record = update_intervention_status(
                 intervention_id=record["intervention_id"],
                 status=status,
-                reviewed_by="Mentor",
+                reviewed_by=reviewed_by,
                 mentor_feedback=mentor_feedback,
             )
 
@@ -105,7 +106,8 @@ def _review_intervention(
 def approve_intervention(
     student_id,
     intervention,
-    mentor_feedback=""
+    mentor_feedback="",
+    reviewed_by="Mentor"
 ):
     """Approve a pending intervention for a student."""
 
@@ -114,13 +116,15 @@ def approve_intervention(
         intervention,
         "approved",
         mentor_feedback,
+        reviewed_by,
     )
 
 
 def reject_intervention(
     student_id,
     intervention,
-    mentor_feedback=""
+    mentor_feedback="",
+    reviewed_by="Mentor"
 ):
     """Reject a pending intervention for a student."""
 
@@ -129,6 +133,7 @@ def reject_intervention(
         intervention,
         "rejected",
         mentor_feedback,
+        reviewed_by,
     )
 
 

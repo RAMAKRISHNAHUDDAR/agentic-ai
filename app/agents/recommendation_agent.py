@@ -1,7 +1,7 @@
 
 from app.database.repositories import get_student
 from app.agents.risk_agent import analyze_student_risk
-from app.memory.intervention_memory import log_intervention
+from app.memory.intervention_memory import log_intervention, get_intervention_history
 from app.runtime.audit_logger import log_action
 
 
@@ -52,10 +52,10 @@ def generate_recommendations(student):
     return recommendations
 
 
-def create_action_plan(student_id, risk_analysis=None):
+def create_action_plan(student_id, risk_analysis=None, student=None):
     """Create interventions only when the student is At Risk."""
 
-    student = get_student(student_id)
+    student = get_student(student_id) if student is None else student
 
     if not student:
         log_action(
@@ -100,7 +100,28 @@ def create_action_plan(student_id, risk_analysis=None):
 
     recommendations = generate_recommendations(student)
 
+    history = {item["intervention"]: item for item in reversed(get_intervention_history(student_id))}
     interventions = []
+    decisions = []
+    revised = []
+    for proposal in recommendations:
+        prior = history.get(proposal, {})
+        if prior.get("status") == "rejected":
+            feedback = prior.get("mentor_feedback", "").lower()
+            if any(word in feedback for word in ("schedule", "time", "clash")):
+                alternative = "Arrange an asynchronous check-in and agree on an available time with the mentor."
+            else:
+                alternative = "Meet with the mentor to choose an alternative to this plan: " + proposal
+            decisions.append("Revised after mentor feedback: " + proposal)
+            proposal = alternative
+        if history.get(proposal, {}).get("status") == "rejected":
+            decisions.append("A new plan needs mentor clarification.")
+            continue
+        if history.get(proposal, {}).get("status") == "approved":
+            decisions.append("Follow up on the approved plan: " + proposal)
+        if proposal not in revised:
+            revised.append(proposal)
+    recommendations = revised
 
     for recommendation in recommendations:
         interventions.append(
@@ -124,5 +145,6 @@ def create_action_plan(student_id, risk_analysis=None):
         "risk_probability": risk_analysis["risk_probability"],
         "recommendations": recommendations,
         "interventions": interventions,
-        "mentor_approval_required": True,
+        "decisions": decisions,
+        "mentor_approval_required": any(i["status"] == "pending" for i in interventions),
     }

@@ -3,6 +3,7 @@ from pathlib import Path
 
 import streamlit as st
 
+from app.auth.permissions import require_role
 from app.database.repositories import get_student
 from app.memory.intervention_memory import get_intervention_history
 from app.safety.approval import (
@@ -14,6 +15,8 @@ from app.safety.approval import (
 # ============================================================
 # PATHS
 # ============================================================
+
+require_role("mentor")
 
 LOGO_PATH = (
     Path(__file__).resolve().parent
@@ -35,7 +38,7 @@ st.markdown(
        ======================================================== */
 
     .stApp {
-        background: #2a2020;
+        background: #142d3b;
         color: #ffffff;
     }
 
@@ -65,9 +68,9 @@ st.markdown(
 
         padding: 1.2rem 1.5rem;
 
-        background: #2a2020;
+        background: #142d3b;
 
-        border-bottom: 3px solid #c4161c;
+        border-bottom: 3px solid #09686a;
 
         margin-bottom: 1.8rem;
     }
@@ -116,7 +119,7 @@ st.markdown(
 
         margin-bottom: 2rem;
 
-        background: #c4161c;
+        background: #09686a;
 
         border-radius: 4px;
 
@@ -145,7 +148,7 @@ st.markdown(
 
         max-width: 850px;
 
-        color: #f8dede;
+        color: #dcf3f1;
 
         font-size: 0.98rem;
 
@@ -171,7 +174,7 @@ st.markdown(
     .section-subtitle {
         margin-bottom: 1.2rem;
 
-        color: #c8bebe;
+        color: #cedee1;
 
         font-size: 0.88rem;
 
@@ -192,11 +195,11 @@ st.markdown(
     }
 
     div[data-baseweb="input"] input {
-        color: #302525;
+        color: #193647;
     }
 
     div[data-baseweb="input"]:focus-within {
-        border-color: #c4161c;
+        border-color: #09686a;
 
         box-shadow:
             0 0 0 1px rgba(196, 22, 28, 0.25);
@@ -216,11 +219,11 @@ st.markdown(
     }
 
     div[data-baseweb="textarea"] textarea {
-        color: #302525;
+        color: #193647;
     }
 
     div[data-baseweb="textarea"]:focus-within {
-        border-color: #c4161c;
+        border-color: #09686a;
 
         box-shadow:
             0 0 0 1px rgba(196, 22, 28, 0.25);
@@ -236,9 +239,9 @@ st.markdown(
 
         border-radius: 3px;
 
-        border: 1px solid #c4161c;
+        border: 1px solid #09686a;
 
-        background: #c4161c;
+        background: #09686a;
 
         color: #ffffff;
 
@@ -253,9 +256,9 @@ st.markdown(
     }
 
     .stButton > button:hover {
-        background: #a90f15;
+        background: #085354;
 
-        border-color: #a90f15;
+        border-color: #085354;
 
         color: #ffffff;
 
@@ -279,14 +282,14 @@ st.markdown(
 
         border-radius: 4px;
 
-        border-left: 5px solid #c4161c;
+        border-left: 5px solid #09686a;
 
         box-shadow:
             0 8px 25px rgba(0, 0, 0, 0.20);
     }
 
     .student-label {
-        color: #756969;
+        color: #526670;
 
         font-size: 0.72rem;
 
@@ -300,7 +303,7 @@ st.markdown(
     .student-value {
         margin-top: 0.55rem;
 
-        color: #302525;
+        color: #193647;
 
         font-size: 1.4rem;
 
@@ -321,14 +324,14 @@ st.markdown(
 
         border-radius: 4px;
 
-        border-top: 4px solid #c4161c;
+        border-top: 4px solid #09686a;
 
         box-shadow:
             0 10px 28px rgba(0, 0, 0, 0.20);
     }
 
     .intervention-label {
-        color: #756969;
+        color: #526670;
 
         font-size: 0.72rem;
 
@@ -342,7 +345,7 @@ st.markdown(
     .intervention-text {
         margin-top: 0.6rem;
 
-        color: #302525;
+        color: #193647;
 
         font-size: 1rem;
 
@@ -354,7 +357,7 @@ st.markdown(
     .intervention-time {
         margin-top: 0.65rem;
 
-        color: #756969;
+        color: #526670;
 
         font-size: 0.76rem;
     }
@@ -428,7 +431,7 @@ st.markdown(
 
         border-radius: 3px;
 
-        border-left: 4px solid #c4161c;
+        border-left: 4px solid #09686a;
 
         color: #4d4444;
 
@@ -441,7 +444,7 @@ st.markdown(
     }
 
     .feedback-title {
-        color: #302525;
+        color: #193647;
 
         font-weight: 700;
 
@@ -506,6 +509,16 @@ st.markdown(
         }
     }
 
+    [data-testid="stTextArea"] textarea, [data-testid="stTextInput"] input {
+        background-color: #fff !important;
+        color: #183342 !important;
+        -webkit-text-fill-color: #183342 !important;
+        caret-color: #09686a;
+    }
+    [data-testid="stTextArea"] textarea:focus {
+        outline: 2px solid #168987;
+        outline-offset: -2px;
+    }
     </style>
     """,
     unsafe_allow_html=True,
@@ -545,9 +558,7 @@ if st.button(
     "Logout",
     key="intervention_logout",
 ):
-    st.session_state.logged_in = False
-    st.session_state.user_role = None
-    st.session_state.username = None
+    st.session_state.clear()
     st.rerun()
 
 
@@ -775,9 +786,12 @@ if selected_student_id:
 
         else:
 
-            for index, record in enumerate(
-                reversed(interventions)
-            ):
+            view = st.radio("Review queue", ["Pending", "Approved", "Rejected", "All"],
+                            horizontal=True, key=f"queue_{selected_student_id}")
+            queue = [r for r in interventions if view == "All" or r.get("status") == view.lower()]
+            if not queue:
+                st.info("No interventions in this queue.")
+            for record in queue:
 
                 intervention = str(
                     record.get(
@@ -867,7 +881,7 @@ if selected_student_id:
                     feedback_key = (
                         f"feedback_"
                         f"{selected_student_id}_"
-                        f"{index}"
+                        f"{record['intervention_id']}"
                     )
 
                     feedback_input = st.text_area(
@@ -889,7 +903,7 @@ if selected_student_id:
                         approve_key = (
                             f"approve_"
                             f"{selected_student_id}_"
-                            f"{index}"
+                            f"{record['intervention_id']}"
                         )
 
                         if st.button(
@@ -902,6 +916,7 @@ if selected_student_id:
                                 selected_student_id,
                                 record["intervention_id"],
                                 feedback_input.strip(),
+                                reviewed_by=st.session_state["user_id"],
                             )
 
                             if "error" in result:
@@ -926,7 +941,7 @@ if selected_student_id:
                         reject_key = (
                             f"reject_"
                             f"{selected_student_id}_"
-                            f"{index}"
+                            f"{record['intervention_id']}"
                         )
 
                         if st.button(
@@ -939,6 +954,7 @@ if selected_student_id:
                                 selected_student_id,
                                 record["intervention_id"],
                                 feedback_input.strip(),
+                                reviewed_by=st.session_state["user_id"],
                             )
 
                             if "error" in result:

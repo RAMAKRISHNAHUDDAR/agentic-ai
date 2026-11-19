@@ -1,6 +1,11 @@
+from math import isfinite
+
+
 def classify_severity(error_rate, baseline_error_rate):
     """Classify incident severity using the error-rate ratio."""
 
+    if not all(isfinite(value) and 0 <= value <= 100 for value in (error_rate, baseline_error_rate)):
+        raise ValueError("Error rates must be percentages between 0 and 100.")
     if baseline_error_rate <= 0:
         raise ValueError("Baseline error rate must be greater than zero.")
 
@@ -70,6 +75,16 @@ def run_cloud_operations(
             error_rate,
             baseline_error_rate
         )
+
+        deploy_history = [entry for entry in deploy_history if entry["service"] == service]
+        if severity == "normal" or not deploy_history or not any(
+            word in line.lower() for line in logs for word in ("error", "fail", "exception")
+        ):
+            return {
+                "status": "success", "severity": severity, "affected_service": service,
+                "proposed_action": "monitor" if severity == "normal" else "gather_evidence",
+                "action_executed": False, "approval_request": None,
+            }
 
         diagnosis = correlate_with_recent_changes(
             logs,

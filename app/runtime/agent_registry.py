@@ -56,3 +56,6 @@ agent_registry.register_agent("placement_agent", placement_agent.collect)
 from app.agents.deep_research_agent import run_deep_research
 agent_registry.register_agent('deep_research_agent', run_deep_research)
 agent_registry.register_agent("cloud_operations_agent", run_cloud_operations)
+
+from app.agents.study_planner import plan_study
+agent_registry.register_agent("study_planner", plan_study)

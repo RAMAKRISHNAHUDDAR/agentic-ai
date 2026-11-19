@@ -1,5 +1,6 @@
 
 import os
+from threading import Lock
 from pathlib import Path
 
 from dotenv import load_dotenv
@@ -26,6 +27,7 @@ MONGODB_DATABASE = os.getenv(
 
 # Reusable MongoDB client
 _client = None
+_client_lock = Lock()
 
 
 def get_client():
@@ -40,11 +42,9 @@ def get_client():
             "MONGODB_URI is missing. Check your .env file."
         )
 
-    if _client is None:
-        _client = MongoClient(
-            MONGODB_URI,
-            serverSelectionTimeoutMS=5000
-        )
+    with _client_lock:
+        if _client is None:
+            _client = MongoClient(MONGODB_URI, serverSelectionTimeoutMS=5000)
 
     return _client
 

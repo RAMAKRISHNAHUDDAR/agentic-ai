@@ -1,3 +1,6 @@
+from itertools import combinations
+import re
+
 def collect_sources(sources):
     """Validate and organize the research sources."""
 
@@ -12,8 +15,10 @@ def collect_sources(sources):
     source_ids = set()
 
     for source in sources:
+        if not isinstance(source, dict):
+            raise ValueError("Each source must be a record.")
         for field in required_fields:
-            if not source.get(field):
+            if not isinstance(source.get(field), str) or not source[field].strip():
                 raise ValueError(f"Source is missing: {field}")
 
         if source["id"] in source_ids:
@@ -29,9 +34,20 @@ def compare(sources, agreements=None, conflicts=None, gaps=None):
 
     valid_ids = {source["id"] for source in sources}
 
-    agreements = agreements or []
-    conflicts = conflicts or []
-    gaps = gaps or []
+    def normalize(claim):
+        return " ".join(re.findall(r"[a-z0-9]+", claim.lower()))
+
+    derived_agreements, derived_conflicts = [], []
+    for left, right in combinations(sources, 2):
+        first, second = normalize(left["claim"]), normalize(right["claim"])
+        ids = [left["id"], right["id"]]
+        if first == second:
+            derived_agreements.append({"source_ids": ids, "note": left["claim"]})
+        elif re.sub(r"\bnot ", "", first) == re.sub(r"\bnot ", "", second):
+            derived_conflicts.append({"source_ids": ids, "note": "Opposing claims: " + left["claim"] + " / " + right["claim"]})
+    agreements = derived_agreements if agreements is None else agreements
+    conflicts = derived_conflicts if conflicts is None else conflicts
+    gaps = [{"source_ids": [s["id"]], "note": s["limitation"]} for s in sources] if gaps is None else gaps
 
     for item in agreements + conflicts + gaps:
         for source_id in item.get("source_ids", []):
@@ -55,16 +71,12 @@ def synthesize(topic, sources, comparison, next_questions=None):
             f'[{source["id"]}] {source["claim"]}'
         )
 
-    for item in comparison["agreements"]:
-        ids = ",".join(item["source_ids"])
-        summary.append(f'[{ids}] {item["note"]}')
-
-    for item in comparison["conflicts"]:
-        ids = ",".join(item["source_ids"])
-        summary.append(f'[{ids}] {item["note"]}')
-
-    for item in comparison["gaps"]:
-        summary.append(f'[gap] {item["note"]}')
+    for category, items in comparison.items():
+        for item in items:
+            refs = item.get("source_ids", [])
+            if refs:
+                index = next(i for i, source in enumerate(sources) if source["id"] == refs[0])
+                summary[index] += f' ({category}, {",".join(refs)}: {item["note"]})'
 
     return {
         "topic": topic,
@@ -75,7 +87,7 @@ def synthesize(topic, sources, comparison, next_questions=None):
 
 def run_deep_research(
     topic,
-    sources,
+    sources=None,
     agreements=None,
     conflicts=None,
     gaps=None,
@@ -87,6 +99,12 @@ def run_deep_research(
         return {"status": "error", "message": "Research topic is required."}
 
     try:
+        if sources is None:
+            import json
+            from pathlib import Path
+            catalog = json.loads(Path(__file__).with_name("research_sources.json").read_text())
+            terms = set(re.findall(r"[a-z]+", topic.lower()))
+            sources = [s for s in catalog if terms.intersection(s["keywords"])]
         evidence = collect_sources(sources)
 
         comparison = compare(
@@ -100,7 +118,9 @@ def run_deep_research(
             topic,
             evidence,
             comparison,
-            next_questions
+            next_questions if next_questions is not None else [
+                f'What evidence would address "{gap["note"]}"?' for gap in comparison["gaps"]
+            ]
         )
 
         return {

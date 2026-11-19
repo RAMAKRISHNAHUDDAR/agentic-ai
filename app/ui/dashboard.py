@@ -19,7 +19,7 @@ st.markdown(
     """
     <style>
     .stApp {
-        background: #2a2020;
+        background: #142d3b;
         color: #ffffff;
     }
 
@@ -50,7 +50,7 @@ st.markdown(
     }
 
     .login-description {
-        color: #c8bebe;
+        color: #cedee1;
         text-align: center;
         margin-bottom: 1.8rem;
     }
@@ -59,7 +59,7 @@ st.markdown(
     div[data-testid="stVerticalBlockBorderWrapper"] {
         background-color: #ffffff !important;
         border: 1px solid #e0d7d7 !important;
-        border-top: 5px solid #c4161c !important;
+        border-top: 5px solid #09686a !important;
         border-radius: 5px;
         padding: 1.5rem;
         box-shadow: 0 10px 28px rgba(0, 0, 0, 0.25);
@@ -67,7 +67,7 @@ st.markdown(
 
     div[data-testid="stVerticalBlockBorderWrapper"] h3,
     div[data-testid="stVerticalBlockBorderWrapper"] label {
-        color: #302525 !important;
+        color: #193647 !important;
     }
 
     div[data-testid="stVerticalBlockBorderWrapper"] p,
@@ -84,21 +84,21 @@ st.markdown(
         width: 100%;
         min-height: 46px;
         border-radius: 3px;
-        border: 1px solid #c4161c;
-        background: #c4161c;
+        border: 1px solid #09686a;
+        background: #09686a;
         color: #ffffff;
         font-weight: 600;
     }
 
     .stButton > button:hover,
     div[data-testid="stFormSubmitButton"] button:hover {
-        background: #a90f15;
-        border-color: #a90f15;
+        background: #085354;
+        border-color: #085354;
         color: #ffffff;
     }
 
     .demo-credentials {
-        color: #c8bebe;
+        color: #cedee1;
         text-align: center;
         font-size: 0.85rem;
         line-height: 1.8;
@@ -112,6 +112,16 @@ st.markdown(
         text-align: center;
         color: #a99e9e;
         font-size: 0.78rem;
+    }
+    [data-testid="stTextArea"] textarea, [data-testid="stTextInput"] input {
+        background-color: #fff !important;
+        color: #183342 !important;
+        -webkit-text-fill-color: #183342 !important;
+        caret-color: #09686a;
+    }
+    [data-testid="stTextArea"] textarea:focus {
+        outline: 2px solid #168987;
+        outline-offset: -2px;
     }
     </style>
     """,
@@ -141,7 +151,7 @@ with header_col2:
     )
 
 st.markdown(
-    "<hr style='border:0;border-top:3px solid #c4161c;'>",
+    "<hr style='border:0;border-top:3px solid #09686a;'>",
     unsafe_allow_html=True,
 )
 
