@@ -22,25 +22,104 @@ with research:
             st.write(result["executive_summary"])
             st.write(result["recommended_next_questions"])
 
+
 with cloud:
     st.subheader("Deployment simulator")
-    versions = {"v1": [200] * 99 + [500], "v2": [200] * 90 + [500] * 10}
-    version = st.session_state.setdefault("lab_service_version", "v2")
-    rate = agent_runtime.execute_tool("calculate_percentage", part=versions[version].count(500), total=100)
-    incident = run_cloud_operations("portal", ["ERROR processing request"], rate, 1,
-                                    [{"service": "portal", "version": version, "time": "09:00"}])
-    st.metric("Measured error rate", f"{rate:.0f}%")
-    st.write(f"Running {version} · {incident['severity']} · {incident['proposed_action']}")
-    if incident["approval_request"]:
-        st.write(incident["approval_request"]["message"])
-        if st.button("Approve simulated rollback"):
-            from app.runtime.audit_logger import log_action
-            log_action(None, actor, "approved_simulated_rollback", {"from": version, "to": "v1"})
-            st.session_state.lab_service_version = "v1"
+
+    # Simulated deployment data (not a real cloud deployment).
+    versions = {
+        "v1": {
+            "responses": [200] * 99 + [500],
+            "previous_version": None
+        },
+        "v2": {
+            "responses": [200] * 90 + [500] * 10,
+            "previous_version": "v1"
+        }
+    }
+
+    version = st.session_state.setdefault(
+        "lab_service_version", "v2"
+    )
+
+    version_data = versions[version]
+
+    rate = agent_runtime.execute_tool(
+        "calculate_percentage",
+        part=version_data["responses"].count(500),
+        total=len(version_data["responses"])
+    )
+
+    deployment_history = [
+        {
+            "service": "portal",
+            "version": version,
+            "previous_version": version_data["previous_version"],
+            "time": "09:00"
+        }
+    ]
+
+    incident = run_cloud_operations(
+        service="portal",
+        logs=["ERROR processing request"],
+        error_rate=rate,
+        baseline_error_rate=1,
+        deploy_history=deployment_history
+    )
+
+    if incident["status"] == "error":
+        st.error(incident["message"])
+
+    else:
+        st.metric("Measured error rate", f"{rate:.0f}%")
+
+        st.write(
+            f"Running {version} · "
+            f"{incident['severity']} · "
+            f"{incident['proposed_action']}"
+        )
+
+        if incident.get("diagnosis"):
+            st.write("**Incident diagnosis**")
+            st.info(incident["diagnosis"])
+
+        if incident.get("rollback_plan"):
+            st.write("**Proposed remediation**")
+            st.write(incident["rollback_plan"])
+
+        approval = incident.get("approval_request")
+        rollback_target = incident.get("previous_version")
+
+        if approval:
+            st.warning(approval["message"])
+
+            if rollback_target:
+                if st.button("Approve simulated rollback"):
+                    from app.runtime.audit_logger import log_action
+
+                    log_action(
+                        None,
+                        actor,
+                        "approved_simulated_rollback",
+                        {
+                            "from": version,
+                            "to": rollback_target
+                        }
+                    )
+
+                    st.session_state.lab_service_version = rollback_target
+                    st.rerun()
+
+            else:
+                st.warning(
+                    "No previous stable version is recorded. "
+                    "Rollback cannot be simulated safely."
+                )
+
+        elif st.button("Restart deployment exercise"):
+            st.session_state.lab_service_version = "v2"
             st.rerun()
-    elif st.button("Restart deployment exercise"):
-        st.session_state.lab_service_version = "v2"
-        st.rerun()
+
 
 with release:
     st.subheader("Attendance policy release")
