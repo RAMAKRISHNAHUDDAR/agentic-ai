@@ -1,20 +1,16 @@
+
 [
   {
     "id": "app/agents/risk_agent.py",
     "type": "project source",
     "date": "2026-11",
     "author": "Project team",
-    "claim": "Low attendance contributes to risk.",
+    "claim": "Low attendance contributes to student risk.",
     "evidence": "The explanation checks attendance below 60%.",
     "limitation": "Reasons do not measure intervention outcomes.",
-    "relevance": "Student risk assessment",
-    "keywords": [
-      "student",
-      "attendance",
-      "risk",
-      "academic",
-      "students"
-    ]
+    "relevance": "Attendance thresholds and student risk explanations",
+    "keywords": ["attendance", "threshold", "below 60", "risk explanation"],
+    "topics": ["attendance", "risk assessment"]
   },
   {
     "id": "scripts/generate_student_data.py",
@@ -24,14 +20,9 @@
     "claim": "Low attendance contributes to risk.",
     "evidence": "Attendance is one of four label indicators.",
     "limitation": "Labels are synthetic.",
-    "relevance": "Student risk assessment",
-    "keywords": [
-      "student",
-      "attendance",
-      "risk",
-      "academic",
-      "students"
-    ]
+    "relevance": "Synthetic training labels and student risk data generation",
+    "keywords": ["synthetic", "training data", "labels", "data generation"],
+    "topics": ["synthetic data", "model training"]
   },
   {
     "id": "app/ml/risk_model.py",
@@ -41,13 +32,8 @@
     "claim": "Multiple academic indicators contribute to the prediction.",
     "evidence": "The model fits four numeric features.",
     "limitation": "The holdout uses the same generated population.",
-    "relevance": "Student risk assessment",
-    "keywords": [
-      "student",
-      "attendance",
-      "risk",
-      "academic",
-      "students"
-    ]
+    "relevance": "Academic features, prediction and model evaluation",
+    "keywords": ["academic indicators", "features", "prediction", "model evaluation", "holdout"],
+    "topics": ["academic indicators", "risk prediction", "model validation"]
   }
 ]
